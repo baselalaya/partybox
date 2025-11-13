@@ -46,11 +46,11 @@ const features: Feature[] = [
 const colorClasses = {
     orange: {
         bg: 'bg-orange-50',
-        text: 'text-orange-600',
+        text: 'text-orange-500',
     },
     teal: {
         bg: 'bg-teal-50',
-        text: 'text-teal-600',
+        text: 'text-teal-500',
     }
 }
 
@@ -61,14 +61,14 @@ export default function FeatureList() {
         const IconComponent = iconMap[feature.icon];
         const colors = colorClasses[feature.color];
         return (
-          <Card key={feature.title} className="text-center bg-white border-slate-200 rounded-2xl transition-all duration-300 ease-out shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:-translate-y-1 hover:shadow-[0_34px_70px_rgba(0,0,0,0.08)]">
-            <CardHeader className="p-8">
-              <div className="flex justify-center mb-5">
-                <div className={`h-12 w-12 rounded-full flex items-center justify-center ${colors.bg} ${colors.text}`}>
-                  {IconComponent && <IconComponent className="h-6 w-6" />}
+          <Card key={feature.title} className="text-center bg-white border border-slate-200 rounded-2xl p-6 md:p-7 shadow-[0_18px_45px_rgba(15,23,42,0.05)] transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_26px_70px_rgba(15,23,42,0.12)]">
+            <CardHeader className="p-0">
+              <div className="flex justify-center mb-4">
+                <div className={`h-10 w-10 rounded-full flex items-center justify-center ${colors.bg} ${colors.text}`}>
+                  {IconComponent && <IconComponent className="h-5 w-5" />}
                 </div>
               </div>
-              <CardTitle className="text-lg font-semibold">{feature.title}</CardTitle>
+              <CardTitle className="text-lg font-semibold text-slate-900">{feature.title}</CardTitle>
               <CardDescription className="mt-2 text-sm text-slate-600 leading-relaxed">{feature.description}</CardDescription>
             </CardHeader>
           </Card>

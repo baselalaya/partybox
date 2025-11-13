@@ -10,7 +10,7 @@ interface SectionProps extends HTMLAttributes<HTMLElement> {
 
 const Section: FC<SectionProps> = ({ children, className, containerClassName, ...props }) => {
   return (
-    <section className={cn('py-20 md:py-28', className)} {...props}>
+    <section className={cn('py-20 md:py-24', className)} {...props}>
       <Container className={containerClassName}>
         {children}
       </Container>

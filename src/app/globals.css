@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: 220 20% 98%; /* #f9fafb - slate-50-ish */
-    --foreground: 224 71.4% 4.1%; /* #0f172a - slate-900 */
+    --background: 220 20% 98%; /* slate-50-ish */
+    --foreground: 224 71.4% 4.1%; /* slate-900 */
  
     --card: 0 0% 100%;
     --card-foreground: 224 71.4% 4.1%;
@@ -13,14 +13,14 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 71.4% 4.1%;
  
-    --primary: 15 100% 71%; /* #ff9f6e - Sunset Orange */
+    --primary: 283 81% 53%; /* fuchsia-600 */
     --primary-foreground: 0 0% 100%;
  
     --secondary: 190 70% 45%; /* #4BB7C3 - Teal */
     --secondary-foreground: 0 0% 100%;
  
-    --muted: 220 14.3% 95.9%; /* #f1f5f9 - slate-100 */
-    --muted-foreground: 220 8.9% 46.1%; /* #64748b - slate-500 */
+    --muted: 220 14.3% 95.9%; /* f1f5f9 - slate-100 */
+    --muted-foreground: 220 8.9% 46.1%; /* 64748b - slate-500 */
  
     --accent: 220 14.3% 95.9%;
     --accent-foreground: 224 71.4% 4.1%;
@@ -28,13 +28,13 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 13% 91%; /* #e2e8f0 - slate-200 */
-    --input: 220 13% 85%; /* #d1d5db - slate-300 */
-    --ring: 0 100% 70%; /* #ff6b6b - Coral */
+    --border: 220 13% 91%; /* e2e8f0 - slate-200 */
+    --input: 220 13% 85%; /* d1d5db - slate-300 */
+    --ring: 283 81% 53%; /* fuchsia-600 */
  
-    --radius: 1rem; /* rounded-2xl */
+    --radius: 1.5rem; /* rounded-3xl */
 
-    --chart-1: 15 100% 71%;
+    --chart-1: 283 81% 53%;
     --chart-2: 190 70% 45%;
     --chart-3: 40 100% 77%;
     --chart-4: 220 70% 50%;
@@ -49,7 +49,7 @@
     --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
     --popover-foreground: 224 71.4% 4.1%;
-    --primary: 15 100% 71%;
+    --primary: 283 81% 53%;
     --primary-foreground: 0 0% 100%;
     --secondary: 190 70% 45%;
     --secondary-foreground: 0 0% 100%;
@@ -61,7 +61,7 @@
     --destructive-foreground: 0 0% 98%;
     --border: 220 13% 91%;
     --input: 220 13% 85%;
-    --ring: 0 100% 70%;
+    --ring: 283 81% 53%;
   }
 }
  
@@ -83,11 +83,11 @@
 }
 
 .bg-sunset-light {
-    background-image: linear-gradient(to bottom, #FFF6E9, #FFEDD5, theme('colors.white'));
+    background-image: linear-gradient(to bottom, #FFE7CF, #FFEFE0, theme('colors.white'));
 }
 
 .bg-ocean-wash {
-    background-image: linear-gradient(to bottom, #E0F7F9, theme('colors.white'), theme('colors.white'));
+    background-image: linear-gradient(to bottom, #E0F7F9, theme('colors.white'));
 }
 
 .bg-sunset-button {

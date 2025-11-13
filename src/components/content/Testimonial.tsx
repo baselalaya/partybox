@@ -29,17 +29,17 @@ export default async function Testimonials() {
       <CarouselContent className="-ml-4">
         {testimonials.map((testimonial) => (
           <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
-            <Card className="h-full bg-white border border-slate-200 rounded-2xl shadow-sm flex flex-col">
-              <CardContent className="flex h-full flex-col p-8">
-                <div className="flex mb-4">
+            <Card className="h-full bg-white border border-slate-200 rounded-2xl shadow-[0_18px_45px_rgba(15,23,42,0.05)] flex flex-col">
+              <CardContent className="flex h-full flex-col p-6 md:p-7 gap-4">
+                <div className="flex text-[#FEB47B]">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
+                    <Star key={i} className="w-5 h-5 fill-current" />
                   ))}
                 </div>
-                <blockquote className="text-slate-800 text-base flex-grow">
+                <blockquote className="text-sm md:text-base text-slate-700 leading-relaxed flex-grow">
                   <p>“{testimonial.quote}”</p>
                 </blockquote>
-                <div className="mt-6 flex items-center gap-4">
+                <div className="mt-4 flex items-center gap-4">
                   <Image
                     className="h-11 w-11 rounded-full object-cover"
                     src={testimonial.avatarUrl}
@@ -48,8 +48,8 @@ export default async function Testimonials() {
                     height={44}
                   />
                   <div>
-                    <p className="font-semibold text-slate-900">{testimonial.name}</p>
-                    <p className="text-sm text-slate-500">{testimonial.eventType}</p>
+                    <p className="text-sm font-semibold text-slate-900">{testimonial.name}</p>
+                    <p className="text-xs text-slate-500">{testimonial.eventType}</p>
                   </div>
                 </div>
               </CardContent>
@@ -57,8 +57,8 @@ export default async function Testimonials() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-[-50px]" />
-      <CarouselNext className="right-[-50px]" />
+      <CarouselPrevious className="left-[-50px] hidden md:inline-flex" />
+      <CarouselNext className="right-[-50px] hidden md:inline-flex" />
     </Carousel>
   );
 }

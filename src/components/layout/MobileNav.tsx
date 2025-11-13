@@ -2,19 +2,15 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Menu, Zap, X } from "lucide-react"
+import { Menu, Zap } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
-  SheetClose,
-  SheetHeader,
-  SheetTitle
 } from "@/components/ui/sheet"
 import { routes } from "@/lib/routes"
-import { cn } from "@/lib/utils"
 
 const navLinks = [
   { href: routes.booths.list, label: 'Photo Booths' },
@@ -39,18 +35,14 @@ export function MobileNav() {
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="pr-0 bg-white w-full max-w-sm">
-        <SheetHeader className="border-b pb-4">
-             <SheetTitle asChild>
-                <Link
-                href="/"
-                className="flex items-center space-x-2"
-                onClick={() => setOpen(false)}
-                >
-                    <Zap className="h-6 w-6 text-fuchsia-600" />
-                    <span className="font-bold text-slate-900">Dubai Booths</span>
-                </Link>
-            </SheetTitle>
-        </SheetHeader>
+        <Link
+          href="/"
+          className="flex items-center space-x-2 border-b pb-4"
+          onClick={() => setOpen(false)}
+          >
+            <Zap className="h-6 w-6 text-fuchsia-600" />
+            <span className="font-bold text-slate-900">Dubai Booths</span>
+        </Link>
         
         <div className="mt-8 flex flex-col space-y-5">
             {navLinks.map(
