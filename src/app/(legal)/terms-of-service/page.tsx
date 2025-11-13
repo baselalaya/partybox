@@ -22,7 +22,7 @@ export default function TermsOfServicePage() {
       />
       <Section>
         <Breadcrumbs items={[{ name: 'Terms of Service', href: routes.termsOfService }]} />
-        <div className="mt-8 prose prose-invert max-w-none text-muted-foreground">
+        <div className="mt-8 prose max-w-none text-slate-700">
             <h2>1. Agreement to Terms</h2>
             <p>By accessing our website, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, then you may not access the service.</p>
 

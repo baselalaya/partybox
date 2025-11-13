@@ -51,16 +51,16 @@ export default function TableOfContents({ contentSelector }: { contentSelector: 
 
   return (
     <div className="sticky top-24">
-        <h3 className="font-semibold mb-2">On this page</h3>
+        <h3 className="font-semibold mb-2 text-slate-900">On this page</h3>
         <ul className="space-y-2 text-sm">
             {headings.map((heading) => (
             <li key={heading.id}>
                 <a
                 href={`#${heading.id}`}
                 className={cn(
-                    'transition-colors hover:text-primary',
+                    'transition-colors hover:text-fuchsia-600',
                     heading.level === 3 ? 'ml-4' : '',
-                    activeId === heading.id ? 'text-primary font-medium' : 'text-muted-foreground'
+                    activeId === heading.id ? 'text-fuchsia-600 font-medium' : 'text-slate-500'
                 )}
                 >
                 {heading.text}

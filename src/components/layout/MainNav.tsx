@@ -27,8 +27,8 @@ export function MainNav({ className, ...props }: React.HTMLAttributes<HTMLElemen
           key={link.href}
           href={link.href}
           className={cn(
-            "text-sm font-medium transition-colors hover:text-primary",
-            pathname === link.href ? "text-primary" : "text-muted-foreground"
+            "text-sm font-medium transition-colors hover:text-fuchsia-600",
+            pathname === link.href ? "text-fuchsia-600" : "text-slate-600"
           )}
         >
           {link.label}

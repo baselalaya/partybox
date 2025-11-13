@@ -80,12 +80,12 @@ export default async function PostDetailPage({ params }: Props) {
             className="object-cover"
             priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent" />
       </div>
 
       <Section className="!pt-0">
         <div className="transform -translate-y-16">
-            <div className="bg-card p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
+            <div className="bg-white p-8 rounded-xl shadow-md max-w-4xl mx-auto">
                 <Breadcrumbs items={[
                     { name: 'Blog', href: routes.blog.list },
                     { name: post.title, href: routes.blog.detail(post.slug) }
@@ -94,7 +94,7 @@ export default async function PostDetailPage({ params }: Props) {
                     {post.categories[0] && <Badge variant="secondary">{post.categories[0].name}</Badge>}
                 </div>
                 <h1 className="text-3xl lg:text-4xl font-bold mt-4 font-headline">{post.title}</h1>
-                <div className="flex items-center gap-6 text-sm text-muted-foreground mt-4">
+                <div className="flex items-center gap-6 text-sm text-slate-500 mt-4">
                     <div className="flex items-center gap-2">
                         <Calendar className="h-4 w-4" />
                         <time dateTime={post.publishedAt}>
@@ -113,7 +113,7 @@ export default async function PostDetailPage({ params }: Props) {
             <aside className="hidden lg:block">
               <TableOfContents contentSelector="#article-content" />
             </aside>
-            <article id="article-content" className="lg:col-span-3 prose prose-invert max-w-none text-muted-foreground prose-h2:font-headline prose-h2:text-foreground prose-h3:font-headline prose-h3:text-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-foreground">
+            <article id="article-content" className="lg:col-span-3 prose max-w-none text-slate-700 prose-h2:font-headline prose-h2:text-slate-900 prose-h3:font-headline prose-h3:text-slate-900 prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-slate-900">
                 <p className="lead">{post.excerpt}</p>
                 <div dangerouslySetInnerHTML={{ __html: post.content }} />
             </article>
@@ -121,7 +121,7 @@ export default async function PostDetailPage({ params }: Props) {
       </Section>
       
       {relatedPosts.length > 0 && (
-        <Section id="related-posts" className="bg-card">
+        <Section id="related-posts" className="bg-slate-50">
           <h2 className="text-center text-3xl font-bold font-headline mb-8">Related Posts</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {relatedPosts.map((relatedPost) => (

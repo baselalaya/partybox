@@ -6,12 +6,12 @@ import { Phone, MessageCircle } from 'lucide-react';
 
 export default function CTASection() {
   return (
-    <Section className="bg-primary/10 rounded-lg">
+    <Section className="bg-slate-50 rounded-xl">
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
           Ready to Make Your Event Unforgettable?
         </h2>
-        <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-muted-foreground">
+        <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-slate-600">
           Get in touch with us today for a personalized quote. Let's make some memories!
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">

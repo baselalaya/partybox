@@ -31,7 +31,7 @@ export default function Pagination({ baseUrl, currentPage, totalPages }: Paginat
         </Link>
       </Button>
 
-      <span className="text-sm text-muted-foreground">
+      <span className="text-sm text-slate-500">
         Page {currentPage} of {totalPages}
       </span>
 

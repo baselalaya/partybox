@@ -49,7 +49,7 @@ export default function ContactForm() {
   return (
     <div className="mt-8 grid md:grid-cols-3 gap-8">
         <div className="md:col-span-2">
-            <h2 className="text-2xl font-bold mb-4 font-headline">Send us a message</h2>
+            <h2 className="text-2xl font-bold mb-4 font-headline text-slate-900">Send us a message</h2>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
@@ -126,30 +126,30 @@ export default function ContactForm() {
             </Form>
         </div>
         <div>
-            <h2 className="text-2xl font-bold mb-4 font-headline">Other Ways to Reach Us</h2>
+            <h2 className="text-2xl font-bold mb-4 font-headline text-slate-900">Other Ways to Reach Us</h2>
             <Card>
                 <CardContent className="p-6 space-y-4">
                     <Link href="https://wa.me/971501234567" target="_blank" className="flex items-center gap-4 group">
-                         <MessageCircle className="h-6 w-6 text-primary" />
+                         <MessageCircle className="h-6 w-6 text-fuchsia-600" />
                          <div>
-                            <p className="font-semibold group-hover:text-primary">WhatsApp</p>
-                            <p className="text-sm text-muted-foreground">+971 50 123 4567</p>
+                            <p className="font-semibold text-slate-900 group-hover:text-fuchsia-600">WhatsApp</p>
+                            <p className="text-sm text-slate-500">+971 50 123 4567</p>
                          </div>
                     </Link>
                      <div className="border-t"/>
                      <a href="tel:+971501234567" className="flex items-center gap-4 group">
-                         <Phone className="h-6 w-6 text-primary" />
+                         <Phone className="h-6 w-6 text-fuchsia-600" />
                          <div>
-                            <p className="font-semibold group-hover:text-primary">Phone</p>
-                            <p className="text-sm text-muted-foreground">+971 50 123 4567</p>
+                            <p className="font-semibold text-slate-900 group-hover:text-fuchsia-600">Phone</p>
+                            <p className="text-sm text-slate-500">+971 50 123 4567</p>
                          </div>
                     </a>
                      <div className="border-t"/>
                      <a href="mailto:hello@dubaibooths.com" className="flex items-center gap-4 group">
-                         <Mail className="h-6 w-6 text-primary" />
+                         <Mail className="h-6 w-6 text-fuchsia-600" />
                          <div>
-                            <p className="font-semibold group-hover:text-primary">Email</p>
-                            <p className="text-sm text-muted-foreground">hello@dubaibooths.com</p>
+                            <p className="font-semibold text-slate-900 group-hover:text-fuchsia-600">Email</p>
+                            <p className="text-sm text-slate-500">hello@dubaibooths.com</p>
                          </div>
                     </a>
                 </CardContent>

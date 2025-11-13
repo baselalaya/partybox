@@ -20,10 +20,10 @@ export default function FAQAccordion({ faqs, className }: FAQAccordionProps) {
     <Accordion type="single" collapsible className={className}>
       {faqs.map((faq, index) => (
         <AccordionItem key={index} value={`item-${index}`}>
-          <AccordionTrigger className="text-left font-semibold hover:no-underline">
+          <AccordionTrigger className="text-left font-semibold text-slate-800 hover:no-underline">
             {faq.question}
           </AccordionTrigger>
-          <AccordionContent className="text-muted-foreground">
+          <AccordionContent className="text-slate-600">
             {faq.answer}
           </AccordionContent>
         </AccordionItem>

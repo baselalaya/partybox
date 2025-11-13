@@ -29,9 +29,9 @@ export default async function Testimonials() {
         {testimonials.map((testimonial) => (
           <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3">
             <div className="p-1">
-              <Card className="h-full bg-card/50 border-border/50">
+              <Card className="h-full bg-white border-slate-200 rounded-xl shadow-sm">
                 <CardContent className="flex h-full flex-col items-start justify-between p-6">
-                  <blockquote className="text-muted-foreground">
+                  <blockquote className="text-slate-600">
                     <p>“{testimonial.quote}”</p>
                   </blockquote>
                   <div className="mt-6 flex items-center gap-4">
@@ -43,8 +43,8 @@ export default async function Testimonials() {
                       height={48}
                     />
                     <div>
-                      <p className="font-semibold">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.eventType}</p>
+                      <p className="font-semibold text-slate-900">{testimonial.name}</p>
+                      <p className="text-sm text-slate-500">{testimonial.eventType}</p>
                     </div>
                   </div>
                 </CardContent>

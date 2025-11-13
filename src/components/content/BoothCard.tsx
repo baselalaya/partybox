@@ -12,7 +12,7 @@ type BoothCardProps = {
 
 export default function BoothCard({ booth }: BoothCardProps) {
   return (
-    <Card className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1">
+    <Card className="group flex flex-col overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1 rounded-xl">
       <CardHeader className="p-0">
         <div className="relative aspect-[4/3] w-full overflow-hidden">
           <Image
@@ -29,14 +29,14 @@ export default function BoothCard({ booth }: BoothCardProps) {
           <Tag className="mr-1 h-3 w-3" />
           {booth.boothType}
         </Badge>
-        <h3 className="mt-4 text-xl font-bold font-headline">{booth.title}</h3>
-        <p className="mt-2 flex-1 text-sm text-muted-foreground">{booth.excerpt}</p>
+        <h3 className="mt-4 text-xl font-bold font-headline text-slate-900">{booth.title}</h3>
+        <p className="mt-2 flex-1 text-sm text-slate-600">{booth.excerpt}</p>
       </CardContent>
       <CardFooter className="flex items-center justify-between p-6 pt-0">
-        <p className="text-lg font-semibold text-primary">
+        <p className="text-lg font-semibold text-fuchsia-600">
           from AED {booth.startingPrice}
         </p>
-        <Link href={routes.booths.detail(booth.slug)} className="text-sm font-medium text-primary inline-flex items-center group-hover:underline">
+        <Link href={routes.booths.detail(booth.slug)} className="text-sm font-medium text-fuchsia-600 inline-flex items-center group-hover:underline">
           View Details
           <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>

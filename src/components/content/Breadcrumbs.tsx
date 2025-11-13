@@ -26,7 +26,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
   };
 
   return (
-    <nav aria-label="Breadcrumb" className="mb-4 text-sm text-muted-foreground">
+    <nav aria-label="Breadcrumb" className="mb-4 text-sm text-slate-500">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -36,11 +36,11 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
           <li key={item.href}>
             <div className="flex items-center">
               {index > 0 && (
-                <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground/50 mr-2" />
+                <ChevronRight className="h-4 w-4 shrink-0 text-slate-400 mr-2" />
               )}
               <Link
                 href={item.href}
-                className="hover:text-primary transition-colors"
+                className="hover:text-fuchsia-600 transition-colors"
                 aria-current={index === allItems.length - 1 ? 'page' : undefined}
               >
                 {item.name}

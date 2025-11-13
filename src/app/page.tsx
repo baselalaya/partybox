@@ -64,7 +64,7 @@ export default async function Home() {
       <Section id="why-us">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Why Choose Us?</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-slate-600">
             We deliver more than just photos; we deliver unforgettable experiences.
           </p>
         </div>
@@ -73,10 +73,10 @@ export default async function Home() {
         </div>
       </Section>
 
-      <Section id="booths" className="bg-card">
+      <Section id="booths" className="bg-slate-50">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Our Photo Booths</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-slate-600">
             From futuristic AI to classic fun, we have the perfect booth for any vibe.
           </p>
         </div>
@@ -95,7 +95,7 @@ export default async function Home() {
       <Section id="events">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Events We Cover</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-slate-600">
             Weddings, corporate launches, birthdays - we add the fun to any occasion.
           </p>
         </div>
@@ -107,10 +107,10 @@ export default async function Home() {
       </Section>
 
       {galleryImages.length > 0 && (
-        <Section id="gallery" className="bg-card">
+        <Section id="gallery" className="bg-slate-50">
             <div className="text-center max-w-2xl mx-auto">
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Gallery of Fun</h2>
-                <p className="mt-4 text-lg text-muted-foreground">
+                <p className="mt-4 text-lg text-slate-600">
                     See the smiles and unforgettable moments we've captured.
                 </p>
             </div>
@@ -133,7 +133,7 @@ export default async function Home() {
       <Section id="testimonials">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">What Our Clients Say</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-slate-600">
             We're proud to have been part of so many amazing events.
           </p>
         </div>
@@ -142,11 +142,11 @@ export default async function Home() {
         </div>
       </Section>
 
-      <Section id="faq" className="bg-card">
+      <Section id="faq" className="bg-slate-50">
         <div className="max-w-3xl mx-auto">
             <div className="text-center">
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Frequently Asked Questions</h2>
-                <p className="mt-4 text-lg text-muted-foreground">
+                <p className="mt-4 text-lg text-slate-600">
                     Have questions? We have answers. Here are some common ones.
                 </p>
             </div>

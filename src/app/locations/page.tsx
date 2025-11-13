@@ -31,17 +31,17 @@ export default async function LocationsPage() {
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
           {locations.map((location) => (
             <Link key={location.id} href={routes.locations.detail(location.slug)}>
-              <Card className="group flex h-full items-center justify-between p-6 transition-all duration-300 hover:bg-primary/10 hover:-translate-y-1">
+              <Card className="group flex h-full items-center justify-between p-6 transition-all duration-300 hover:border-fuchsia-200 hover:shadow-md hover:-translate-y-1 rounded-xl">
                 <div>
                     <CardHeader className="p-0">
                         <div className="flex items-center gap-4">
-                             <MapPin className="h-8 w-8 text-primary" />
-                            <CardTitle className="font-headline text-2xl">{location.name}</CardTitle>
+                             <MapPin className="h-8 w-8 text-fuchsia-600" />
+                            <CardTitle className="font-headline text-2xl text-slate-900">{location.name}</CardTitle>
                         </div>
-                        <CardDescription className="mt-2">{location.description}</CardDescription>
+                        <CardDescription className="mt-2 text-slate-600">{location.description}</CardDescription>
                     </CardHeader>
                 </div>
-                <ArrowRight className="h-6 w-6 text-muted-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:text-primary" />
+                <ArrowRight className="h-6 w-6 text-slate-400 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-fuchsia-600" />
               </Card>
             </Link>
           ))}

@@ -13,7 +13,7 @@ type PostCardProps = {
 
 export default function PostCard({ post }: PostCardProps) {
   return (
-    <Card className="group flex flex-col overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1">
+    <Card className="group flex flex-col overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1 rounded-xl">
       <CardHeader className="p-0">
         <Link href={routes.blog.detail(post.slug)} className="block relative aspect-video w-full overflow-hidden">
           <Image
@@ -26,7 +26,7 @@ export default function PostCard({ post }: PostCardProps) {
         </Link>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col p-6">
-        <div className="flex items-center justify-between text-xs text-muted-foreground">
+        <div className="flex items-center justify-between text-xs text-slate-500">
             {post.categories[0] && <Badge variant="outline">{post.categories[0].name}</Badge>}
             <div className="flex items-center gap-1">
                 <Calendar className="h-3 w-3" />
@@ -35,13 +35,13 @@ export default function PostCard({ post }: PostCardProps) {
                 </time>
             </div>
         </div>
-        <h3 className="mt-4 text-xl font-bold font-headline">
+        <h3 className="mt-4 text-xl font-bold font-headline text-slate-900">
           <Link href={routes.blog.detail(post.slug)}>{post.title}</Link>
         </h3>
-        <p className="mt-2 flex-1 text-sm text-muted-foreground">{post.excerpt}</p>
+        <p className="mt-2 flex-1 text-sm text-slate-600">{post.excerpt}</p>
       </CardContent>
       <CardFooter className="p-6 pt-0">
-        <Link href={routes.blog.detail(post.slug)} className="text-sm font-medium text-primary inline-flex items-center group-hover:underline">
+        <Link href={routes.blog.detail(post.slug)} className="text-sm font-medium text-fuchsia-600 inline-flex items-center group-hover:underline">
           Read More
           <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>

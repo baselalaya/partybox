@@ -14,30 +14,30 @@ const footerNav = [
 
 export function Footer() {
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="bg-slate-100 border-t border-slate-200">
       <Container>
         <div className="py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4">
               <Link href={routes.home} className="flex items-center space-x-2">
-                <Zap className="h-8 w-8 text-primary" />
-                <span className="text-xl font-bold">Dubai Booths</span>
+                <Zap className="h-8 w-8 text-fuchsia-600" />
+                <span className="text-xl font-bold text-slate-900">Dubai Booths</span>
               </Link>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-slate-600">
                 Premium photo booth experiences in Dubai & Abu Dhabi.
               </p>
               <div className="flex space-x-4">
-                <Link href="#" className="text-muted-foreground hover:text-primary"><Instagram /></Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary"><Facebook /></Link>
+                <Link href="#" className="text-slate-500 hover:text-fuchsia-600"><Instagram /></Link>
+                <Link href="#" className="text-slate-500 hover:text-fuchsia-600"><Facebook /></Link>
               </div>
             </div>
             <div className="md:col-span-2 grid grid-cols-2 gap-8">
               <div>
-                <h3 className="font-semibold text-foreground">Navigation</h3>
+                <h3 className="font-semibold text-slate-900">Navigation</h3>
                 <ul className="mt-4 space-y-2">
                   {footerNav.slice(0, 4).map((item) => (
                     <li key={item.label}>
-                      <Link href={item.href} className="text-sm text-muted-foreground hover:text-primary">
+                      <Link href={item.href} className="text-sm text-slate-600 hover:text-fuchsia-600">
                         {item.label}
                       </Link>
                     </li>
@@ -45,11 +45,11 @@ export function Footer() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-foreground">Legal</h3>
+                <h3 className="font-semibold text-slate-900">Legal</h3>
                 <ul className="mt-4 space-y-2">
                   {footerNav.slice(4).map((item) => (
                     <li key={item.label}>
-                      <Link href={item.href} className="text-sm text-muted-foreground hover:text-primary">
+                      <Link href={item.href} className="text-sm text-slate-600 hover:text-fuchsia-600">
                         {item.label}
                       </Link>
                     </li>
@@ -58,21 +58,21 @@ export function Footer() {
               </div>
             </div>
             <div>
-              <h3 className="font-semibold text-foreground">Contact Us</h3>
+              <h3 className="font-semibold text-slate-900">Contact Us</h3>
               <ul className="mt-4 space-y-2">
-                <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Phone className="w-4 h-4 text-primary" />
+                <li className="flex items-center gap-2 text-sm text-slate-600">
+                  <Phone className="w-4 h-4 text-fuchsia-600" />
                   <span>+971 50 123 4567</span>
                 </li>
-                <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Mail className="w-4 h-4 text-primary" />
+                <li className="flex items-center gap-2 text-sm text-slate-600">
+                  <Mail className="w-4 h-4 text-fuchsia-600" />
                   <span>hello@dubaibooths.com</span>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <div className="border-t border-border py-6 text-center text-sm text-muted-foreground">
+        <div className="border-t border-slate-200 py-6 text-center text-sm text-slate-500">
           &copy; {new Date().getFullYear()} Dubai Booths. All rights reserved.
         </div>
       </Container>

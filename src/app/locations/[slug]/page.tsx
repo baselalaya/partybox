@@ -57,15 +57,15 @@ export default async function LocationDetailPage({ params }: Props) {
                 <ul className="space-y-3">
                     {location.serviceAreas.map(area => (
                         <li key={area} className="flex items-center gap-3">
-                            <CheckCircle className="h-5 w-5 text-primary" />
-                            <span className="text-muted-foreground">{area}</span>
+                            <CheckCircle className="h-5 w-5 text-fuchsia-600" />
+                            <span className="text-slate-600">{area}</span>
                         </li>
                     ))}
                 </ul>
             </div>
             <div>
                  <h2 className="text-2xl font-bold font-headline mb-4">Your Event Partner in {location.name}</h2>
-                 <p className="text-muted-foreground">
+                 <p className="text-slate-600">
                     Whether you're hosting a glamorous wedding on the Palm Jumeirah, a corporate gala in Business Bay, or a birthday bash in a private villa, we provide reliable and professional photo booth services across {location.name}. Our team is familiar with all major venues and ensures a timely and seamless setup.
                  </p>
             </div>

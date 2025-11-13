@@ -70,7 +70,7 @@ export default async function BoothDetailPage({ params }: Props) {
           { name: booth.title, href: routes.booths.detail(booth.slug) }
         ]} />
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mt-8">
-          <div className="relative aspect-square w-full overflow-hidden rounded-lg">
+          <div className="relative aspect-square w-full overflow-hidden rounded-xl">
             <Image 
               src={booth.thumbnailImage.url} 
               alt={booth.thumbnailImage.alt}
@@ -82,27 +82,27 @@ export default async function BoothDetailPage({ params }: Props) {
           <div>
             <Badge variant="secondary">{booth.boothType}</Badge>
             <h1 className="text-4xl lg:text-5xl font-bold mt-4 font-headline">{booth.title}</h1>
-            <p className="mt-4 text-lg text-muted-foreground">{booth.excerpt}</p>
-            <p className="mt-6 text-2xl font-bold text-primary">From AED {booth.startingPrice}</p>
+            <p className="mt-4 text-lg text-slate-600">{booth.excerpt}</p>
+            <p className="mt-6 text-2xl font-bold text-fuchsia-600">From AED {booth.startingPrice}</p>
           </div>
         </div>
       </Section>
-      <Section id="details" className="bg-card">
+      <Section id="details" className="bg-slate-50">
         <div className="grid md:grid-cols-2 gap-12">
             <div>
                 <h2 className="text-2xl font-bold font-headline mb-4">Key Features</h2>
                 <ul className="space-y-3">
                     {booth.features.map(feature => (
                         <li key={feature.text} className="flex items-center gap-3">
-                            <CheckCircle className="h-5 w-5 text-primary" />
-                            <span className="text-muted-foreground">{feature.text}</span>
+                            <CheckCircle className="h-5 w-5 text-fuchsia-600" />
+                            <span className="text-slate-600">{feature.text}</span>
                         </li>
                     ))}
                 </ul>
             </div>
             <div>
                  <h2 className="text-2xl font-bold font-headline mb-4">Overview</h2>
-                 <div className="prose prose-invert max-w-none text-muted-foreground" dangerouslySetInnerHTML={{ __html: booth.content }} />
+                 <div className="prose max-w-none text-slate-700" dangerouslySetInnerHTML={{ __html: booth.content }} />
             </div>
         </div>
       </Section>
@@ -120,7 +120,7 @@ export default async function BoothDetailPage({ params }: Props) {
       )}
 
       {booth.faqs.length > 0 && (
-        <Section id="faq" className="bg-card">
+        <Section id="faq" className="bg-slate-50">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-center text-3xl font-bold font-headline mb-8">
               {booth.title} FAQs

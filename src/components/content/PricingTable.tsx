@@ -13,25 +13,25 @@ export default async function PricingTable() {
         <div className="space-y-12">
             {pricingTiers.map(tier => (
                 <div key={tier.boothType}>
-                    <h2 className="text-3xl font-bold text-center font-headline mb-8">{tier.boothType} Packages</h2>
+                    <h2 className="text-3xl font-bold text-center font-headline mb-8 text-slate-900">{tier.boothType} Packages</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                         {tier.packages.map(pkg => (
-                            <Card key={pkg.name} className={cn("flex flex-col", pkg.isPopular && "border-primary ring-2 ring-primary")}>
+                            <Card key={pkg.name} className={cn("flex flex-col rounded-xl shadow-sm", pkg.isPopular && "border-fuchsia-600 ring-2 ring-fuchsia-600")}>
                                 {pkg.isPopular && (
-                                    <div className="bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider text-center py-1 rounded-t-lg flex items-center justify-center gap-1">
+                                    <div className="bg-fuchsia-600 text-white text-xs font-bold uppercase tracking-wider text-center py-1 rounded-t-lg flex items-center justify-center gap-1">
                                         <Star className="w-4 h-4"/> Most Popular
                                     </div>
                                 )}
                                 <CardHeader className="text-center">
-                                    <CardTitle className="text-2xl font-headline">{pkg.name}</CardTitle>
-                                    <CardDescription className="text-4xl font-bold text-primary">{pkg.price}</CardDescription>
+                                    <CardTitle className="text-2xl font-headline text-slate-900">{pkg.name}</CardTitle>
+                                    <CardDescription className="text-4xl font-bold text-fuchsia-600">{pkg.price}</CardDescription>
                                 </CardHeader>
                                 <CardContent className="flex-1">
                                     <ul className="space-y-3">
                                         {pkg.features.map(feature => (
                                             <li key={feature} className="flex items-start gap-3">
                                                 <Check className="h-5 w-5 text-green-500 mt-1 shrink-0" />
-                                                <span className="text-muted-foreground">{feature}</span>
+                                                <span className="text-slate-600">{feature}</span>
                                             </li>
                                         ))}
                                     </ul>

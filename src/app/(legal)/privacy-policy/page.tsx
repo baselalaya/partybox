@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
       />
       <Section>
         <Breadcrumbs items={[{ name: 'Privacy Policy', href: routes.privacyPolicy }]} />
-        <div className="mt-8 prose prose-invert max-w-none text-muted-foreground">
+        <div className="mt-8 prose max-w-none text-slate-700">
           <h2>1. Introduction</h2>
           <p>Welcome to Dubai Booths. We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
           

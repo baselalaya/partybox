@@ -55,10 +55,10 @@ export default async function EventDetailPage({ params }: Props) {
           { name: 'Events', href: routes.events.list },
           { name: event.title, href: routes.events.detail(event.slug) }
         ]} />
-        <div className="mt-8 prose prose-invert max-w-none text-muted-foreground" dangerouslySetInnerHTML={{ __html: event.content }} />
+        <div className="mt-8 prose max-w-none text-slate-700" dangerouslySetInnerHTML={{ __html: event.content }} />
       </Section>
       {recommendedBooths.length > 0 && (
-        <Section id="recommended-booths" className="bg-card">
+        <Section id="recommended-booths" className="bg-slate-50">
           <h2 className="text-center text-3xl font-bold font-headline mb-8">Recommended Booths for {event.title}</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {recommendedBooths.map((booth) => (
