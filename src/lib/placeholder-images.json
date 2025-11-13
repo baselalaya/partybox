@@ -1,3 +1,94 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-home",
+      "description": "A lively party scene with people enjoying a photo booth.",
+      "imageUrl": "https://images.unsplash.com/photo-1714972384350-046f0ffd7752?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwYXJ0eSUyMGZ1bnxlbnwwfHx8fDE3NjMwMTk1Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "party fun"
+    },
+    {
+      "id": "booth-ai",
+      "description": "An AI Photo Booth with a futuristic look.",
+      "imageUrl": "https://images.unsplash.com/photo-1727434032773-af3cd98375ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8QUklMjB0ZWNobm9sb2d5fGVufDB8fHx8MTc2MzAxNTYwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "AI technology"
+    },
+    {
+      "id": "booth-360",
+      "description": "A 360 Video Booth capturing a dynamic shot of guests.",
+      "imageUrl": "https://images.unsplash.com/photo-1612638466977-b5a8f0f34aa1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8MzYwJTIwdmlkZW98ZW58MHx8fHwxNzYzMDE5NTI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "360 video"
+    },
+    {
+      "id": "booth-mirror",
+      "description": "A Magic Mirror Photo Booth with interactive animations.",
+      "imageUrl": "https://images.unsplash.com/photo-1605170444329-61aa23227b07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtaXJyb3IlMjBzZWxmaWV8ZW58MHx8fHwxNzYzMDE5NTI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mirror selfie"
+    },
+    {
+      "id": "booth-classic",
+      "description": "A classic enclosed photo booth.",
+      "imageUrl": "https://images.unsplash.com/photo-1724337375105-b3d900d22969?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjbGFzc2ljJTIwcGhvdG9ib290aHxlbnwwfHx8fDE3NjMwMTk1Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "classic photobooth"
+    },
+    {
+      "id": "event-wedding",
+      "description": "A bride and groom using a photo booth at their wedding.",
+      "imageUrl": "https://images.unsplash.com/photo-1508905309331-76b1d900af31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3ZWRkaW5nJTIwY2VsZWJyYXRpb258ZW58MHx8fHwxNzYzMDE5NTI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wedding celebration"
+    },
+    {
+      "id": "event-corporate",
+      "description": "Colleagues at a corporate event posing at a branded photo booth.",
+      "imageUrl": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y29ycG9yYXRlJTIwZXZlbnR8ZW58MHx8fHwxNzYyOTk1NTM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "corporate event"
+    },
+    {
+      "id": "event-birthday",
+      "description": "Kids and adults celebrating a birthday with a photo booth.",
+      "imageUrl": "https://images.unsplash.com/photo-1531956531700-dc0ee0f1f9a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxiaXJ0aGRheSUyMHBhcnR5fGVufDB8fHx8MTc2Mjk5NTUzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "birthday party"
+    },
+    {
+      "id": "gallery-1",
+      "description": "A fun group photo from a photo booth.",
+      "imageUrl": "https://images.unsplash.com/photo-1584415965060-a5279d4d24c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z3JvdXAlMjBwaG90b3xlbnwwfHx8fDE3NjI5Nzg5NzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "group photo"
+    },
+    {
+      "id": "gallery-2",
+      "description": "A creative photo with props.",
+      "imageUrl": "https://images.unsplash.com/photo-1620256182169-7e9f488c0d18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwaG90byUyMHByb3BzfGVufDB8fHx8MTc2MzAxOTUyOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "photo props"
+    },
+    {
+      "id": "gallery-3",
+      "description": "A slow-motion video from the 360 booth.",
+      "imageUrl": "https://images.unsplash.com/photo-1723808556169-32e52d54f177?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzbG93JTIwbW90aW9ufGVufDB8fHx8MTc2MzAxOTUyOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "slow motion"
+    },
+    {
+      "id": "gallery-4",
+      "description": "Guests interacting with the magic mirror.",
+      "imageUrl": "https://images.unsplash.com/photo-1622231404018-e02a341d99bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxpbnRlcmFjdGl2ZSUyMG1pcnJvcnxlbnwwfHx8fDE3NjMwMTk1Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "interactive mirror"
+    },
+    {
+      "id": "blog-featured-1",
+      "description": "Featured image for a blog post about wedding photo booths.",
+      "imageUrl": "https://images.unsplash.com/photo-1533091090875-1ff4acc497dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3ZWRkaW5nJTIwcGxhbm5pbmd8ZW58MHx8fHwxNzYzMDE5NTI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wedding planning"
+    },
+    {
+      "id": "blog-featured-2",
+      "description": "Featured image for a blog post about corporate branding.",
+      "imageUrl": "https://images.unsplash.com/photo-1762939079730-23708c0dd337?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb3Jwb3JhdGUlMjBicmFuZGluZ3xlbnwwfHx8fDE3NjMwMTk1Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "corporate branding"
+    },
+    {
+      "id": "logo",
+      "description": "Logo for Dubai Booths",
+      "imageUrl": "https://images.unsplash.com/photo-1683128069421-2c1881f70ed7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsb2dvJTIwYnJhbmR8ZW58MHx8fHwxNzYyOTUyMDg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "logo brand"
+    }
+  ]
 }
