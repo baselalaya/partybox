@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%; /* #ffffff */
+    --background: 220 20% 98%; /* #f9fafb - slate-50-ish */
     --foreground: 224 71.4% 4.1%; /* #0f172a - slate-900 */
  
     --card: 0 0% 100%;
@@ -13,55 +13,55 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 71.4% 4.1%;
  
-    --primary: 336 82% 52%; /* #e91e63 - Fuchsia (slightly adjusted) */
+    --primary: 15 100% 71%; /* #ff9f6e - Sunset Orange */
     --primary-foreground: 0 0% 100%;
  
-    --secondary: 271 76% 53%; /* #9c27b0 - Purple */
+    --secondary: 190 70% 45%; /* #4BB7C3 - Teal */
     --secondary-foreground: 0 0% 100%;
  
-    --muted: 210 20% 96.1%; /* #f1f5f9 - slate-100 */
-    --muted-foreground: 215 20.2% 65.1%; /* #94a3b8 - slate-400 */
+    --muted: 220 14.3% 95.9%; /* #f1f5f9 - slate-100 */
+    --muted-foreground: 220 8.9% 46.1%; /* #64748b - slate-500 */
  
-    --accent: 210 20% 96.1%;
+    --accent: 220 14.3% 95.9%;
     --accent-foreground: 224 71.4% 4.1%;
  
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 220 13% 91%; /* #e2e8f0 - slate-200 */
-    --input: 220 13% 91%;
-    --ring: 336 82% 52%;
+    --input: 220 13% 85%; /* #d1d5db - slate-300 */
+    --ring: 0 100% 70%; /* #ff6b6b - Coral */
  
     --radius: 1rem; /* rounded-2xl */
 
-    --chart-1: 336 82% 52%;
-    --chart-2: 271 76% 53%;
-    --chart-3: 210 20% 96.1%;
+    --chart-1: 15 100% 71%;
+    --chart-2: 190 70% 45%;
+    --chart-3: 40 100% 77%;
     --chart-4: 220 70% 50%;
-    --chart-5: 160 60% 45%;
+    --chart-5: 0 100% 70%;
   }
  
   .dark {
     /* Keep dark mode variables for component compatibility, but they are identical to light mode. */
-    --background: 0 0% 100%;
+    --background: 220 20% 98%;
     --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
     --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
     --popover-foreground: 224 71.4% 4.1%;
-    --primary: 336 82% 52%;
+    --primary: 15 100% 71%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 271 76% 53%;
+    --secondary: 190 70% 45%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 210 20% 96.1%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 210 20% 96.1%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
     --accent-foreground: 224 71.4% 4.1%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 336 82% 52%;
+    --input: 220 13% 85%;
+    --ring: 0 100% 70%;
   }
 }
  
@@ -80,4 +80,16 @@
   p, div, span, li, a {
      @apply text-slate-700;
   }
+}
+
+.bg-sunset-light {
+    background-image: linear-gradient(to bottom, #FFF6E9, #FFEDD5, theme('colors.white'));
+}
+
+.bg-ocean-wash {
+    background-image: linear-gradient(to bottom, #E0F7F9, theme('colors.white'), theme('colors.white'));
+}
+
+.bg-sunset-button {
+    background-image: linear-gradient(to right, #FF7E5F, #FEB47B);
 }

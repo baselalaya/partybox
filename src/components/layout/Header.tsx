@@ -14,7 +14,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -22,17 +22,19 @@ export function Header() {
 
   return (
     <header className={cn(
-      "sticky top-0 z-50 w-full border-b transition-all duration-300",
-      isScrolled ? "border-slate-200 bg-white/80 backdrop-blur-xl" : "border-transparent"
+      "sticky top-0 z-50 w-full transition-all duration-300",
+      isScrolled 
+        ? "border-b border-slate-200/80 bg-white/80 backdrop-blur-xl" 
+        : "border-b border-transparent"
     )}>
       <Container className="flex h-20 items-center">
         <Link href={routes.home} className="flex items-center space-x-2">
-          <Zap className="h-7 w-7 text-fuchsia-600" />
+          <Zap className="h-7 w-7 text-primary" />
           <span className="font-semibold sm:inline-block text-slate-900 text-lg">
             Dubai Booths
           </span>
         </Link>
-        <div className="flex flex-1 items-center justify-end space-x-4">
+        <div className="flex flex-1 items-center justify-end space-x-2">
           <MainNav />
           <MobileNav />
         </div>

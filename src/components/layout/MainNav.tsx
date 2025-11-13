@@ -26,14 +26,14 @@ export function MainNav({ className, ...props }: React.HTMLAttributes<HTMLElemen
           key={link.href}
           href={link.href}
           className={cn(
-            "text-sm font-medium transition-colors hover:text-fuchsia-600",
-            pathname.startsWith(link.href) ? "text-fuchsia-600" : "text-slate-600"
+            "text-sm font-medium transition-colors hover:text-primary",
+            pathname.startsWith(link.href) ? "text-primary" : "text-slate-600"
           )}
         >
           {link.label}
         </Link>
       ))}
-       <Button asChild className="ml-4 rounded-full px-5 py-2.5 text-sm font-medium" size="sm">
+       <Button asChild className="ml-4" size="sm">
          <Link href={routes.contact}>Book Now</Link>
        </Button>
     </nav>

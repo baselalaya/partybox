@@ -5,9 +5,9 @@ import { Footer } from '@/components/layout/Footer';
 import { Toaster } from "@/components/ui/toaster"
 import { cn } from '@/lib/utils';
 import { generateSeoMetadata } from '@/lib/seo';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
@@ -25,9 +25,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(plusJakartaSans.variable)}>
+    <html lang="en" className={cn(inter.variable)}>
       <head />
-      <body className={cn("min-h-screen bg-white font-sans text-slate-700")}>
+      <body className={cn("min-h-screen bg-white font-sans text-slate-700 antialiased")}>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

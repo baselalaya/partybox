@@ -5,23 +5,23 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-semibold ring-offset-white transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98] hover:scale-[1.02] [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-semibold ring-offset-white transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98] hover:scale-[1.02] [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-fuchsia-600 text-white hover:bg-fuchsia-700",
+        default: "bg-sunset-button text-white shadow-lg shadow-orange-500/20 hover:shadow-xl hover:shadow-orange-500/30",
         destructive:
           "bg-red-600 text-white hover:bg-red-700",
         outline:
           "border border-slate-300 bg-white hover:bg-slate-50 text-slate-800",
         secondary:
-          "bg-slate-800 text-white hover:bg-slate-900",
+          "bg-teal-500 text-white hover:bg-teal-600",
         ghost: "hover:bg-slate-100 hover:text-slate-900",
-        link: "text-fuchsia-600 underline-offset-4 hover:underline",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-11 px-6 py-2",
-        sm: "h-9 px-4",
+        default: "h-11 px-6",
+        sm: "h-10 px-5 text-xs",
         lg: "h-12 px-8 text-base",
         icon: "h-11 w-11",
       },
