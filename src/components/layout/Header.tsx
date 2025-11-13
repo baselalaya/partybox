@@ -22,19 +22,19 @@ export function Header() {
 
   return (
     <header className={cn(
-      "sticky top-0 z-50 w-full border-b transition-all",
-      isScrolled ? "border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60" : "border-transparent bg-transparent"
+      "sticky top-0 z-50 w-full border-b transition-all duration-300",
+      isScrolled ? "border-slate-200 bg-white/80 backdrop-blur-xl" : "border-transparent"
     )}>
-      <Container className="flex h-16 items-center">
-        <MobileNav />
-        <Link href={routes.home} className="hidden items-center space-x-2 md:flex">
-          <Zap className="h-6 w-6 text-fuchsia-600" />
-          <span className="hidden font-bold sm:inline-block text-slate-900">
+      <Container className="flex h-20 items-center">
+        <Link href={routes.home} className="flex items-center space-x-2">
+          <Zap className="h-7 w-7 text-fuchsia-600" />
+          <span className="font-semibold sm:inline-block text-slate-900 text-lg">
             Dubai Booths
           </span>
         </Link>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <MainNav />
+          <MobileNav />
         </div>
       </Container>
     </header>

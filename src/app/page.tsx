@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Section from '@/components/ui/Section';
-import Hero from '@/components/content/Hero';
 import BoothCard from '@/components/content/BoothCard';
 import EventCard from '@/components/content/EventCard';
 import CTASection from '@/components/content/CTASection';
@@ -12,8 +11,9 @@ import FeatureList from '@/components/content/FeatureList';
 import { getFeaturedBooths, getAllEvents, getFaqs } from '@/lib/wordpress';
 import { routes } from '@/lib/routes';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { MessageCircle, Eye } from 'lucide-react';
+import { MessageCircle, Eye, Star } from 'lucide-react';
 import JsonLd from '@/components/seo/JsonLd';
+import Container from '@/components/layout/Container';
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -32,6 +32,14 @@ const organizationSchema = {
   ]
 };
 
+const trustedByLogos = [
+    { name: 'Google', src: 'https://via.placeholder.com/100x40?text=Google' },
+    { name: 'Amazon', src: 'https://via.placeholder.com/100x40?text=Amazon' },
+    { name: 'Microsoft', src: 'https://via.placeholder.com/100x40?text=Microsoft' },
+    { name: 'Netflix', src: 'https://via.placeholder.com/100x40?text=Netflix' },
+    { name: 'Meta', src: 'https://via.placeholder.com/100x40?text=Meta' },
+]
+
 export default async function Home() {
   const featuredBooths = await getFeaturedBooths();
   const events = await getAllEvents();
@@ -42,29 +50,67 @@ export default async function Home() {
   return (
     <>
       <JsonLd data={organizationSchema} />
-      <Hero
-        title="Photo Booth Rental in Dubai & Abu Dhabi"
-        subtitle="AI, 360 & Mirror Booths – The Ultimate Experience for Your Event."
-        backgroundImage={heroImage ? { src: heroImage.imageUrl, alt: heroImage.description } : undefined}
-      >
-        <Button asChild size="lg">
-          <Link href="https://wa.me/971501234567" target="_blank">
-            <MessageCircle className="mr-2 h-5 w-5"/>
-            Get Instant Quote
-          </Link>
-        </Button>
-        <Button asChild variant="outline" size="lg">
-          <Link href={routes.rates}>
-            <Eye className="mr-2 h-5 w-5" />
-            View Packages
-          </Link>
-        </Button>
-      </Hero>
+      <div className="relative bg-gradient-to-b from-white via-slate-50 to-slate-100 pt-16 md:pt-24">
+        <Container>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="text-center md:text-left">
+                    <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-slate-900 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                        The Ultimate Photo Booth Experience.
+                    </h1>
+                    <p className="mt-6 max-w-xl mx-auto md:mx-0 text-base md:text-lg text-slate-600 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                        AI, 360 & Mirror Booths for weddings, corporate events, and parties in Dubai & Abu Dhabi. Create unforgettable moments.
+                    </p>
+                    <div className="mt-8 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+                        <Button asChild size="lg" className="w-full sm:w-auto">
+                            <Link href="https://wa.me/971501234567" target="_blank">
+                                <MessageCircle />
+                                Get Instant Quote
+                            </Link>
+                        </Button>
+                        <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
+                            <Link href={routes.rates}>
+                                <Eye />
+                                View Packages
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
+                 <div className="relative h-64 md:h-auto md:aspect-[4/3] animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                    {heroImage && (
+                        <Image
+                            src={heroImage.imageUrl}
+                            alt={heroImage.description}
+                            fill
+                            className="object-cover rounded-2xl"
+                            priority
+                        />
+                    )}
+                </div>
+            </div>
+        </Container>
+      </div>
 
-      <Section id="why-us">
+       <Section id="trusted-by" className="py-12 bg-slate-100">
+        <h3 className="text-center text-sm font-medium text-slate-500 mb-6">TRUSTED BY INDUSTRY LEADERS</h3>
+        <div className="flex flex-wrap justify-center items-center gap-x-8 md:gap-x-12 gap-y-4">
+            {trustedByLogos.map(logo => (
+                <div key={logo.name} className="h-8">
+                     <Image
+                        src={logo.src}
+                        alt={`${logo.name} logo`}
+                        width={100}
+                        height={32}
+                        className="object-contain h-full w-auto opacity-60 grayscale"
+                      />
+                </div>
+            ))}
+        </div>
+      </Section>
+
+      <Section id="why-us" className="bg-white">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Why Choose Us?</h2>
-          <p className="mt-4 text-lg text-slate-600">
+          <h2 className="text-2xl md:text-3xl font-semibold">Why Choose Us?</h2>
+          <p className="mt-4 text-base md:text-lg text-slate-600">
             We deliver more than just photos; we deliver unforgettable experiences.
           </p>
         </div>
@@ -75,8 +121,8 @@ export default async function Home() {
 
       <Section id="booths" className="bg-slate-50">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Our Photo Booths</h2>
-          <p className="mt-4 text-lg text-slate-600">
+          <h2 className="text-2xl md:text-3xl font-semibold">Our Photo Booths</h2>
+          <p className="mt-4 text-base md:text-lg text-slate-600">
             From futuristic AI to classic fun, we have the perfect booth for any vibe.
           </p>
         </div>
@@ -92,10 +138,10 @@ export default async function Home() {
         </div>
       </Section>
 
-      <Section id="events">
+      <Section id="events" className="bg-white">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Events We Cover</h2>
-          <p className="mt-4 text-lg text-slate-600">
+          <h2 className="text-2xl md:text-3xl font-semibold">Events We Cover</h2>
+          <p className="mt-4 text-base md:text-lg text-slate-600">
             Weddings, corporate launches, birthdays - we add the fun to any occasion.
           </p>
         </div>
@@ -109,14 +155,14 @@ export default async function Home() {
       {galleryImages.length > 0 && (
         <Section id="gallery" className="bg-slate-50">
             <div className="text-center max-w-2xl mx-auto">
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Gallery of Fun</h2>
-                <p className="mt-4 text-lg text-slate-600">
+                <h2 className="text-2xl md:text-3xl font-semibold">Gallery of Fun</h2>
+                <p className="mt-4 text-base md:text-lg text-slate-600">
                     See the smiles and unforgettable moments we've captured.
                 </p>
             </div>
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
                 {galleryImages.map(image => (
-                    <div key={image.id} className="group relative aspect-square overflow-hidden rounded-lg">
+                    <div key={image.id} className="group relative aspect-square overflow-hidden rounded-2xl">
                         <Image
                             src={image.imageUrl}
                             alt={image.description}
@@ -130,10 +176,10 @@ export default async function Home() {
         </Section>
       )}
 
-      <Section id="testimonials">
+      <Section id="testimonials" className="bg-white">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">What Our Clients Say</h2>
-          <p className="mt-4 text-lg text-slate-600">
+          <h2 className="text-2xl md:text-3xl font-semibold">What Our Clients Say</h2>
+          <p className="mt-4 text-base md:text-lg text-slate-600">
             We're proud to have been part of so many amazing events.
           </p>
         </div>
@@ -145,8 +191,8 @@ export default async function Home() {
       <Section id="faq" className="bg-slate-50">
         <div className="max-w-3xl mx-auto">
             <div className="text-center">
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Frequently Asked Questions</h2>
-                <p className="mt-4 text-lg text-slate-600">
+                <h2 className="text-2xl md:text-3xl font-semibold">Frequently Asked Questions</h2>
+                <p className="mt-4 text-base md:text-lg text-slate-600">
                     Have questions? We have answers. Here are some common ones.
                 </p>
             </div>

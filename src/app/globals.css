@@ -5,72 +5,63 @@
 @layer base {
   :root {
     --background: 0 0% 100%; /* #ffffff */
-    --foreground: 222.2 84% 4.9%; /* #0a0a0a */
+    --foreground: 224 71.4% 4.1%; /* #0f172a - slate-900 */
  
-    --card: 0 0% 100%; /* #ffffff */
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
  
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 224 71.4% 4.1%;
  
-    --primary: 340 82% 52%; /* #E91E63 - Fuchsia */
+    --primary: 336 82% 52%; /* #e91e63 - Fuchsia (slightly adjusted) */
     --primary-foreground: 0 0% 100%;
  
-    --secondary: 291 64% 42%; /* #9C27B0 - Purple */
+    --secondary: 271 76% 53%; /* #9c27b0 - Purple */
     --secondary-foreground: 0 0% 100%;
  
-    --muted: 210 40% 96.1%; /* #f0f4f8 */
-    --muted-foreground: 215.4 16.3% 46.9%; /* #64748b */
+    --muted: 210 20% 96.1%; /* #f1f5f9 - slate-100 */
+    --muted-foreground: 215 20.2% 65.1%; /* #94a3b8 - slate-400 */
  
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 20% 96.1%;
+    --accent-foreground: 224 71.4% 4.1%;
  
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%; /* #e2e8f0 */
-    --input: 214.3 31.8% 91.4%;
-    --ring: 340 82% 52%;
+    --border: 220 13% 91%; /* #e2e8f0 - slate-200 */
+    --input: 220 13% 91%;
+    --ring: 336 82% 52%;
  
-    --radius: 0.5rem;
+    --radius: 1rem; /* rounded-2xl */
 
-    --chart-1: 340 82% 52%;
-    --chart-2: 291 64% 42%;
-    --chart-3: 210 40% 96.1%;
+    --chart-1: 336 82% 52%;
+    --chart-2: 271 76% 53%;
+    --chart-3: 210 20% 96.1%;
     --chart-4: 220 70% 50%;
     --chart-5: 160 60% 45%;
   }
  
   .dark {
-    /* Keeping dark mode variables for shadcn components that might internally reference them,
-       but they will be identical to light mode, effectively enforcing a light theme. */
+    /* Keep dark mode variables for component compatibility, but they are identical to light mode. */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
- 
+    --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
- 
+    --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
- 
-    --primary: 340 82% 52%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 336 82% 52%;
     --primary-foreground: 0 0% 100%;
- 
-    --secondary: 291 64% 42%;
+    --secondary: 271 76% 53%;
     --secondary-foreground: 0 0% 100%;
- 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
- 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
- 
+    --muted: 210 20% 96.1%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 210 20% 96.1%;
+    --accent-foreground: 224 71.4% 4.1%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 340 82% 52%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 336 82% 52%;
   }
 }
  
@@ -80,11 +71,12 @@
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-headline text-slate-900;
+    @apply font-sans text-slate-900;
   }
-
   p, div, span, li, a {
      @apply text-slate-700;
   }

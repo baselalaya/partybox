@@ -5,17 +5,11 @@ import { Footer } from '@/components/layout/Footer';
 import { Toaster } from "@/components/ui/toaster"
 import { cn } from '@/lib/utils';
 import { generateSeoMetadata } from '@/lib/seo';
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
+import { Plus_Jakarta_Sans } from 'next/font/google';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-plus-jakarta-sans',
+  variable: '--font-sans',
   display: 'swap',
 });
 
@@ -31,14 +25,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-      </head>
-      <body className={cn("min-h-screen bg-white font-body text-slate-700 antialiased")}>
+    <html lang="en" className={cn(plusJakartaSans.variable)}>
+      <head />
+      <body className={cn("min-h-screen bg-white font-sans text-slate-700")}>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

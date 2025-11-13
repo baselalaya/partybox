@@ -36,7 +36,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
           <li key={item.href}>
             <div className="flex items-center">
               {index > 0 && (
-                <ChevronRight className="h-4 w-4 shrink-0 text-slate-400 mr-2" />
+                <ChevronRight className="h-4 w-4 shrink-0 text-slate-400 mx-1" />
               )}
               <Link
                 href={item.href}

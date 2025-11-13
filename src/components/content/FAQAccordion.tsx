@@ -19,11 +19,11 @@ export default function FAQAccordion({ faqs, className }: FAQAccordionProps) {
   return (
     <Accordion type="single" collapsible className={className}>
       {faqs.map((faq, index) => (
-        <AccordionItem key={index} value={`item-${index}`}>
-          <AccordionTrigger className="text-left font-semibold text-slate-800 hover:no-underline">
+        <AccordionItem key={index} value={`item-${index}`} className="border-b border-slate-200 py-2 last:border-b-0">
+          <AccordionTrigger className="text-left text-sm md:text-base font-medium text-slate-900 hover:no-underline">
             {faq.question}
           </AccordionTrigger>
-          <AccordionContent className="text-slate-600">
+          <AccordionContent className="pt-2 text-sm text-slate-600">
             {faq.answer}
           </AccordionContent>
         </AccordionItem>

@@ -44,15 +44,15 @@ export default function FeatureList() {
       {features.map((feature) => {
         const IconComponent = iconMap[feature.icon];
         return (
-          <Card key={feature.title} className="text-center bg-white border-slate-200 rounded-xl shadow-sm transition hover:shadow-md hover:-translate-y-1">
-            <CardHeader>
+          <Card key={feature.title} className="text-center bg-white border-none rounded-2xl transition-all duration-300 ease-out shadow-[0_18px_45px_rgba(15,23,42,0.04)] hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
+            <CardHeader className="p-6 md:p-7">
               <div className="flex justify-center mb-4">
-                <div className="bg-fuchsia-100 p-3 rounded-full">
-                  {IconComponent && <IconComponent className="h-8 w-8 text-fuchsia-600" />}
+                <div className="h-12 w-12 rounded-full bg-fuchsia-50 flex items-center justify-center text-fuchsia-600">
+                  {IconComponent && <IconComponent className="h-6 w-6" />}
                 </div>
               </div>
-              <CardTitle className="font-headline text-slate-900">{feature.title}</CardTitle>
-              <CardDescription className="mt-2 text-slate-600">{feature.description}</CardDescription>
+              <CardTitle className="text-lg font-semibold">{feature.title}</CardTitle>
+              <CardDescription className="mt-2 text-sm text-slate-600 leading-relaxed">{feature.description}</CardDescription>
             </CardHeader>
           </Card>
         );

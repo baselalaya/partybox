@@ -11,7 +11,6 @@ const navLinks = [
   { href: routes.events.list, label: 'Events' },
   { href: routes.rates, label: 'Rates' },
   { href: routes.blog.list, label: 'Blog' },
-  { href: routes.contact, label: 'Contact' },
 ];
 
 export function MainNav({ className, ...props }: React.HTMLAttributes<HTMLElement>) {
@@ -19,7 +18,7 @@ export function MainNav({ className, ...props }: React.HTMLAttributes<HTMLElemen
 
   return (
     <nav
-      className={cn("hidden md:flex items-center space-x-4 lg:space-x-6", className)}
+      className={cn("hidden md:flex items-center space-x-6 lg:space-x-8", className)}
       {...props}
     >
       {navLinks.map((link) => (
@@ -28,13 +27,13 @@ export function MainNav({ className, ...props }: React.HTMLAttributes<HTMLElemen
           href={link.href}
           className={cn(
             "text-sm font-medium transition-colors hover:text-fuchsia-600",
-            pathname === link.href ? "text-fuchsia-600" : "text-slate-600"
+            pathname.startsWith(link.href) ? "text-fuchsia-600" : "text-slate-600"
           )}
         >
           {link.label}
         </Link>
       ))}
-       <Button asChild className="ml-4" variant="secondary" size="sm">
+       <Button asChild className="ml-4 rounded-full px-5 py-2.5 text-sm font-medium" size="sm">
          <Link href={routes.contact}>Book Now</Link>
        </Button>
     </nav>
