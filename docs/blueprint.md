@@ -1,4 +1,4 @@
-# **App Name**: Dubai Booths
+# **App Name**: Party Box
 
 ## Core Features:
 

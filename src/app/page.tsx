@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import Hero from '@/components/content/Hero';
 import Section from '@/components/ui/Section';
 import BoothCard from '@/components/content/BoothCard';
 import EventCard from '@/components/content/EventCard';
@@ -18,9 +19,9 @@ import Container from '@/components/layout/Container';
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Dubai Booths",
+  "name": "Party Box",
   "url": "https://dubaibooths.com",
-  "logo": PlaceHolderImages.find(img => img.id === 'logo')?.imageUrl,
+  "logo": "/logo.svg",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+971-50-123-4567",
@@ -50,50 +51,25 @@ export default async function Home() {
   return (
     <>
       <JsonLd data={organizationSchema} />
-       <div className="relative bg-sunset-light pt-28 md:pt-32 pb-20 md:pb-24">
-        <Container>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="text-center md:text-left">
-                    <p className="text-xs uppercase tracking-[0.18em] text-slate-500 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                        Cost-Effective Photo Booths for Brand Activations
-                    </p>
-                    <h1 className="mt-4 text-5xl md:text-6xl font-semibold tracking-tight text-slate-900 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                        The Ultimate Photo Booth Experience.
-                    </h1>
-                    <p className="mt-6 max-w-xl mx-auto md:mx-0 text-base md:text-lg text-slate-600 leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                        AI, 360 & Mirror Booths for weddings, corporate events, and parties in Dubai & Abu Dhabi. Create unforgettable moments.
-                    </p>
-                    <div className="mt-8 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                        <Button asChild size="lg" className="w-full sm:w-auto">
-                            <a href="https://wa.me/971501234567" target="_blank">
-                                <MessageCircle />
-                                Get Instant Quote
-                            </a>
-                        </Button>
-                        <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-                            <Link href={routes.rates}>
-                                <Eye />
-                                View Packages
-                            </Link>
-                        </Button>
-                    </div>
-                </div>
-                 <div className="relative h-64 md:h-auto md:aspect-[4/3] animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                    {heroImage && (
-                        <div className="rounded-3xl shadow-[0_26px_80px_rgba(0,0,0,0.18)] overflow-hidden">
-                            <Image
-                                src={heroImage.imageUrl}
-                                alt={heroImage.description}
-                                fill
-                                className="object-cover"
-                                priority
-                            />
-                        </div>
-                    )}
-                </div>
-            </div>
-        </Container>
-      </div>
+      <Hero
+        title="Smart Photo Booths for Brands in Dubai & Abu Dhabi."
+        subtitle="AI-powered photo booths for brand activations, launches, and events — professional quality without premium pricing."
+        backgroundImage={undefined}
+        mediaVideoSrc="https://websites-cdn.s3.eu-central-1.amazonaws.com/partybox.ae/videos/partybox.mp4"
+      >
+        <Button asChild size="lg" className="rounded-full bg-gradient-to-r from-fuchsia-600 to-violet-500 px-6 py-3 text-sm font-medium text-white shadow-lg hover:shadow-xl hover:scale-[1.02] transition">
+          <a href="https://wa.me/971501234567" target="_blank">
+            <MessageCircle />
+            Get Instant Quote
+          </a>
+        </Button>
+        <Button asChild variant="outline" size="lg" className="rounded-full border border-slate-300 bg-white/80 px-6 py-3 text-sm font-medium text-slate-900 hover:bg-slate-50 transition">
+          <Link href={routes.rates}>
+            <Eye />
+            View Packages
+          </Link>
+        </Button>
+      </Hero>
 
        <Section id="trusted-by" className="py-12 bg-slate-100">
         <h3 className="text-center text-sm font-medium text-slate-500 mb-6">TRUSTED BY INDUSTRY LEADERS</h3>

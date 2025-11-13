@@ -8,7 +8,7 @@ import ContactForm from './ContactForm';
 
 export const metadata: Metadata = generateSeoMetadata({
   title: "Contact Us | Dubai Photo Booths",
-  description: "Get in touch with Dubai Booths for a quote or inquiry. Contact us via form, WhatsApp, or phone for your next event in Dubai.",
+  description: "Get in touch with Party Box for a quote or inquiry. Contact us via form, WhatsApp, or phone for your next event in Dubai.",
   path: routes.contact,
 });
 

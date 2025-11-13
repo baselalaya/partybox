@@ -30,7 +30,7 @@ const mockBooths: Booth[] = [
       { question: 'What kind of AI styles are available?', answer: 'We have over 20 pre-built styles and can create a custom one for your event.' },
       { question: 'Is internet required?', answer: 'Yes, a stable internet connection is needed for the AI processing.' },
     ],
-    seo: { title: 'AI Photo Booth Rental in Dubai | Dubai Booths', metaDescription: 'Rent our cutting-edge AI Photo Booth in Dubai for a unique event experience. Generate artistic photos instantly.' }
+    seo: { title: 'AI Photo Booth Rental in Dubai | Party Box', metaDescription: 'Rent our cutting-edge AI Photo Booth in Dubai for a unique event experience. Generate artistic photos instantly.' }
   },
   {
     id: 2,
@@ -122,7 +122,7 @@ const mockPosts: Post[] = [
 
 const mockTestimonials: Testimonial[] = [
   { id: 1, name: 'Sarah & Tom', eventType: 'Wedding', quote: 'The 360 booth was the highlight of our wedding! Our guests are still talking about it. The team was so professional.', avatarUrl: 'https://picsum.photos/seed/avatar1/100/100' },
-  { id: 2, name: 'Ahmed K.', eventType: 'Corporate Event', quote: 'Dubai Booths provided a seamless experience. The branded AI photos were a massive hit and generated so much buzz on social media for our launch.', avatarUrl: 'https://picsum.photos/seed/avatar2/100/100' },
+  { id: 2, name: 'Ahmed K.', eventType: 'Corporate Event', quote: 'Party Box provided a seamless experience. The branded AI photos were a massive hit and generated so much buzz on social media for our launch.', avatarUrl: 'https://picsum.photos/seed/avatar2/100/100' },
   { id: 3, name: 'Fatima A.', eventType: '40th Birthday', quote: 'The Magic Mirror was so much fun! It looked so elegant at the venue and the photos were beautiful. Highly recommend!', avatarUrl: 'https://picsum.photos/seed/avatar3/100/100' }
 ];
 

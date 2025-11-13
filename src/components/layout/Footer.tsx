@@ -28,7 +28,7 @@ export function Footer() {
           <div className="col-span-4 md:col-span-1 space-y-4">
             <Link href={routes.home} className="flex items-center space-x-2">
               <Zap className="h-7 w-7 text-primary" />
-              <span className="text-lg font-semibold text-slate-900">Dubai Booths</span>
+              <span className="text-lg font-semibold text-slate-900">Party Box</span>
             </Link>
             <p className="text-xs text-slate-600 max-w-xs leading-relaxed">
               Premium photo booth experiences in Dubai & Abu Dhabi.
@@ -58,7 +58,7 @@ export function Footer() {
 
         </div>
         <div className="border-t border-orange-200/50 mt-8 pt-8 text-center text-xs text-slate-500">
-          <p>&copy; {new Date().getFullYear()} Dubai Booths. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Party Box. All rights reserved.</p>
         </div>
       </Container>
     </footer>

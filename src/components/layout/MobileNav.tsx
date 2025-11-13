@@ -2,7 +2,8 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Menu, Zap } from "lucide-react"
+import { Menu } from "lucide-react"
+import Image from 'next/image'
 
 import { Button } from "@/components/ui/button"
 import {
@@ -40,8 +41,8 @@ export function MobileNav() {
           className="flex items-center space-x-2 border-b pb-4"
           onClick={() => setOpen(false)}
           >
-            <Zap className="h-6 w-6 text-fuchsia-600" />
-            <span className="font-bold text-slate-900">Dubai Booths</span>
+            <Image src="/logo.svg" alt="Party Box" width={24} height={24} className="h-6 w-6" />
+            <span className="font-bold text-slate-900">Party Box</span>
         </Link>
         
         <div className="mt-8 flex flex-col space-y-5">

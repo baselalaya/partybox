@@ -14,7 +14,7 @@ const POSTS_PER_PAGE = 6;
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Blog | Photo Booth Tips, Ideas & News";
-  const description = "Read the Dubai Booths blog for expert tips, creative ideas for your event, and the latest news on photo booth technology.";
+  const description = "Read the Party Box blog for expert tips, creative ideas for your event, and the latest news on photo booth technology.";
   return generateSeoMetadata({ title, description, path: routes.blog.list });
 }
 

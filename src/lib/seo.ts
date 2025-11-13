@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { SEO } from '@/types';
 
-const SITE_NAME = 'Dubai Booths';
+const SITE_NAME = 'Party Box';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://dubaibooths.com';
 const SITE_DESCRIPTION = 'Premium photo booth rentals in Dubai & Abu Dhabi. We offer AI, 360, and Mirror booths for weddings, corporate events, and parties. Get an instant quote!';
 const OG_IMAGE_DEFAULT = `${SITE_URL}/og-default.jpg`;

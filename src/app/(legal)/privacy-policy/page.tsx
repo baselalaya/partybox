@@ -7,8 +7,8 @@ import Breadcrumbs from '@/components/content/Breadcrumbs';
 
 export async function generateMetadata(): Promise<Metadata> {
   return generateSeoMetadata({
-    title: "Privacy Policy | Dubai Booths",
-    description: "Read the privacy policy for Dubai Booths to understand how we collect, use, and protect your personal information.",
+    title: "Privacy Policy | Party Box",
+    description: "Read the privacy policy for Party Box to understand how we collect, use, and protect your personal information.",
     path: routes.privacyPolicy,
   });
 }
@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
         <Breadcrumbs items={[{ name: 'Privacy Policy', href: routes.privacyPolicy }]} />
         <div className="mt-8 prose max-w-none text-slate-700">
           <h2>1. Introduction</h2>
-          <p>Welcome to Dubai Booths. We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
+          <p>Welcome to Party Box. We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
           
           <h2>2. Information We Collect</h2>
           <p>We may collect information about you in a variety of ways. The information we may collect on the Site includes:</p>

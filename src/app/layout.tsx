@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = generateSeoMetadata({
-  title: 'Dubai Booths | AI, 360 & Mirror Photo Booth Rentals in Dubai',
+  title: 'Party Box | AI, 360 & Mirror Photo Booth Rentals in Dubai',
   description: 'Top-rated photo booth rentals in Dubai & Abu Dhabi. We offer AI, 360, and Mirror booths for weddings, corporate events, and parties. Get an instant quote!',
   path: '/',
 });

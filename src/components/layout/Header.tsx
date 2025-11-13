@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Zap } from 'lucide-react';
+import Image from 'next/image';
 import { MainNav } from './MainNav';
 import { MobileNav } from './MobileNav';
 import { routes } from '@/lib/routes';
@@ -28,11 +28,8 @@ export function Header() {
         : "border-b border-transparent"
     )}>
       <Container className="flex h-20 items-center">
-        <Link href={routes.home} className="flex items-center space-x-2">
-          <Zap className="h-7 w-7 text-primary" />
-          <span className="font-semibold sm:inline-block text-slate-900 text-lg">
-            Dubai Booths
-          </span>
+        <Link href={routes.home} className="flex items-center space-x-3">
+          <Image src="/logo.svg" alt="Party Box" width={150} height={150} className="h-12 w-12" />
         </Link>
         <div className="flex flex-1 items-center justify-end space-x-2">
           <MainNav />

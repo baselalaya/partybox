@@ -63,7 +63,7 @@ export default async function PostDetailPage({ params }: Props) {
     "dateModified": post.publishedAt,
     "author": [{
         "@type": "Organization",
-        "name": "Dubai Booths",
+        "name": "Party Box",
         "url": process.env.NEXT_PUBLIC_SITE_URL
       }]
   };
