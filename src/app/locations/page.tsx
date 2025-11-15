@@ -4,7 +4,6 @@ import { generateSeoMetadata } from '@/lib/seo';
 import { getAllLocations } from '@/lib/wordpress';
 import { routes } from '@/lib/routes';
 import Section from '@/components/ui/Section';
-import Hero from '@/components/content/Hero';
 import Breadcrumbs from '@/components/content/Breadcrumbs';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { MapPin, ArrowRight } from 'lucide-react';
@@ -22,13 +21,20 @@ export default async function LocationsPage() {
 
   return (
     <>
-      <Hero
-        title="Serving the UAE"
-        subtitle="Bringing the fun to your event, wherever it may be."
-      />
-      <Section>
+      <Section className="bg-white">
         <Breadcrumbs items={[{ name: 'Locations', href: routes.locations.list }]} />
-        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="mt-6 max-w-2xl">
+          <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
+            Service areas
+          </p>
+          <h1 className="mt-3 text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
+            Serving the UAE
+          </h1>
+          <p className="mt-3 text-sm md:text-base text-slate-600">
+            Bringing the fun to your event across Dubai, Abu Dhabi, and beyond. Explore our primary service areas.
+          </p>
+        </div>
+        <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
           {locations.map((location) => (
             <Link key={location.id} href={routes.locations.detail(location.slug)}>
               <Card className="group flex h-full items-center justify-between p-6 transition-all duration-300 hover:border-fuchsia-200 hover:shadow-md hover:-translate-y-1 rounded-xl">

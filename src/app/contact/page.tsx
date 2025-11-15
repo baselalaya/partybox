@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { generateSeoMetadata } from '@/lib/seo';
 import { routes } from '@/lib/routes';
 import Section from '@/components/ui/Section';
-import Hero from '@/components/content/Hero';
 import Breadcrumbs from '@/components/content/Breadcrumbs';
 import ContactForm from './ContactForm';
 
@@ -16,13 +15,26 @@ export const metadata: Metadata = generateSeoMetadata({
 export default function ContactPage() {
   return (
     <>
-      <Hero
-        title="Get In Touch"
-        subtitle="We'd love to hear about your event. Fill out the form below or contact us directly."
-      />
-      <Section>
+      <Section className="bg-[#FDF6EC]">
         <Breadcrumbs items={[{ name: 'Contact', href: routes.contact }]} />
-        <ContactForm />
+        <div className="mt-6 max-w-3xl space-y-8">
+          <div>
+            <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
+              Contact
+            </p>
+            <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
+              Get In Touch
+            </h1>
+            <p className="mt-3 text-sm md:text-base text-slate-700">
+              Reliable, affordable, and built for impact. Let’s create
+              high-value experiences that fit your budget and elevate your
+              brand.
+            </p>
+          </div>
+        </div>
+        <div className="mt-10">
+          <ContactForm />
+        </div>
       </Section>
     </>
   );

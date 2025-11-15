@@ -27,10 +27,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(inter.variable)}>
       <head />
-      <body className={cn("min-h-screen bg-slate-50 font-sans text-slate-700 antialiased")}>
+      <body
+        className={cn(
+          "min-h-screen bg-[#FDF6EC] font-sans text-slate-700 antialiased",
+          "flex flex-col"
+        )}
+      >
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          {children}
+        </main>
         <Footer />
+        {/* Chatbot widget placeholder */}
+        <div id="partybox-chatbot-root" data-source="partybox-marketing" />
         <Toaster />
       </body>
     </html>

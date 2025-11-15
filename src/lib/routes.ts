@@ -18,6 +18,8 @@ export const routes = {
   },
   rates: '/rates',
   contact: '/contact',
+  liveCustomization: '/live-customization',
+  gallery: '/gallery',
   privacyPolicy: '/privacy-policy',
   termsOfService: '/terms-of-service',
 };

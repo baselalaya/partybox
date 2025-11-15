@@ -14,11 +14,11 @@ import {
 import { routes } from "@/lib/routes"
 
 const navLinks = [
-  { href: routes.booths.list, label: 'Photo Booths' },
-  { href: routes.events.list, label: 'Events' },
-  { href: routes.rates, label: 'Rates' },
-  { href: routes.blog.list, label: 'Blog' },
-  { href: routes.contact, label: 'Contact' },
+  { href: "/#solutions", label: "Solutions" },
+  { href: "/#ai-features", label: "AI Features" },
+  { href: "/live-customization", label: "Live Customization" },
+  { href: "/gallery", label: "Gallery" },
+  { href: routes.contact, label: "Get In Touch" },
 ];
 
 export function MobileNav() {
@@ -52,7 +52,7 @@ export function MobileNav() {
                     <Link
                     key={item.href}
                     href={item.href}
-                    className="text-lg text-slate-700 transition-colors hover:text-fuchsia-600"
+                    className="text-lg text-slate-700 transition-colors hover:text-[#635AFF]"
                     onClick={() => setOpen(false)}
                     >
                     {item.label}
@@ -61,9 +61,15 @@ export function MobileNav() {
             )}
         </div>
         <div className="absolute bottom-8 left-6 right-6">
-            <Button asChild className="w-full" size="lg">
-                <Link href={routes.contact} onClick={() => setOpen(false)}>Book Now</Link>
-            </Button>
+        <Button
+          asChild
+          className="w-full rounded-full bg-[#635AFF] hover:bg-[#5148f5] shadow hover:shadow-md transition"
+          size="lg"
+        >
+          <Link href={routes.contact} onClick={() => setOpen(false)}>
+            Get In Touch
+          </Link>
+        </Button>
         </div>
 
       </SheetContent>

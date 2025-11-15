@@ -20,7 +20,7 @@ export type Booth = {
   title: string;
   excerpt: string;
   content: string;
-  boothType: 'AI Photo Booth' | '360 Video Booth' | 'Magic Mirror' | 'Classic Booth';
+  boothType: 'Photo Booth' | '360 Video Booth' | 'Magic Mirror' | 'Classic Booth' | 'Video Booth' | 'Engagement Tech';
   thumbnailImage: Image;
   galleryImages: Image[];
   startingPrice: number;

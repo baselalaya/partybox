@@ -3,7 +3,6 @@ import { generateSeoMetadata } from '@/lib/seo';
 import { getAllPosts } from '@/lib/wordpress';
 import { routes } from '@/lib/routes';
 import Section from '@/components/ui/Section';
-import Hero from '@/components/content/Hero';
 import Breadcrumbs from '@/components/content/Breadcrumbs';
 import PostCard from '@/components/content/PostCard';
 import Pagination from '@/components/content/Pagination';
@@ -31,13 +30,20 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   return (
     <>
-      <Hero
-        title="From the Blog"
-        subtitle="Your source for event planning tips, photo booth ideas, and inspiration."
-      />
-      <Section>
+      <Section className="bg-white">
         <Breadcrumbs items={[{ name: 'Blog', href: routes.blog.list }]} />
-        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 max-w-2xl">
+          <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
+            Insights
+          </p>
+          <h1 className="mt-3 text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
+            From the Blog
+          </h1>
+          <p className="mt-3 text-sm md:text-base text-slate-600">
+            Event planning tips, photo booth ideas, and inspiration for unforgettable brand experiences in Dubai and Abu Dhabi.
+          </p>
+        </div>
+        <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
             <PostCard key={post.id} post={post} />
           ))}
