@@ -1,49 +1,51 @@
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import Section from '../ui/Section';
-import { routes } from '@/lib/routes';
-import { MessageCircle, Phone } from 'lucide-react';
-import Container from '../layout/Container';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import Section from "../ui/Section";
+import { routes } from "@/lib/routes";
+import Container from "../layout/Container";
 
 export default function CTASection() {
   return (
-    <Section className="bg-gradient-to-b from-white via-[#FFF6EC] to-white">
-      <Container>
-        <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-slate-900 px-6 py-10 md:px-10 md:py-12 text-center text-white shadow-[0_26px_70px_rgba(15,23,42,0.45)]">
-          <div className="pointer-events-none absolute -right-16 top-0 h-40 w-40 rounded-full bg-gradient-to-tr from-[#FF9F6E] via-[#FFD45A] to-[#4F8BFF] opacity-60 blur-2xl" />
-          <div className="pointer-events-none absolute -left-20 bottom-0 h-32 w-44 rounded-full bg-gradient-to-r from-[#25C7C9] to-[#FF6C8B] opacity-60 blur-2xl" />
-          <div className="relative mx-auto max-w-lg space-y-4">
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white">
-              Ready to make your event unforgettable?
-            </h2>
-            <p className="mx-auto max-w-xl text-sm md:text-base text-white/85 leading-7">
-              Share your brief, budget, and dates — we&apos;ll recommend the right Partybox setup and
-              AI features to match your brand, venue, and audience.
-            </p>
-            <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-3">
+    <Section id="final-cta" className="bg-gradient-to-b from-[#FFF6EC] via-white to-[#FFF6EC]">
+      <Container className="max-w-3xl mx-auto">
+        <div className="relative overflow-hidden rounded-[32px] border border-slate-200/70 bg-white/95 px-6 py-8 md:px-10 md:py-10 shadow-[0_24px_70px_rgba(255,153,113,0.32)] backdrop-blur-sm">
+          <div className="relative space-y-6 text-center">
+            <div>
+              <h2 className="mt-3 text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
+                Ready to make your brand stand out?
+              </h2>
+              <p className="mt-4 text-sm md:text-base text-slate-700">
+                High-value solutions within your budget. Let&apos;s create something amazing together.
+              </p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
               <Button
                 asChild
                 size="lg"
-                className="rounded-full bg-white text-slate-900 px-6 py-2.5 text-sm font-semibold shadow hover:bg-slate-100 hover:shadow-lg"
+                className="mt-2 rounded-full bg-gradient-to-r from-[#FF9F6E] to-[#FF6C8B] px-6 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg motion-safe:hover:scale-[1.02] transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
               >
-                <a href="https://wa.me/971501234567" target="_blank" rel="noreferrer">
-                  <MessageCircle />
-                  Get Quote on WhatsApp
+                <a href={routes.contact}>
+                  Get In Touch
                 </a>
               </Button>
               <Button
                 asChild
-                variant="outline"
                 size="lg"
-                className="rounded-full border-white/70 bg-transparent px-6 py-2.5 text-sm font-semibold text-white hover:bg-white/10"
+                variant="outline"
+                className="mt-2 rounded-full border border-slate-200 bg-white px-6 py-2.5 text-sm font-medium text-slate-900 hover:bg-slate-50 transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
               >
-                <Link href={routes.contact}>
-                  <Phone />
-                  Contact Us
-                </Link>
+                <a href="https://wa.me/97144488556" target="_blank">
+                  Chat on WhatsApp
+                </a>
               </Button>
+              <a
+                href="tel:+97144488556"
+                className="mt-2 inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-900 hover:bg-slate-50 transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              >
+                📞 +971 4 448 8556
+              </a>
             </div>
-            <p className="mt-2 text-xs md:text-sm text-white/70">
+            <p className="text-xs md:text-sm text-slate-600">
               10+ Years Experience • 5K+ Activations • AI-First Tech
             </p>
           </div>

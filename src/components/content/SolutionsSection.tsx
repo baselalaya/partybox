@@ -52,7 +52,31 @@ export function SolutionsSection({ booths }: SolutionsSectionProps) {
           </p>
         </div>
 
-        <div className="mt-4 inline-flex w-full flex-wrap items-center justify-center gap-2">
+        {/* Mobile: dropdown filter */}
+        <div className="mt-4 w-full sm:hidden">
+          <label className="mb-1 block text-[11px] font-medium uppercase tracking-[0.16em] text-slate-500">
+            Filter booths
+          </label>
+          <div className="relative">
+            <select
+              className="block w-full rounded-full border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm outline-none ring-offset-0 transition focus:border-slate-300 focus:ring-2 focus:ring-[#FF9F6E]/40"
+              value={activeFilter}
+              onChange={(e) => setActiveFilter(e.target.value as Filter)}
+            >
+              {filters.map((filter) => (
+                <option key={filter.id} value={filter.id}>
+                  {filter.label}
+                </option>
+              ))}
+            </select>
+            <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-slate-400">
+              ▾
+            </span>
+          </div>
+        </div>
+
+        {/* Desktop / tablet: pill filters */}
+        <div className="mt-4 hidden w-full flex-wrap items-center justify-center gap-2 sm:inline-flex sm:flex-row">
           {filters.map((filter) => (
             <button
               key={filter.id}

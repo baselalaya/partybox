@@ -14,6 +14,8 @@ import Link from 'next/link';
 import JsonLd from '@/components/seo/JsonLd';
 import BoothCard from '@/components/content/BoothCard';
 import { StickyBoothCtaBar } from '@/components/content/StickyBoothCtaBar';
+import { formatPrice } from '@/lib/utils';
+import { BookingDialog } from '@/components/content/BookingDialog';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -290,6 +292,8 @@ export default async function BoothDetailPage({ params }: Props) {
     notFound();
   }
 
+  const formattedStartingPrice = formatPrice(booth.startingPrice);
+
   const allBooths = await getAllBooths();
   const crossSellBooths = allBooths.filter((b) => b.slug !== booth.slug).slice(0, 3);
   
@@ -362,17 +366,16 @@ export default async function BoothDetailPage({ params }: Props) {
                   height={14}
                   className="inline-block mr-1"
                 />
-                {booth.startingPrice}
+                {formattedStartingPrice}
               </span>
             </div>
 
             <div id="booth-hero-cta" className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href={routes.contact}
-                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#FF9F6E] to-[#FF6C8B] px-5 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg motion-safe:hover:scale-[1.02] transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
-              >
-                Book This Booth
-              </Link>
+              <BookingDialog
+                boothTitle={booth.title}
+                boothSlug={booth.slug}
+                triggerLabel="Book This Booth"
+              />
               <Link
                 href={routes.contact}
                 className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-slate-300"
@@ -505,7 +508,7 @@ export default async function BoothDetailPage({ params }: Props) {
       )}
       <CTASection />
 
-      <StickyBoothCtaBar boothTitle={booth.title} />
+      <StickyBoothCtaBar boothTitle={booth.title} boothSlug={booth.slug} />
 
       {/* Sticky bottom CTA bar */}
       

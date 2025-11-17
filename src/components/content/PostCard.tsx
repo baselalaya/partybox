@@ -12,37 +12,52 @@ type PostCardProps = {
 };
 
 export default function PostCard({ post }: PostCardProps) {
+  const primaryCategory = post.categories[0];
+
   return (
-    <Card className="group flex flex-col overflow-hidden transition-all duration-300 ease-out shadow-[0_18px_45px_rgba(15,23,42,0.04)] hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
+    <Card className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-slate-200/80 bg-white text-left shadow-[0_18px_45px_rgba(15,23,42,0.04)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(15,23,42,0.12)]">
       <CardHeader className="p-0">
-        <Link href={routes.blog.detail(post.slug)} className="block relative aspect-video w-full overflow-hidden">
+        <Link
+          href={routes.blog.detail(post.slug)}
+          className="relative block aspect-[4/3] w-full overflow-hidden"
+        >
           <Image
             src={post.featuredImage.url}
             alt={post.featuredImage.alt}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         </Link>
       </CardHeader>
-      <CardContent className="flex flex-1 flex-col p-6 md:p-7">
+      <CardContent className="flex flex-1 flex-col gap-3 p-6 md:p-7">
         <div className="flex items-center justify-between text-xs text-slate-500">
-            {post.categories[0] && <Badge variant="outline" className="uppercase tracking-widest">{post.categories[0].name}</Badge>}
-            <div className="flex items-center gap-1.5">
-                <Calendar className="h-3.5 w-3.5" />
-                <time dateTime={post.publishedAt}>
-                    {format(new Date(post.publishedAt), 'MMM d, yyyy')}
-                </time>
-            </div>
+          {primaryCategory && (
+            <Badge className="rounded-full border-slate-200 bg-slate-50 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-slate-700">
+              {primaryCategory.name}
+            </Badge>
+          )}
+          <div className="flex items-center gap-1.5 text-[11px]">
+            <Calendar className="h-3.5 w-3.5 text-slate-400" />
+            <time dateTime={post.publishedAt}>
+              {format(new Date(post.publishedAt), "MMM d, yyyy")}
+            </time>
+          </div>
         </div>
-        <h3 className="mt-4 text-lg font-semibold text-slate-900">
+        <h3 className="text-lg font-semibold tracking-tight text-slate-900 group-hover:text-slate-950">
           <Link href={routes.blog.detail(post.slug)}>{post.title}</Link>
         </h3>
-        <p className="mt-2 flex-1 text-sm text-slate-600 leading-relaxed">{post.excerpt}</p>
+        <p className="flex-1 text-sm leading-relaxed text-slate-600 line-clamp-3">
+          {post.excerpt}
+        </p>
       </CardContent>
-      <CardFooter className="p-6 md:p-7 pt-0">
-        <Link href={routes.blog.detail(post.slug)} className="text-sm font-medium text-fuchsia-600 inline-flex items-center group-hover:underline">
-          Read More
+      <CardFooter className="flex items-center justify-between border-t border-slate-100 px-6 pb-5 pt-4 md:px-7 md:pb-6">
+        <Link
+          href={routes.blog.detail(post.slug)}
+          className="inline-flex items-center text-sm font-medium text-[#FF6C8B] transition-colors hover:text-[#FF4A6E]"
+        >
+          Read article
           <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </CardFooter>

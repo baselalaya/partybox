@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Check, Star } from 'lucide-react';
 import Link from 'next/link';
 import { routes } from '@/lib/routes';
-import { cn } from '@/lib/utils';
+import { cn, formatPrice } from '@/lib/utils';
 
 export default async function PricingTable() {
     const pricingTiers = await getPricing();
@@ -39,7 +39,7 @@ export default async function PricingTable() {
                                         <CardDescription className="mt-2 text-slate-600">Perfect for {pkg.name.toLowerCase()} events</CardDescription>
                                         <div className="mt-4 flex items-baseline justify-center gap-2">
                                             <div className="text-4xl font-bold tracking-tight text-slate-900">
-                                                {pkg.price}
+                                                {formatPrice(pkg.price)}
                                             </div>
                                             <span className="text-sm text-slate-500">all-in</span>
                                         </div>

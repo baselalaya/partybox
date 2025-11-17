@@ -6,23 +6,16 @@ import { ArrowRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
+import { cn, formatPrice } from '@/lib/utils';
+import { BookingDialog } from '@/components/content/BookingDialog';
 
 type BoothCardProps = {
   booth: Booth;
   highlight?: boolean;
 };
 
-function getBoothAccent(boothType: string) {
-  const type = boothType.toLowerCase();
-  if (type.includes('ai')) return 'bg-[#635AFF]';
-  if (type.includes('360')) return 'bg-[#25C4D8]';
-  if (type.includes('mirror')) return 'bg-[#FF6C8B]';
-  return 'bg-[#FFC642]';
-}
-
 export default function BoothCard({ booth, highlight = false }: BoothCardProps) {
-  const accentBarClass = getBoothAccent(booth.boothType);
+  const formattedPrice = formatPrice(booth.startingPrice);
 
   return (
     <Card
@@ -33,9 +26,15 @@ export default function BoothCard({ booth, highlight = false }: BoothCardProps) 
         highlight && "border-transparent shadow-[0_32px_90px_rgba(255,156,156,0.45)]"
       )}
     >
+      <Badge
+        variant="secondary"
+        className="absolute left-10 top-4 z-10 rounded-full border border-white/60 bg-black/70 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_10px_25px_rgba(15,23,42,0.45)] backdrop-blur-sm"
+      >
+        {booth.boothType}
+      </Badge>
       <CardHeader className="p-0">
         <Link href={routes.booths.detail(booth.slug)}>
-          <div className="relative aspect-[3/4] w-full overflow-hidden rounded-t-[24px] bg-slate-100">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-t-[24px] bg-slate-100 sm:aspect-[3/4]">
             <Image
               src={booth.thumbnailImage.url}
               alt={booth.thumbnailImage.alt}
@@ -43,40 +42,35 @@ export default function BoothCard({ booth, highlight = false }: BoothCardProps) 
               className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-black/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <Badge
-              variant="secondary"
-              className="absolute left-4 top-4 rounded-full border border-white/50 bg-black/60 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white shadow-[0_10px_25px_rgba(15,23,42,0.45)] backdrop-blur-sm"
-            >
-              {booth.boothType}
-            </Badge>
+            {booth.features.length > 0 && (
+              <div className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-wrap gap-2 sm:inset-x-4 sm:bottom-4">
+                {booth.features.slice(0, 3).map((feature) => (
+                  <span
+                    key={feature.text}
+                    className="inline-flex max-w-full items-center rounded-full bg-white/90 px-3 py-1 text-[11px] font-medium text-slate-900 shadow-sm backdrop-blur"
+                  >
+                    <span className="truncate">{feature.text}</span>
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </Link>
       </CardHeader>
-      <CardContent className="flex flex-1 flex-col p-6 md:p-7">
-        <h3 className="text-lg md:text-xl font-semibold tracking-tight text-slate-900">
+      <CardContent className="flex flex-1 flex-col gap-2.5 px-5 pb-4 pt-2 md:gap-3.5 md:px-6 md:pb-5 md:pt-3">
+        <h3 className="line-clamp-2 text-base md:text-lg font-semibold tracking-tight text-slate-900">
           {booth.title}
         </h3>
-        <p className="mt-2 flex-1 text-sm md:text-base leading-relaxed text-slate-600 line-clamp-2">
+        <p className="flex-1 text-sm leading-relaxed text-slate-600 line-clamp-2">
           {booth.excerpt}
         </p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {booth.features.slice(0, 3).map((feature) => (
-            <span
-              key={feature.text}
-              className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-[11px] font-medium text-slate-800"
-            >
-              {feature.text}
-            </span>
-          ))}
-        </div>
       </CardContent>
-      <CardFooter className="flex flex-col gap-4 p-6 pt-0 md:p-7">
-        <div className="flex items-center gap-2">
-          <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-slate-500">
+      <CardFooter className="flex flex-col gap-4 border-t border-slate-100 p-5 pt-4 md:p-6 md:pt-4">
+        <div className="flex items-baseline gap-2">
+          <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-slate-500">
             Starting at
           </span>
-          <span className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs md:text-sm font-semibold text-slate-900">
+          <div className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs md:text-sm font-semibold text-slate-900">
             <Image
               src="/UAE_Dirham_Symbol.svg"
               alt="UAE dirham"
@@ -84,24 +78,21 @@ export default function BoothCard({ booth, highlight = false }: BoothCardProps) 
               height={14}
               className="inline-block mr-1"
             />
-            {booth.startingPrice}
-          </span>
+            {formattedPrice}
+          </div>
         </div>
-        <div className="mt-1 flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-3">
-          <Button
-            asChild
-            size="sm"
-            className="rounded-full bg-gradient-to-r from-[#FF9F6E] to-[#FF6C8B] px-5 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg motion-safe:hover:scale-[1.02] transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
-          >
-            <Link href={`${routes.contact}?booth=${encodeURIComponent(booth.slug)}`}>
-              Book Now
-            </Link>
-          </Button>
+        <div className="flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-3">
+          <BookingDialog
+            boothTitle={booth.title}
+            boothSlug={booth.slug}
+            triggerLabel="Book Now"
+            triggerClassName="w-full justify-center sm:w-auto"
+          />
           <Button
             asChild
             variant="outline"
             size="sm"
-            className="border-slate-200 bg-slate-50 text-slate-800 group-hover:border-[#FF6C8B]/60 group-hover:bg-white group-hover:text-slate-900"
+            className="w-full border-slate-200 bg-slate-50 text-slate-800 transition-colors group-hover:border-[#FF6C8B]/60 group-hover:bg-white group-hover:text-slate-900 sm:w-auto"
           >
             <Link href={routes.booths.detail(booth.slug)} className="inline-flex items-center gap-2">
               View details

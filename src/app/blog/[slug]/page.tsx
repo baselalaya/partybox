@@ -72,44 +72,53 @@ export default async function PostDetailPage({ params }: Props) {
   return (
     <>
       <JsonLd data={articleSchema} />
-      <div className="relative aspect-[16/7] w-full">
-        <Image 
-            src={post.featuredImage.url} 
-            alt={post.featuredImage.alt}
-            fill
-            className="object-cover"
-            priority
+      <div className="relative w-full overflow-hidden bg-slate-950">
+        <Image
+          src={post.featuredImage.url}
+          alt={post.featuredImage.alt}
+          fill
+          className="object-cover"
+          priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+        <div className="relative mx-auto flex max-w-4xl flex-col gap-4 px-6 pb-16 pt-20 text-white md:pb-20 md:pt-24">
+          <Breadcrumbs 
+            items={[
+              { name: 'Blog', href: routes.blog.list },
+              { name: post.title, href: routes.blog.detail(post.slug) },
+            ]}
+            className="text-white"
+          />
+          <div className="mt-2 flex flex-wrap items-center gap-3 text-[11px] text-white/90">
+            {post.categories[0] && (
+              <Badge className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-white">
+                {post.categories[0].name}
+              </Badge>
+            )}
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center gap-1.5">
+                <Calendar className="h-3.5 w-3.5 text-white" />
+                <time className="text-white" dateTime={post.publishedAt}>
+                  {format(new Date(post.publishedAt), 'MMMM d, yyyy')}
+                </time>
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5 text-white" />
+                <span className="text-white">{readingTime} min read</span>
+              </span>
+            </div>
+          </div>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-5xl">
+            {post.title}
+          </h1>
+          <p className="mt-3 max-w-2xl text-sm md:text-base text-slate-100/85">
+            {post.excerpt}
+          </p>
+        </div>
       </div>
 
-      <Section className="!pt-0">
-        <div className="transform -translate-y-16">
-            <div className="bg-white p-8 rounded-xl shadow-md max-w-4xl mx-auto">
-                <Breadcrumbs items={[
-                    { name: 'Blog', href: routes.blog.list },
-                    { name: post.title, href: routes.blog.detail(post.slug) }
-                ]} />
-                <div className="flex items-center gap-4 mt-4">
-                    {post.categories[0] && <Badge variant="secondary">{post.categories[0].name}</Badge>}
-                </div>
-                <h1 className="text-3xl lg:text-4xl font-bold mt-4 font-headline">{post.title}</h1>
-                <div className="flex items-center gap-6 text-sm text-slate-500 mt-4">
-                    <div className="flex items-center gap-2">
-                        <Calendar className="h-4 w-4" />
-                        <time dateTime={post.publishedAt}>
-                            {format(new Date(post.publishedAt), 'MMMM d, yyyy')}
-                        </time>
-                    </div>
-                     <div className="flex items-center gap-2">
-                        <Clock className="h-4 w-4" />
-                        <span>{readingTime} min read</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-4 gap-12 -mt-8">
+      <Section className="bg-white">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-4">
             <aside className="hidden lg:block">
               <TableOfContents contentSelector="#article-content" />
             </aside>
@@ -122,7 +131,9 @@ export default async function PostDetailPage({ params }: Props) {
       
       {relatedPosts.length > 0 && (
         <Section id="related-posts" className="bg-slate-50">
-          <h2 className="text-center text-3xl font-bold font-headline mb-8">Related Posts</h2>
+          <h2 className="mb-8 text-center text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
+            Related Posts
+          </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {relatedPosts.map((relatedPost) => (
               <PostCard key={relatedPost.id} post={relatedPost} />

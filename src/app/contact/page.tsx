@@ -17,22 +17,21 @@ export default function ContactPage() {
     <>
       <Section className="bg-[#FDF6EC]">
         <Breadcrumbs items={[{ name: 'Contact', href: routes.contact }]} />
-        <div className="mt-6 max-w-3xl space-y-8">
+        <div className="mt-6 max-w-3xl space-y-6">
           <div>
             <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
               Contact
             </p>
             <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
-              Get In Touch
+              Get in touch
             </h1>
             <p className="mt-3 text-sm md:text-base text-slate-700">
-              Reliable, affordable, and built for impact. Let’s create
-              high-value experiences that fit your budget and elevate your
-              brand.
+              Reliable, affordable, and built for impact. Let’s create high-value experiences that fit your budget
+and elevate your brand.
             </p>
           </div>
         </div>
-        <div className="mt-10">
+        <div className="mt-8">
           <ContactForm />
         </div>
       </Section>

@@ -100,7 +100,7 @@ const mockBooths: Booth[] = [
       alt: 'Partybox Classic Photo Booth',
     },
     galleryImages: [],
-    startingPrice: 0,
+    startingPrice: 2000,
     isFeatured: true,
     features: [
       { icon: 'Sparkles', text: 'Sleek' },
@@ -152,7 +152,7 @@ const mockBooths: Booth[] = [
       alt: 'Partybox 360 Video Booth',
     },
     galleryImages: [],
-    startingPrice: 0,
+    startingPrice: 2000,
     isFeatured: true,
     features: [
       { icon: 'Clapperboard', text: 'Cinematic' },
@@ -204,7 +204,7 @@ const mockBooths: Booth[] = [
       alt: 'Partybox Mirror Photo Booth',
     },
     galleryImages: [],
-    startingPrice: 0,
+    startingPrice: 2000,
     isFeatured: true,
     features: [
       { icon: 'Sparkles', text: 'Interactive' },
@@ -256,7 +256,7 @@ const mockBooths: Booth[] = [
       alt: 'Sketch Arm engagement experience',
     },
     galleryImages: [],
-    startingPrice: 0,
+    startingPrice: 2000,
     isFeatured: false,
     features: [
       { icon: 'Cpu', text: 'AI-Powered' },
@@ -307,7 +307,7 @@ const mockBooths: Booth[] = [
       alt: 'Scribble Booth drawing experience',
     },
     galleryImages: [],
-    startingPrice: 0,
+    startingPrice: 2000,
     isFeatured: false,
     features: [
       { icon: 'PenTool', text: 'Interactive' },
@@ -358,7 +358,7 @@ const mockBooths: Booth[] = [
       alt: 'Catch The Baton interactive game',
     },
     galleryImages: [],
-    startingPrice: 0,
+    startingPrice: 2000,
     isFeatured: false,
     features: [
       { icon: 'Zap', text: 'Fast-Paced' },

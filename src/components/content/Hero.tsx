@@ -37,9 +37,9 @@ export default function Hero({
       )}
     >
       <div className="absolute inset-0 bg-[#FDF6EC]" />
-      <div className="absolute inset-y-10 right-[-10%] w-[60%] rounded-[48px] bg-[radial-gradient(circle_at_30%_20%,rgba(255,159,110,0.25),transparent_55%),radial-gradient(circle_at_80%_60%,rgba(37,199,201,0.22),transparent_60%)] opacity-70 blur-2xl" />
+      <div className="absolute inset-y-10 right-[-10%] hidden w-[60%] rounded-[48px] bg-[radial-gradient(circle_at_30%_20%,rgba(255,159,110,0.25),transparent_55%),radial-gradient(circle_at_80%_60%,rgba(37,199,201,0.22),transparent_60%)] opacity-70 blur-2xl md:block" />
       <div className="relative">
-        <Container className="pt-16 md:pt-20 pb-24 md:pb-28">
+        <Container className="pt-16 md:pt-20 pb-32 md:pb-28">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.3fr_minmax(0,1fr)]">
             {/* Left: text */}
             <div className="max-w-xl">
@@ -82,7 +82,7 @@ export default function Hero({
               </p>
 
               <div
-                className="mt-4 flex flex-wrap items-center gap-3 animate-fade-in-up"
+                className="mt-4 flex w-full flex-col items-stretch gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3 animate-fade-in-up [&>*]:w-full sm:[&>*]:w-auto"
                 style={{ animationDelay: "320ms" }}
               >
                 {children}
@@ -95,8 +95,21 @@ export default function Hero({
             <div className="relative">
               <div className="relative mx-auto max-w-lg group">
                 {/* Ambient glow behind video */}
-                <div className="pointer-events-none absolute -inset-4 rounded-[40px] bg-[radial-gradient(circle_at_10%_0,rgba(255,159,110,0.28),transparent_60%),radial-gradient(circle_at_90%_100%,rgba(79,139,255,0.26),transparent_60%)] opacity-70 blur-2xl" />
-                <div className="relative aspect-[4/4.5] w-full rounded-[32px] border border-white/15 bg-slate-950/90 shadow-[0_26px_70px_rgba(15,23,42,0.55)] overflow-hidden backdrop-blur-sm transition-transform duration-500 group-hover:scale-[1.015] group-hover:-translate-y-1">
+                <div className="pointer-events-none absolute -inset-6 rounded-[44px] bg-[radial-gradient(circle_at_10%_0,rgba(255,159,110,0.32),transparent_60%),radial-gradient(circle_at_90%_100%,rgba(79,139,255,0.3),transparent_60%)] opacity-80 blur-3xl" />
+                <div className="relative aspect-[4/4.8] w-full rounded-[32px] border border-slate-900/90 bg-slate-950/95 shadow-[0_30px_90px_rgba(15,23,42,0.85)] overflow-hidden backdrop-blur-sm transition-transform duration-500 group-hover:scale-[1.02] group-hover:-translate-y-1">
+                  {/* Faux screen frame */}
+                  <div className="pointer-events-none absolute inset-0 rounded-[32px] border border-slate-800/90 shadow-[0_0_0_1px_rgba(15,23,42,0.9)]" />
+                  {/* Top status bar */}
+                  <div className="pointer-events-none absolute inset-x-5 top-4 flex items-center justify-between text-[9px] uppercase tracking-[0.18em] text-slate-300/85">
+                    <span className="inline-flex items-center gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/95 shadow-[0_0_10px_rgba(52,211,153,0.9)]" />
+                      Live preview
+                    </span>
+                    <span className="inline-flex items-center gap-1">
+                      <span className="h-1 w-1 rounded-sm bg-slate-500" />
+                      AI booth display
+                    </span>
+                  </div>
                   {mediaVideoSrc || backgroundVideoSrc ? (
                     <>
                       <video
@@ -109,9 +122,24 @@ export default function Hero({
                         preload="none"
                         poster={backgroundPosterSrc}
                       />
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/30 to-transparent" />
-                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_0,rgba(255,159,110,0.18),transparent_55%),radial-gradient(circle_at_90%_100%,rgba(79,139,255,0.2),transparent_55%)]" />
-                      <div className="pointer-events-none absolute inset-0 rounded-[32px] border border-white/10 group-hover:border-white/20 transition-colors duration-300" />
+                      {/* Screen overlays */}
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_0,rgba(255,159,110,0.22),transparent_55%),radial-gradient(circle_at_90%_100%,rgba(79,139,255,0.22),transparent_55%)]" />
+                      <div className="pointer-events-none absolute inset-0 rounded-[32px] border border-white/10 group-hover:border-white/25 transition-colors duration-300" />
+                      {/* Bottom control bar */}
+                      <div className="pointer-events-none absolute inset-x-5 bottom-4 flex items-center justify-between text-[10px] text-slate-200/85">
+                        <div className="flex items-center gap-3">
+                          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm shadow-[0_6px_18px_rgba(0,0,0,0.45)]">
+                            <span className="ml-0.5 border-y-4 border-l-8 border-y-transparent border-l-white" />
+                          </span>
+                          <div className="relative h-1 w-32 overflow-hidden rounded-full bg-white/10">
+                            <div className="absolute inset-y-0 left-0 w-1/2 rounded-full bg-gradient-to-r from-[#FF9F6E] to-[#FF6C8B]" />
+                          </div>
+                        </div>
+                        <span className="tabular-nums text-[10px] text-slate-300/90">
+                          00:18 / 00:45
+                        </span>
+                      </div>
                     </>
                   ) : backgroundImage ? (
                     <>
@@ -131,7 +159,7 @@ export default function Hero({
 
                 {/* Overlapping tiles – stacked fading captions */}
                 <div className="pointer-events-none">
-                  <div className="absolute -bottom-6 left-1/2 w-[88%] max-w-sm -translate-x-1/2 sm:-bottom-8 md:-bottom-9">
+                  <div className="absolute bottom-0 left-1/2 w-[88%] max-w-sm -translate-x-1/2 sm:-bottom-6 md:-bottom-9">
                     <div className="relative h-[100px] sm:h-[108px]">
                       {/* Card 1 */}
                       <div className="hero-caption-card hero-caption-card-1 flex items-center gap-3 rounded-[20px] border border-white/60 bg-white/80 backdrop-blur-md px-4 py-2.5 shadow-[0_12px_30px_rgba(0,0,0,0.12)]">

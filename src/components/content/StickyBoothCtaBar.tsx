@@ -1,14 +1,16 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { routes } from '@/lib/routes';
+import { BookingDialog } from '@/components/content/BookingDialog';
 
 type StickyBoothCtaBarProps = {
   boothTitle: string;
+  boothSlug: string;
 };
 
-export function StickyBoothCtaBar({ boothTitle }: StickyBoothCtaBarProps) {
+export function StickyBoothCtaBar({ boothTitle, boothSlug }: StickyBoothCtaBarProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -46,18 +48,18 @@ export function StickyBoothCtaBar({ boothTitle }: StickyBoothCtaBarProps) {
             </p>
           </div>
           <div className="flex flex-1 items-center justify-end gap-2 md:flex-none">
-            <Link
+            {/* <Link
               href={routes.contact}
               className="inline-flex flex-1 items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-xs md:text-sm font-semibold text-slate-900 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-slate-300 md:flex-none md:px-5"
             >
               Ask About Availability
-            </Link>
-            <Link
-              href={routes.contact}
-              className="inline-flex flex-1 items-center justify-center rounded-full bg-gradient-to-r from-[#FF9F6E] to-[#FF6C8B] px-4 py-2 text-xs md:text-sm font-medium text-white shadow hover:shadow-lg motion-safe:hover:scale-[1.02] transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FF9F6E] md:flex-none md:px-5"
-            >
-              Book This Booth
-            </Link>
+            </Link> */}
+            <BookingDialog
+              boothTitle={boothTitle}
+              boothSlug={boothSlug}
+              triggerLabel="Book This Booth"
+              triggerClassName="flex-1 md:flex-none"
+            />
           </div>
         </div>
       </div>
