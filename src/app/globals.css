@@ -196,3 +196,18 @@
 .hero-strip-led-inner span {
   color: #feb47ba5;
 }
+
+@layer utilities {
+  .gallery-scroll {
+    animation: gallery-marquee 45s linear infinite;
+  }
+}
+
+@keyframes gallery-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

@@ -3,6 +3,8 @@ import { generateSeoMetadata } from "@/lib/seo";
 import { routes } from "@/lib/routes";
 import Section from "@/components/ui/Section";
 import Container from "@/components/layout/Container";
+import Image from "next/image";
+import { GALLERY_IMAGES } from "@/components/content/gallery-data";
 
 export const metadata: Metadata = generateSeoMetadata({
   title: "Gallery | Partybox in Action",
@@ -34,44 +36,38 @@ export default function GalleryPage() {
 
       <Section className="bg-white">
         <Container className="space-y-8">
-          <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-[#FDF6EC] p-4 md:p-5">
-            <div className="pointer-events-none absolute inset-y-6 left-0 w-16 bg-gradient-to-r from-white via-white to-transparent" />
-            <div className="pointer-events-none absolute inset-y-6 right-0 w-16 bg-gradient-to-l from-white via-white to-transparent" />
-            <div className="flex gap-4 overflow-x-auto pb-2 pt-1 [scrollbar-width:none] [-ms-overflow-style:none]">
-              {Array.from({ length: 10 }).map((_, index) => (
-                <div
-                  key={index}
-                  className={`relative h-44 min-w-[11rem] overflow-hidden rounded-[24px] border border-slate-200/70 bg-slate-200 shadow-sm transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_45px_rgba(15,23,42,0.12)] ${
-                    index % 2 === 0 ? "mt-4" : "mb-4"
-                  }`}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
-                </div>
-              ))}
-            </div>
+          <div className="space-y-3">
+            <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
+              Gallery
+            </p>
+            <h2 className="text-3xl font-semibold text-slate-900">
+              Real activations across the UAE
+            </h2>
+            <p className="text-sm text-slate-700">
+              This masonry grid mixes portrait and landscape shots so you get a feel for the variety of Partybox experiences.
+            </p>
           </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {Array.from({ length: 6 }).map((_, index) => (
+          <div className="columns-1 gap-5 md:columns-2 lg:columns-3">
+            {GALLERY_IMAGES.map((image) => (
               <div
-                key={index}
-                className="flex flex-col justify-between rounded-[24px] border border-slate-200/80 bg-[#FFF6EC] p-5 shadow-sm"
+                key={image.src}
+                className="mb-5 break-inside-avoid overflow-hidden rounded-[26px] border border-white/70 bg-white shadow-[0_25px_60px_rgba(15,23,42,0.1)]"
               >
-                <div>
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-slate-500">
-                    Case Study Placeholder
-                  </p>
-                  <h2 className="mt-2 text-lg font-semibold text-slate-900">
-                    Brand activation slot #{index + 1}
-                  </h2>
-                  <p className="mt-2 text-sm text-slate-700">
-                    This tile will be replaced by a CMS-powered gallery item
-                    (photo, video, or case study) once content is connected.
-                  </p>
+                <div
+                  className="relative w-full"
+                  style={{ aspectRatio: `${image.width} / ${image.height}` }}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    quality={70}
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
+                    className="object-cover"
+                  />
                 </div>
-                <p className="mt-4 text-xs text-slate-500">
-                  CMS-powered gallery item placeholder.
-                </p>
               </div>
             ))}
           </div>

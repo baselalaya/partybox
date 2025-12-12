@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { routes } from '@/lib/routes';
 
 const navLinks = [
-  { href: '/#solutions', label: 'Solutions' },
+  { href: routes.solutions, label: 'Solutions' },
   { href: '/#ai-features', label: 'AI Features' },
   { href: '/live-customization', label: 'Live Customization' },
   { href: '/gallery', label: 'Gallery' },

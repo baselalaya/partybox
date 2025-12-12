@@ -11,7 +11,6 @@ import Container from './Container';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isBouncing, setIsBouncing] = useState(false);
   const lastScrolled = useRef(false);
 
   useEffect(() => {
@@ -23,9 +22,6 @@ export function Header() {
         lastScrolled.current = nextIsScrolled;
         setIsScrolled(nextIsScrolled);
 
-        // Trigger a short bounce animation on state change
-        setIsBouncing(true);
-        window.setTimeout(() => setIsBouncing(false), 420);
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -52,8 +48,7 @@ export function Header() {
                   "h-[64px] w-auto transform transition-transform duration-800 ease-in-out will-change-transform",
                   isScrolled
                     ? "scale-75 translate-y-0"
-                    : "scale-125 translate-y-0 md:translate-y-0",
-                  isBouncing && "logo-bounce"
+                    : "scale-125 translate-y-0 md:translate-y-0"
                 )}
               />
             </div>

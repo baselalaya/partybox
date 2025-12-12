@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { generateSeoMetadata } from '@/lib/seo';
 import { routes } from '@/lib/routes';
 import Section from '@/components/ui/Section';
@@ -32,7 +33,9 @@ and elevate your brand.
           </div>
         </div>
         <div className="mt-8">
-          <ContactForm />
+          <Suspense fallback={null}>
+            <ContactForm />
+          </Suspense>
         </div>
       </Section>
     </>

@@ -6,9 +6,10 @@ import Container from "./Container";
 
 const footerNav = {
   Solutions: [
-    { label: "Photo Booths", href: "#" },
-    { label: "Video Booths", href: "#" },
-    { label: "Engagement Tech", href: "#" },
+    { label: "Solutions", href: routes.solutions },
+    { label: "Photo Booths", href: routes.solutions },
+    { label: "Video Booths", href: routes.solutions},
+    { label: "Engagement Tech", href: routes.solutions },
     { label: "Live Customization", href: "#" },
   ],
   "AI & Technology": [
@@ -18,7 +19,7 @@ const footerNav = {
     { label: "Data Capture & Analytics", href: "#" },
   ],
   Company: [
-    { label: "About Party Box", href: "#" },
+    { label: "About Party Box", href: routes.about},
     { label: "Blog / Resources", href: routes.blog.list },
     { label: "Case Studies", href: "#" },
     { label: "Privacy Policy", href: routes.privacyPolicy },

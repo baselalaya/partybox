@@ -10,6 +10,7 @@ import { LiveCustomizationStats } from "@/components/content/LiveCustomizationSt
 import { LiveCustomizationProductsCarousel } from "@/components/content/LiveCustomizationProductsCarousel";
 import { LiveCustomizationSolutionsCarousel } from "@/components/content/LiveCustomizationSolutionsCarousel";
 import Breadcrumbs from "@/components/content/Breadcrumbs";
+import LaserEngravingEffect from "@/components/content/LaserEngravingEffect";
 
 export const metadata: Metadata = generateSeoMetadata({
   title: "AI-Powered Live Customization | Partybox",
@@ -43,18 +44,19 @@ export default async function LiveCustomizationPage() {
           </div>
           <div className="max-w-2xl space-y-4">
             <p className="inline-flex items-center rounded-full border border-slate-200/80 bg-white/80 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-slate-600">
-              Live Customization
+              ON-SITE PERSONALIZATION TECHNOLOGY
+
             </p>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900">
-              AI-Powered Live Customization
+Live Customization That Creates Lasting Connections
             </h1>
             <p className="text-base md:text-lg font-medium text-slate-900/90">
-              Turn products into experiences guests talk about.
+              Transform ordinary giveaways into unforgettable brand moments.
             </p>
             <p className="text-sm md:text-base text-slate-700">
-              We turn giveaways into brand moments. From laser engraving to instant printing,
-              every product is personalized live — so guests walk away with something that
-              feels personal and proudly connected to your brand.
+ With laser engraving, heat transfer printing, and embroidery, every item is personalized on-site so guests leave with something truly theirs.
+
+
             </p>
             <div className="mt-4 flex w-full flex-col items-stretch justify-center gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
               <Button
@@ -62,21 +64,21 @@ export default async function LiveCustomizationPage() {
                 size="lg"
                 asChild
               >
-                <a href={routes.contact}>Personalize for My Event</a>
+                <a href={routes.contact}>View Integration</a>
               </Button>
-              <Button
+              {/* <Button
                 variant="outline"
                 className="w-full rounded-full border-slate-200 bg-white px-6 py-2.5 text-sm font-medium text-slate-900 hover:bg-slate-50 transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] sm:w-auto"
                 size="lg"
                 asChild
               >
                 <a href={routes.booths.list}>Explore Products</a>
-              </Button>
+              </Button> */}
             </div>
 
           </div>
-
-          <div className="relative w-full max-w-sm md:max-w-md">
+                <LaserEngravingEffect />
+          {/* <div className="relative w-full max-w-sm md:max-w-md">
             <div className="pointer-events-none absolute -inset-6 rounded-[40px] bg-[radial-gradient(circle_at_0_0,rgba(255,159,110,0.18),transparent_55%),radial-gradient(circle_at_100%_100%,rgba(37,199,201,0.2),transparent_55%)] opacity-80 blur-3xl" />
             <div className="relative rounded-[28px] bg-transparent">
               <div className="relative m-3 aspect-[3/4] w-auto overflow-hidden rounded-[24px] bg-transparent">
@@ -88,7 +90,6 @@ export default async function LiveCustomizationPage() {
                 />
               </div>
 
-              {/* Floating feature chips */}
               <div className="pointer-events-none absolute inset-0">
                 <div className="absolute left-20 top-8 hidden max-w-[190px] -translate-x-full items-center gap-1.5 rounded-full border border-slate-200 bg-white/95 px-4 py-1.5 text-xs md:text-sm font-medium text-slate-900 shadow-[0_12px_30px_rgba(15,23,42,0.16)] sm:flex md:max-w-[220px]">
                   On-site engraving &amp; printing stations
@@ -104,71 +105,125 @@ export default async function LiveCustomizationPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </Container>
       </Section>
       {/* How it works */}
       <Section className="bg-gradient-to-b from-white via-[#FFF6EC] to-white">
-        <Container className="space-y-6 text-center">
-          <div className="mx-auto max-w-2xl">
+        <Container className="space-y-8">
+          <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
-              How it works at your event
+              Customization Methods
             </h2>
             <p className="mt-3 text-sm md:text-base text-slate-700">
-              A simple four-step flow designed for busy retail floors, pop-ups, and brand activations.
+              Professional-grade equipment and expert operators deliver flawless personalization in real-time.
             </p>
           </div>
-          <ol className="mx-auto grid max-w-4xl gap-4 text-left text-sm md:grid-cols-4 md:text-base text-slate-700">
-            <li className="flex flex-col gap-3 rounded-2xl border border-slate-200/70 bg-white/90 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)]">
-              <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#FF9F6E]/15 text-xs font-semibold text-[#FF9F6E] shadow-[0_4px_12px_rgba(248,113,113,0.45)] md:h-10 md:w-10">
-                1
-              </div>
-              <div>
-                <p className="font-semibold text-slate-900">Guests interact.</p>
-                <p className="mt-1 text-xs md:text-sm text-slate-600">
-                  They scan a QR code or use an on-site screen to personalize their item.
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 gap-7"
+          >
+            {/* Laser Engraving - Large tile */}
+            <div className="relative flex flex-col rounded-3xl border border-slate-200 bg-white/90 shadow-lg px-12 py-12 justify-between min-h-[360px] md:min-h-[400px]">
+              <div className="flex flex-col gap-4">
+                <div className="relative w-full aspect-[16/9] mb-8 rounded-3xl overflow-hidden bg-slate-100">
+                  <Image
+                    src="/images/live-laser-lipstick.jpg"
+                    alt="Laser Engraving"
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                  />
+                </div>
+                <h3 className="font-semibold text-slate-900 text-2xl">Laser Engraving</h3>
+                <p className="text-slate-700 text-base">
+                  Precision laser etching on metal, wood, leather, and glass. Permanent, elegant customization that elevates any product.
                 </p>
               </div>
-            </li>
-            <li className="flex flex-col gap-3 rounded-2xl border border-slate-200/70 bg-white/90 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)]">
-              <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#4F8BFF]/15 text-xs font-semibold text-[#4F8BFF] shadow-[0_4px_12px_rgba(59,130,246,0.45)] md:h-10 md:w-10">
-                2
-              </div>
-              <div>
-                <p className="font-semibold text-slate-900">AI generates.</p>
-                <p className="mt-1 text-xs md:text-sm text-slate-600">
-                  The system designs or processes the customization instantly, staying on-brand.
+              <ul className="text-xs text-slate-600 list-disc pl-4 space-y-1 mt-3">
+                <li>Water bottles &amp; drinkware</li>
+                <li>Tech accessories</li>
+                <li>Leather goods</li>
+                <li>Corporate gifts</li>
+              </ul>
+            </div>
+            {/* Heat Transfer Printing - Tall tile */}
+            <div className="relative flex flex-col rounded-3xl border border-slate-200 bg-white/90 shadow-lg px-12 py-12 justify-between min-h-[400px] md:min-h-[460px]">
+              <div className="flex flex-col gap-4">
+                <div className="relative w-full aspect-[16/9] mb-8 rounded-3xl overflow-hidden bg-slate-100">
+                  <Image
+                    src="/images/live-heat-transfer-new.jpg"
+                    alt="Heat Transfer Printing"
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                  />
+                </div>
+                <h3 className="font-semibold text-slate-900 text-2xl">Heat Transfer Printing</h3>
+                <p className="text-slate-700 text-base">
+                  Vibrant, full-color designs on apparel and fabric products. Fast turnaround with photo-quality results.
                 </p>
               </div>
-            </li>
-            <li className="flex flex-col gap-3 rounded-2xl border border-slate-200/70 bg-white/90 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)]">
-              <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#25C7C9]/15 text-xs font-semibold text-[#25C7C9] shadow-[0_4px_12px_rgba(45,212,191,0.45)] md:h-10 md:w-10">
-                3
-              </div>
-              <div>
-                <p className="font-semibold text-slate-900">Live production.</p>
-                <p className="mt-1 text-xs md:text-sm text-slate-600">
-                  Engraving, printing, or digital personalization happens in real time at the station.
+              <ul className="text-xs text-slate-600 list-disc pl-4 space-y-1 mt-3">
+                <li>T-shirts &amp; hoodies</li>
+                <li>Tote bags</li>
+                <li>Caps &amp; headwear</li>
+                <li>Fabric accessories</li>
+              </ul>
+            </div>
+            {/* Live Embroidery - Wide tile */}
+            <div className="relative flex flex-col rounded-3xl border border-slate-200 bg-white/90 shadow-lg px-12 py-12 justify-between min-h-[360px] md:min-h-[400px]">
+              <div className="flex flex-col gap-4">
+                <div className="relative w-full aspect-[16/9] mb-8 rounded-3xl overflow-hidden bg-slate-100">
+                  <Image
+                    src="/images/live-embroidery-shirt.jpg"
+                    alt="Live Embroidery"
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                  />
+                </div>
+                <h3 className="font-semibold text-slate-900 text-2xl">Live Embroidery</h3>
+                <p className="text-slate-700 text-base">
+                  Premium stitched customization for a luxury feel. Perfect for corporate branding and high-end activations.
                 </p>
               </div>
-            </li>
-            <li className="flex flex-col gap-3 rounded-2xl border border-slate-200/70 bg-white/90 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)]">
-              <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/10 text-xs font-semibold text-emerald-500 shadow-[0_4px_12px_rgba(16,185,129,0.45)] md:h-10 md:w-10">
-                4
-              </div>
-              <div>
-                <p className="font-semibold text-slate-900">Instant collection.</p>
-                <p className="mt-1 text-xs md:text-sm text-slate-600">
-                  Guests receive a branded product they helped create — built to be kept and shared.
+              <ul className="text-xs text-slate-600 list-disc pl-4 space-y-1 mt-3">
+                <li>Baseball caps</li>
+                <li>Polo shirts</li>
+                <li>Jackets &amp; outerwear</li>
+                <li>Premium apparel</li>
+              </ul>
+            </div>
+            {/* Custom Design Software - Square tile */}
+            <div className="relative flex flex-col rounded-3xl border border-slate-200 bg-white/90 shadow-lg px-12 py-12 justify-between items-start min-h-[300px] md:min-h-[320px]">
+              <div className="w-full flex flex-col gap-4 items-start">
+                <div className="relative w-full aspect-[16/9] mb-8 rounded-3xl overflow-hidden bg-slate-100">
+                  <Image
+                    src="/images/custom-design.jpeg"
+                    alt="Custom Design Software"
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                  />
+                </div>
+                <h3 className="font-semibold text-slate-900 text-2xl text-left">Custom Design Software</h3>
+                <p className="text-slate-700 text-base text-left">
+                  Branded touchscreen kiosks with intuitive design interfaces. Guests create, preview, and approve their designs before production.
                 </p>
               </div>
-            </li>
-          </ol>
+              <ul className="text-xs text-slate-600 list-disc pl-4 space-y-1 mt-3 text-left w-full">
+                <li>Touchscreen design stations</li>
+                <li>Real-time preview</li>
+                <li>Order management</li>
+                <li>SMS notifications</li>
+              </ul>
+            </div>
+          </div>
         </Container>
       </Section>
 
       {/* What it is */}
-      <Section className="bg-white">
+      {/* <Section className="bg-white">
         <Container className="grid max-w-6xl gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-center">
           <div className="relative order-2 md:order-1 md:justify-self-center">
             <div className="pointer-events-none absolute -inset-4 rounded-[32px] bg-[radial-gradient(circle_at_0_0,rgba(255,159,110,0.18),transparent_55%),radial-gradient(circle_at_100%_100%,rgba(37,199,201,0.22),transparent_55%)] opacity-70 blur-2xl" />
@@ -203,11 +258,10 @@ export default async function LiveCustomizationPage() {
             </Button>
           </div>
         </Container>
-      </Section>
-
+      </Section> */}
+{/* 
       <Section className="bg-white">
         <Container className="max-w-5xl space-y-10">
-          {/* Products you can personalize */}
           <div>
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
               Products you can personalize
@@ -215,7 +269,6 @@ export default async function LiveCustomizationPage() {
             <LiveCustomizationProductsCarousel />
           </div>
 
-          {/* Works seamlessly with Partybox solutions */}
           <div>
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
               Works seamlessly with Partybox solutions
@@ -227,7 +280,7 @@ export default async function LiveCustomizationPage() {
             <LiveCustomizationSolutionsCarousel booths={solutionBooths} />
           </div>
         </Container>
-      </Section>
+      </Section> */}
 
       <Section className="bg-gradient-to-b from-white via-[#FFF6EC] to-[#FDF6EC]">
         <Container className="space-y-8 text-center">

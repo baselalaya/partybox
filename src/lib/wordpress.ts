@@ -11,7 +11,7 @@ const mockBooths: Booth[] = [
     slug: 'partybox-retro-photo-booth',
     title: 'Partybox Retro Photo Booth',
     excerpt:
-      'Partybox Retro brings timeless photo strips into the modern era with integrated AI, professional lighting, and sleek branding options.',
+      'Retro strips. Advanced tech.',
     content: `<p>Partybox Retro brings timeless photo strips into the modern era. With integrated AI, professional lighting, and sleek branding options, it captures nostalgia while delivering studio-quality engagement at every event.</p>
 <h3>Key Features</h3>
 <ul>
@@ -65,7 +65,7 @@ const mockBooths: Booth[] = [
     slug: 'partybox-classic-photo-booth',
     title: 'Partybox Classic Photo Booth',
     excerpt:
-      'Partybox Classic is the signature photo booth — sleek, versatile, and built for brand impact at high-traffic events.',
+      'Clean setup. Branded output.',
     content: `<p>Partybox Classic is our signature photo booth — sleek, versatile, and built for brand impact. Designed for high-traffic events, it delivers professional-quality photos with clean aesthetics and full branding flexibility.</p>
 <h3>Key Features</h3>
 <ul>
@@ -119,7 +119,7 @@ const mockBooths: Booth[] = [
     slug: 'partybox-360-video-booth',
     title: 'Partybox 360 Video Booth',
     excerpt:
-      'Partybox 360 captures cinematic spins with AI-powered video effects, smooth rotation, and fully customizable branding.',
+      '360 spins. Viral content.',
     content: `<p>Partybox 360 captures cinematic spins that put your brand in motion. With AI-powered video effects, smooth rotation, and fully customizable branding, it transforms every moment into dynamic, share-ready content.</p>
 <h3>Key Features</h3>
 <ul>
@@ -171,7 +171,7 @@ const mockBooths: Booth[] = [
     slug: 'partybox-mirror-photo-booth',
     title: 'Partybox Mirror Photo Booth',
     excerpt:
-      'Partybox Mirror combines sleek design with interactive technology to deliver a glamorous, high-engagement photo experience.',
+      'Full mirror. Premium feel.',
     content: `<p>Partybox Mirror combines sleek design with interactive technology to deliver a glamorous, high-engagement photo experience. With AI integration, touch-interactive animations, and full branding options, it’s built to impress and designed to perform.</p>
 <h3>Key Features</h3>
 <ul>
@@ -220,54 +220,56 @@ const mockBooths: Booth[] = [
   },
   {
     id: 6,
-    slug: 'sketch-arm',
-    title: 'Sketch Arm',
+    slug: 'partybox-mini-photo-booth',
+    title: 'Partybox Mini Photo Booth',
     excerpt:
-      'Sketch Arm redefines creativity with AI-powered artistry, transforming guests into digital sketches in real time.',
-    content: `<p>Sketch Arm redefines creativity with AI-powered artistry. Guests are transformed into digital sketches in real time, combining innovation, engagement, and personalized art — perfect for events seeking something original and visually striking.</p>
+      'Compact booth. AI powered.',
+    content: `<p>Partybox Mini combines simplicity and performance in one reliable setup. Compact yet powerful, it’s designed for events that demand efficiency, quality, and effortless engagement — without the premium price tag.</p>
 <h3>Key Features</h3>
 <ul>
-<li>AI-supported sketch generation in seconds</li>
-<li>Robotic arm draws live on paper or screen</li>
-<li>Fully brandable digital templates</li>
-<li>Share-ready digital copies and physical takeaways</li>
+<li>Clean, all-in-one booth design</li>
+<li>Bright LED lighting for perfect portraits</li>
+<li>Fast setup and easy operation</li>
+<li>Seamless AI photo processing</li>
+<li>Compact footprint ideal for indoor venues</li>
 </ul>
 <h3>Technical Specifications</h3>
 <ul>
-<li>Dimensions: H60cm × W60cm × D60cm (tabletop or freestanding)</li>
-<li>Power: 13 Amp, 220V AC</li>
-<li>Capacity: 40–60 guests per hour</li>
-<li>Technology: AI image-to-sketch processing with robotic rendering</li>
-<li>Support: 24/7 online / On-site assistance</li>
-<li>Setup: 1 hour (power ready)</li>
+<li>Dimensions: H170cm × W65cm × D60cm</li>
+<li>Power Requirements: 13 Amp, 220V AC</li>
+<li>Capacity: Up to 90 guests per hour</li>
+<li>Technology: AI-powered image enhancement with instant sharing options</li>
+<li>Support: 24/7 online support / On-site setup available</li>
+<li>Setup Time: 45–60 minutes with power ready on site</li>
 </ul>
 <h3>Use Cases</h3>
 <ul>
-<li>Art-driven brand activations</li>
-<li>Corporate events &amp; exhibitions</li>
-<li>Retail or mall engagements</li>
-<li>Premium gifting experiences</li>
+<li>Corporate gatherings</li>
+<li>Retail activations</li>
+<li>Weddings &amp; social events</li>
+<li>Small-scale promotional campaigns</li>
 </ul>
-<h3>Customization Options</h3>
-<p>Custom sketch styles, branded paper, and personalized templates available to match your event identity.</p>`,
-    boothType: 'Engagement Tech',
+<h3>Key Technology</h3>
+<p>AI-supported features for crisp, share-ready photos that elevate every moment.</p>
+<p>Partybox Mini proves that high-quality engagement doesn’t have to come at a high cost.</p>`,
+    boothType: 'Photo Booth',
     thumbnailImage: {
-      url: '/images/sketch.jpg',
-      alt: 'Sketch Arm engagement experience',
+      url: '/images/mini.jpg',
+      alt: 'Partybox Mini Photo Booth',
     },
     galleryImages: [],
-    startingPrice: 2000,
-    isFeatured: false,
+    startingPrice: 1700,
+    isFeatured: true,
     features: [
-      { icon: 'Cpu', text: 'AI-Powered' },
-      { icon: 'PenTool', text: 'Creative' },
-      { icon: 'Share2', text: 'Shareable' },
+      { icon: 'Sparkles', text: 'Compact' },
+      { icon: 'Star', text: 'Efficient' },
+      { icon: 'Share2', text: 'AI-Ready' },
     ],
     faqs: [],
     seo: {
-      title: 'Sketch Arm Engagement Experience | Partybox',
+      title: 'Partybox Mini Photo Booth | Partybox',
       metaDescription:
-        'Sketch Arm uses AI-powered sketching and a robotic arm to create personalized art live at events, perfect for creative brand activations.',
+        'Partybox Mini is a compact, AI-powered photo booth built for efficiency and effortless engagement at any UAE event.',
     },
   },
   {
@@ -275,7 +277,7 @@ const mockBooths: Booth[] = [
     slug: 'scribble-booth',
     title: 'Scribble Booth',
     excerpt:
-      'The Scribble Booth transforms creativity into branded engagement with live-captured drawings and AI-supported video output.',
+      'Draw on screen. Share instantly.',
     content: `<p>The Scribble Booth transforms creativity into branded engagement. Guests draw, write, or leave messages directly on a glass screen while a hidden camera captures every stroke live. The result: personalized videos that merge creativity, interaction, and your brand story.</p>
 <h3>Key Features</h3>
 <ul>
@@ -326,7 +328,7 @@ const mockBooths: Booth[] = [
     slug: 'catch-the-baton',
     title: 'Catch The Baton',
     excerpt:
-      'Catch The Baton combines gaming and engagement with an interactive reflex challenge and integrated data capture.',
+      'Quick game. Crowd magnet.',
     content: `<p>Catch The Baton combines gaming and engagement in one powerful unit. With an interactive touchscreen and a reflex-testing challenge, guests compete, connect, and generate valuable data — making every interaction both fun and measurable.</p>
 <h3>Key Features</h3>
 <ul>

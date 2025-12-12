@@ -7,7 +7,7 @@ import { SolutionsSection } from '@/components/content/SolutionsSection';
 import { MessageCircle, Award, BarChart3, Sparkles } from 'lucide-react';
 import Testimonials from '@/components/content/Testimonial';
 import { HeroPropsStrip } from '@/components/content/HeroPropsStrip';
-import { GalleryTeaserCarousel } from '@/components/content/GalleryTeaser';
+import { GalleryTeaserWaterfall } from '@/components/content/GalleryTeaser';
 import { getAllBooths } from '@/lib/wordpress';
 import Image from 'next/image';
 
@@ -36,15 +36,15 @@ export default async function Home() {
 
       <Hero
         title="Affordable, Brand-Ready Booths."
-        subtitle="Built for brands and agencies that want clean, reliable, brand-ready booths at realistic budgets — not the weak experiences you see all over the UAE."
-        mediaVideoSrc="https://websites-cdn.s3.eu-central-1.amazonaws.com/partybox.ae/videos/partybox.mp4"
+        subtitle="Built for brands and agencies that want clean, reliable, brand-ready booths at realistic budgets all over the UAE."
+        mediaVideoSrc="/hero-video.mp4"
       >
         <Button
           asChild
           size="lg"
           className="rounded-full bg-gradient-to-r from-[#FF9F6E] to-[#FF6C8B] px-6 py-3 text-sm font-medium text-white shadow hover:shadow-lg motion-safe:hover:scale-[1.02] transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
         >
-          <a href="#solutions">
+          <a href="/solutions">
             Explore Booths &amp; Tech
           </a>
         </Button>
@@ -187,27 +187,27 @@ export default async function Home() {
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 {
-                  title: "Character creation",
+                  title: "Action Figure",
                   body: "Turn guests into on-brand characters that match your campaign world.",
-                  imageSrc: "/images/charcter.jpg",
+                  imageSrc: "/images/ai-action-figure.png",
                   imageAlt: "AI character creation preview",
                 },
                 {
-                  title: "Brand filters",
+                  title: "AI Scene Portrait",
                   body: "Filters built around your visual identity — not generic presets.",
-                  imageSrc: "/images/brand-filter.jpg",
+                  imageSrc: "/images/ai-scene-portrait.png",
                   imageAlt: "Brand-matched filter example",
                 },
                 {
-                  title: "Themed effects",
+                  title: "AI Background Removal",
                   body: "Custom backdrops and effects aligned with your event theme.",
-                  imageSrc: "/images/themed-effect.jpg",
+                  imageSrc: "/images/ai-brand-filter.webp",
                   imageAlt: "Themed AI effects preview",
                 },
                 {
-                  title: "Template library",
+                  title: "AI Face Swap",
                   body: "Pre-built looks for lifestyle, fashion, F&B, retail, and more.",
-                  imageSrc: "/images/template-lib.png",
+                  imageSrc: "/images/ai-face-swap.webp",
                   imageAlt: "Template library preview",
                 },
               ].map((item) => (
@@ -256,11 +256,11 @@ export default async function Home() {
       {/* Gallery teaser */}
       <Section
         id="gallery-teaser"
-        className="bg-gradient-to-b from-white via-[#FFF6EC] to-[#FFF6EC]"
+        className="bg-[#f7f7f9] py-16 md:py-24"
       >
 
-        <Container className="space-y-8">
-                                                  <HeroPropsStrip />
+        <Container className="space-y-10 text-slate-900">
+          <HeroPropsStrip />
 
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
@@ -273,8 +273,8 @@ export default async function Home() {
               Real activations. Real impact. Real results.
             </p>
           </div>
-          <div className="relative overflow-hidden rounded-[32px] border border-slate-200/70 bg-white/80 p-4 md:p-5 backdrop-blur-sm">
-            <GalleryTeaserCarousel />
+            <div className="relative overflow-hidden rounded-[32px] border border-white/20 bg-white p-4 md:p-5 shadow-[0_25px_60px_rgba(15,23,42,0.2)]">
+            <GalleryTeaserWaterfall />
           </div>
           <div className="flex justify-center">
             <Button
