@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
-import { GALLERY_IMAGES } from "./gallery-data";
-
 const getLayout = (width: number) => {
   if (width >= 1024) {
     return { columns: 3, columnWidth: 230 };
@@ -15,7 +13,15 @@ const getLayout = (width: number) => {
   return { columns: 1, columnWidth: 320 };
 };
 
-export function GalleryTeaserWaterfall() {
+type ImageType = {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  type?: 'image' | 'video';
+}
+
+export function GalleryTeaserWaterfall({ images }: { images: ImageType[] }) {
   const [layout, setLayout] = useState(getLayout(1024));
 
   useEffect(() => {
@@ -28,15 +34,15 @@ export function GalleryTeaserWaterfall() {
   const columns = useMemo(
     () =>
       Array.from({ length: layout.columns }, (_, columnIndex) =>
-        GALLERY_IMAGES.filter((_, imageIndex) => imageIndex % layout.columns === columnIndex)
+        images.filter((_, imageIndex) => imageIndex % layout.columns === columnIndex)
       ),
-    [layout.columns]
+    [layout.columns, images]
   );
 
   const duplicatedColumns = [...columns, ...columns];
 
   return (
-    <div className="relative h-[56vh] max-h-[56vh] overflow-hidden rounded-[32px] border border-white/30 bg-[#f5f5f7] shadow-[0_35px_70px_rgba(15,23,42,0.15)]">
+    <div className="relative h-[90vh] max-h-[90vh] overflow-hidden rounded-[32px] border border-white/30 bg-[#f5f5f7] shadow-[0_35px_70px_rgba(15,23,42,0.15)]">
       <div
         className="gallery-scroll flex min-w-[max-content] gap-5 px-4 py-8"
         style={{ minWidth: `${layout.columns * layout.columnWidth * 2}px` }}
@@ -61,16 +67,27 @@ export function GalleryTeaserWaterfall() {
                       minHeight: isLandscape ? "140px" : "220px",
                     }}
                   >
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      quality={65}
-                      loading="lazy"
-                      decoding="async"
-                      sizes="(max-width: 768px) 45vw, (max-width: 1200px) 22vw, 24vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                    {image.type === 'video' ? (
+                      <video
+                        src={image.src}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="object-cover w-full h-full pointer-events-none"
+                      />
+                    ) : (
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        quality={65}
+                        loading="lazy"
+                        decoding="async"
+                        sizes="(max-width: 768px) 45vw, (max-width: 1200px) 22vw, 24vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    )}
                   </div>
                 </div>
               );

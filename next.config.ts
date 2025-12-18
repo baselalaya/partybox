@@ -1,4 +1,4 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -8,7 +8,13 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '15mb',
+    },
+  },
   images: {
+    qualities: [65, 70, 75, 80, 85, 90, 95, 100],
     remotePatterns: [
       {
         protocol: 'https',
@@ -34,8 +40,16 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 's3.eu-central-1.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
 
-export default nextConfig;
+import { withPayload } from '@payloadcms/next/withPayload'
+
+export default withPayload(nextConfig);
