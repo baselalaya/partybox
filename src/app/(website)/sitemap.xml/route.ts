@@ -2,6 +2,8 @@ import { getAllEvents, getAllLocations } from '@/lib/wordpress';
 import { getAllBooths, getAllPosts } from '@/lib/payload';
 import { routes } from '@/lib/routes';
 
+export const dynamic = 'force-dynamic';
+
 const URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://partybox.ae';
 
 function generateSitemap(pages: string[]) {
