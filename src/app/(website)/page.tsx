@@ -11,7 +11,6 @@ import { GalleryTeaserWaterfall } from '@/components/content/GalleryTeaser';
 import { getAllBooths, getGalleryImages } from '@/lib/payload';
 import Image from 'next/image';
 
-export const dynamic = 'force-dynamic';
 
 const organizationSchema = {
   "@context": "https://schema.org",
