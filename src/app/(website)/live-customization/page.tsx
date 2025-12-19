@@ -12,6 +12,8 @@ import { LiveCustomizationSolutionsCarousel } from "@/components/content/LiveCus
 import Breadcrumbs from "@/components/content/Breadcrumbs";
 import LaserEngravingEffect from "@/components/content/LaserEngravingEffect";
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = generateSeoMetadata({
   title: "AI-Powered Live Customization | Partybox",
   description:
