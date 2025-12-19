@@ -16,12 +16,12 @@ type Props = {
 
 export const revalidate = 60;
 
-export async function generateStaticParams() {
-  const events = await getAllEvents();
-  return events.map((event) => ({
-    slug: event.slug,
-  }));
-}
+// export async function generateStaticParams() {
+//   const events = await getAllEvents();
+//   return events.map((event) => ({
+//     slug: event.slug,
+//   }));
+// }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
