@@ -74,22 +74,14 @@ async function processContentImages(payload: any, html: string, postTitle: strin
     const urlsToProcess = new Set(matches.map(m => m[1]));
 
     for (const url of urlsToProcess) {
-        if (url.includes('wp-content/uploads') || url.startsWith('http')) {
-            if (url.includes('amazonaws.com') || url.includes('partybox-media')) {
-            }
+        // Only process URLs that look like they need downloading (e.g. from old WP site)
+        if (url.includes('wp-content/uploads') || (url.startsWith('http') && !url.includes(process.env.S3_ENDPOINT || 'supabase.co'))) {
 
             const media = await getOrUploadImage(payload, url, `${postTitle} - Content Image`);
 
-            if (media) {
-                const region = process.env.S3_REGION || process.env.AWS_REGION || 'eu-central-1';
-                const bucket = process.env.S3_BUCKET_NAME || process.env.S3_BUCKET;
-
-                let finalUrl = media.url;
-                if (bucket && (!media.url || media.url.startsWith('/api') || media.url.startsWith('/media'))) {
-                    finalUrl = `https://s3.${region}.amazonaws.com/${bucket}/${media.filename}`;
-                }
-
-                newHtml = newHtml.split(url).join(finalUrl);
+            if (media && media.url) {
+                // Payload with S3 plugin usually returns the full URL in media.url
+                newHtml = newHtml.split(url).join(media.url);
             }
         }
     }

@@ -292,6 +292,47 @@ const mockBooths = [
             { icon: 'Gamepad2', text: 'Engagement-Driven' },
         ],
     },
+    {
+        slug: 'sketch-arm',
+        title: 'Sketch Arm',
+        excerpt: 'AI sketching. Robotic Art.',
+        content: `<p>Sketch Arm is an AI-powered sketch artistry experience that uses a robotic arm to create live, personalised portraits and artwork.</p>
+<h3>Key Features</h3>
+<ul>
+<li>Robotic arm that draws portraits or illustrations in real-time</li>
+<li>AI-driven sketch generation based on photos or prompts</li>
+<li>Configurable art styles aligned with your brand or campaign</li>
+<li>Physical takeaway artwork guests can keep and share</li>
+<li>Branded media, paper, or card stock options</li>
+</ul>
+<h3>Technical Specifications</h3>
+<ul>
+<li>Footprint: compact yet visually striking hardware setup</li>
+<li>Power: dedicated outlet with stable supply</li>
+<li>Capacity: optimised throughput for continuous drawing cycles</li>
+<li>Technology: AI sketch generation and robotic control system</li>
+<li>Support: on-site specialist plus remote technical backup</li>
+<li>Setup Time: scheduled installation and calibration period</li>
+</ul>
+<h3>Use Cases</h3>
+<ul>
+<li>Innovation-led brand activations highlighting AI and creativity</li>
+<li>Tech, art, and design-focused events</li>
+<li>Retail and mall activations with dwell-time objectives</li>
+<li>Corporate events looking for a unique talking point</li>
+</ul>
+<h3>Key Technology</h3>
+<p>AI sketch generation and robotic control system.</p>`,
+        boothType: 'Engagement Tech',
+        startingPrice: 2500,
+        isFeatured: false,
+        thumbnailImage: '/images/sketch.jpg',
+        features: [
+            { icon: 'PenTool', text: 'Robotic' },
+            { icon: 'Sparkles', text: 'AI-Powered' },
+            { icon: 'Share2', text: 'Unique' },
+        ],
+    },
 ]
 
 const mockGallery = [
