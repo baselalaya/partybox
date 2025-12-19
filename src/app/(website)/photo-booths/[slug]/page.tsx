@@ -264,12 +264,12 @@ const productDetails: Record<string, {
   },
 };
 
-export async function generateStaticParams() {
-  const booths = await getAllBooths();
-  return booths.map((booth) => ({
-    slug: booth.slug,
-  }));
-}
+// export async function generateStaticParams() {
+//   const booths = await getAllBooths();
+//   return booths.map((booth) => ({
+//     slug: booth.slug,
+//   }));
+// }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
