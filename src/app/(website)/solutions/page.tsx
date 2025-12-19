@@ -5,6 +5,8 @@ import { routes } from '@/lib/routes';
 import { generateSeoMetadata } from '@/lib/seo';
 import { getAllBooths } from '@/lib/payload';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata(): Promise<Metadata> {
   return generateSeoMetadata({
     title: 'Solutions | Party Box',
