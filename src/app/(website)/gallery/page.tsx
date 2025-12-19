@@ -6,7 +6,7 @@ import Container from "@/components/layout/Container";
 import Image from "next/image";
 import { getGalleryImages } from "@/lib/payload";
 
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = generateSeoMetadata({
   title: "Gallery | Partybox in Action",

@@ -6,7 +6,7 @@ import Section from '@/components/ui/Section';
 import Breadcrumbs from '@/components/content/Breadcrumbs';
 import EventCard from '@/components/content/EventCard';
 
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Photo Booths for Any Event | Weddings, Corporate, Parties";

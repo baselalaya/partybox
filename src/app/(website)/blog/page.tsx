@@ -7,7 +7,7 @@ import Breadcrumbs from '@/components/content/Breadcrumbs';
 import PostCard from '@/components/content/PostCard';
 import Pagination from '@/components/content/Pagination';
 
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 const POSTS_PER_PAGE = 6;
 

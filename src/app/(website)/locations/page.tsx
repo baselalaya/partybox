@@ -8,7 +8,7 @@ import Breadcrumbs from '@/components/content/Breadcrumbs';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { MapPin, ArrowRight } from 'lucide-react';
 
-export const revalidate = 300; // Locations don't change often
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Our Service Areas | Dubai, Abu Dhabi & UAE";

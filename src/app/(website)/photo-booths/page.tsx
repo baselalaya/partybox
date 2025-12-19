@@ -6,7 +6,7 @@ import Section from '@/components/ui/Section';
 import Breadcrumbs from '@/components/content/Breadcrumbs';
 import { BoothListing } from '@/components/content/BoothListing';
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Our Photo Booths | AI, 360, Mirror & More";
