@@ -36,25 +36,35 @@ export async function POST(req: NextRequest) {
 
         if (ML_API_KEY) {
             try {
+                const mlPayload = {
+                    email,
+                    name,
+                    fields: {
+                        phone: phone || '',
+                        company: company || boothInterest || 'Website Inquiry',
+                    },
+                };
+
+                console.log('--- MailerLite: Sending Request ---');
+                console.log('Endpoint:', `https://api.mailerlite.com/api/v2/groups/${ML_GROUP_ID}/subscribers`);
+                console.log('Payload:', JSON.stringify(mlPayload, null, 2));
+
                 const mlResponse = await fetch(`https://api.mailerlite.com/api/v2/groups/${ML_GROUP_ID}/subscribers`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         'X-MailerLite-ApiKey': ML_API_KEY,
                     },
-                    body: JSON.stringify({
-                        email,
-                        name,
-                        fields: {
-                            phone: phone || '',
-                            company: company || boothInterest || 'Website Inquiry',
-                        },
-                    }),
+                    body: JSON.stringify(mlPayload),
                 });
 
+                const responseText = await mlResponse.text();
+                console.log('--- MailerLite: Response ---');
+                console.log('Status:', mlResponse.status);
+                console.log('Body:', responseText);
+
                 if (!mlResponse.ok) {
-                    const errorText = await mlResponse.text();
-                    console.error('MailerLite API Error:', errorText);
+                    console.error('MailerLite API Error:', responseText);
                 }
 
             } catch (e) {
