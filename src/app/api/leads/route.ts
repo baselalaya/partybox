@@ -47,23 +47,22 @@ export async function POST(req: NextRequest) {
 
                 console.log('--- MailerLite: Sending Request ---');
                 console.log('API Key Loaded:', ML_API_KEY ? `${ML_API_KEY.substring(0, 4)}...***` : 'UNDEFINED');
-                console.log('Endpoint:', `https://connect.mailerlite.com/api/subscribers`);
+                console.log('Endpoint:', `https://api.mailerlite.com/api/v2/groups/${ML_GROUP_ID}/subscribers`);
                 console.log('Payload:', JSON.stringify(mlPayload, null, 2));
 
-                const mlResponse = await fetch(`https://connect.mailerlite.com/api/subscribers`, {
+                const mlResponse = await fetch(`https://api.mailerlite.com/api/v2/groups/${ML_GROUP_ID}/subscribers`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${ML_API_KEY}`,
+                        'X-MailerLite-ApiKey': ML_API_KEY,
                     },
                     body: JSON.stringify({
                         email,
+                        name,
                         fields: {
-                            name: name, // In new API, 'name' is often a custom field or 'name' field
                             phone: phone || '',
                             company: company || boothInterest || 'Website Inquiry',
-                        },
-                        groups: [ML_GROUP_ID] // Add subscriber to the group
+                        }
                     }),
                 });
 
