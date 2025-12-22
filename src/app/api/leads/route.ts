@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
 
         // 2. Send to MailerLite
         const ML_API_KEY = process.env.MAILERLITE_API_KEY;
-        const ML_GROUP_ID = '3640549';
+        const ML_GROUP_ID = '174482523496121854';
 
         if (ML_API_KEY) {
             try {
@@ -46,6 +46,7 @@ export async function POST(req: NextRequest) {
                 };
 
                 console.log('--- MailerLite: Sending Request ---');
+                console.log('API Key Loaded:', ML_API_KEY ? `${ML_API_KEY.substring(0, 4)}...***` : 'UNDEFINED');
                 console.log('Endpoint:', `https://api.mailerlite.com/api/v2/groups/${ML_GROUP_ID}/subscribers`);
                 console.log('Payload:', JSON.stringify(mlPayload, null, 2));
 
