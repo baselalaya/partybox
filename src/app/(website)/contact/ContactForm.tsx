@@ -80,7 +80,8 @@ export default function ContactForm() {
           name: values.fullName,
           email: values.email,
           phone: values.phoneNumber,
-          message: `Company: ${values.company || 'N/A'}\nInterest: ${values.interest || 'N/A'}\n\n${values.eventDetails}`,
+          company: values.company,
+          message: `Interest: ${values.interest || 'N/A'}\n\n${values.eventDetails}`,
           boothInterest: values.boothTitle || values.interest,
         }),
       });

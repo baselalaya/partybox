@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useToast } from "@/hooks/use-toast";
 
 type BookingDialogProps = {
   boothTitle?: string;
@@ -29,6 +30,8 @@ export function BookingDialog({
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [noDateYet, setNoDateYet] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
 
   const steps = [
     { id: 1 as const, label: "Event basics" },
@@ -81,8 +84,43 @@ export function BookingDialog({
         </DialogHeader>
         <form
           className="mt-4 space-y-4"
-          action="/contact"
-          method="GET"
+          onSubmit={async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.currentTarget);
+            const data = {
+              name: formData.get('name') as string,
+              email: formData.get('email') as string,
+              phone: formData.get('phone') as string,
+              company: formData.get('eventType') as string, // Mapping eventType to company/context
+              message: `Date: ${formData.get('date') || 'No date yet'}\nEvent Type: ${formData.get('eventType')}\nMessage: ${formData.get('message')}`,
+              boothInterest: boothTitle || 'General Inquiry',
+            };
+
+            setLoading(true);
+            try {
+              const res = await fetch('/api/leads', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+              });
+
+              if (!res.ok) throw new Error('Failed to submit');
+
+              toast({
+                title: "Request Sent!",
+                description: "We'll get back to you shortly with availability.",
+              });
+              setOpen(false);
+            } catch (err) {
+              toast({
+                title: "Error",
+                description: "Something went wrong. Please try again.",
+                variant: "destructive",
+              });
+            } finally {
+              setLoading(false);
+            }
+          }}
         >
           {boothSlug && (
             <input type="hidden" name="booth" value={boothSlug} />
@@ -92,7 +130,7 @@ export function BookingDialog({
           )}
 
           {/* Step 1 – Event basics */}
-          {step === 1 && (
+          <div className={cn("space-y-4", step !== 1 && "hidden")}>
             <div className="space-y-4">
               <p className="text-sm font-medium text-slate-800">
                 First, when is your event and what kind of event is it?
@@ -137,10 +175,10 @@ export function BookingDialog({
                 </div>
               </div>
             </div>
-          )}
+          </div>
 
           {/* Step 2 – Event details */}
-          {step === 2 && (
+          <div className={cn("space-y-4", step !== 2 && "hidden")}>
             <div className="space-y-4">
               <p className="text-sm font-medium text-slate-800">
                 Great. Anything we should know about the brand, venue, or timings?
@@ -157,10 +195,10 @@ export function BookingDialog({
                 />
               </div>
             </div>
-          )}
+          </div>
 
           {/* Step 3 – Your contact */}
-          {step === 3 && (
+          <div className={cn("space-y-4", step !== 3 && "hidden")}>
             <div className="space-y-4">
               <p className="text-sm font-medium text-slate-800">
                 Finally, how can we reach you with availability and pricing?
@@ -201,7 +239,7 @@ export function BookingDialog({
                 />
               </div>
             </div>
-          )}
+          </div>
 
           <DialogFooter className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center">
             <p className="text-[11px] text-slate-500 sm:flex-1 sm:text-right">
@@ -214,6 +252,7 @@ export function BookingDialog({
                   variant="outline"
                   className="rounded-full border-slate-200 bg-white px-4 py-2 text-xs font-medium text-slate-700 shadow-sm hover:bg-slate-50"
                   onClick={() => setStep((prev) => (prev > 1 ? (prev - 1) as 1 | 2 | 3 : prev))}
+                  disabled={loading}
                 >
                   Back
                 </Button>
@@ -230,9 +269,10 @@ export function BookingDialog({
               {step === 3 && (
                 <Button
                   type="submit"
+                  disabled={loading}
                   className="rounded-full bg-gradient-to-r from-[#FF9F6E] to-[#FF6C8B] px-5 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg motion-safe:hover:scale-[1.02] transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 >
-                  Send booking request
+                  {loading ? 'Sending...' : 'Send booking request'}
                 </Button>
               )}
             </div>

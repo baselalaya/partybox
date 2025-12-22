@@ -24,8 +24,8 @@ const organizationSchema = {
     "contactType": "customer service"
   },
   "sameAs": [
-    "https://www.facebook.com/dubaibooths",
-    "https://www.instagram.com/dubaibooths"
+    "https://www.facebook.com/partyboxae",
+    "https://www.instagram.com/partyboxae"
   ]
 };
 
