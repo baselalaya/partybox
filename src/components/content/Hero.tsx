@@ -61,8 +61,7 @@ export default function Hero({
                 className="mt-4 max-w-xl text-sm md:text-base text-slate-700 animate-fade-in-up"
                 style={{ animationDelay: "240ms" }}
               >
-                Built for brands and agencies that want clean, reliable, brand-ready booths at
-                realistic budgets — not the weak experiences you see all over the UAE.
+                Built for brands and agencies across the UAE that want clean, reliable, brand-ready booths at realistic budgets.
               </p>
               <p
                 className="mt-4 inline-flex items-center gap-2 text-xs md:text-sm text-slate-800 animate-fade-in-up"
@@ -127,7 +126,7 @@ export default function Hero({
                       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_0,rgba(255,159,110,0.22),transparent_55%),radial-gradient(circle_at_90%_100%,rgba(79,139,255,0.22),transparent_55%)]" />
                       <div className="pointer-events-none absolute inset-0 rounded-[32px] border border-white/10 group-hover:border-white/25 transition-colors duration-300" />
                       {/* Bottom control bar */}
-                      <div className="pointer-events-none absolute inset-x-5 bottom-4 flex items-center justify-between text-[10px] text-slate-200/85">
+                      {/* <div className="pointer-events-none absolute inset-x-5 bottom-4 flex items-center justify-between text-[10px] text-slate-200/85">
                         <div className="flex items-center gap-3">
                           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm shadow-[0_6px_18px_rgba(0,0,0,0.45)]">
                             <span className="ml-0.5 border-y-4 border-l-8 border-y-transparent border-l-white" />
@@ -139,7 +138,7 @@ export default function Hero({
                         <span className="tabular-nums text-[10px] text-slate-300/90">
                           00:18 / 00:45
                         </span>
-                      </div>
+                      </div> */}
                     </>
                   ) : backgroundImage ? (
                     <>
@@ -160,7 +159,7 @@ export default function Hero({
                 {/* Overlapping tiles – stacked fading captions */}
                 <div className="pointer-events-none">
                   <div className="absolute bottom-0 left-1/2 w-[88%] max-w-sm -translate-x-1/2 sm:-bottom-6 md:-bottom-9">
-                    <div className="relative h-[100px] sm:h-[108px]">
+                    <div className="relative h-[50px] sm:h-[60px]">
                       {/* Card 1 */}
                       <div className="hero-caption-card hero-caption-card-1 flex items-center gap-3 rounded-[20px] border border-white/60 bg-white/80 backdrop-blur-md px-4 py-2.5 shadow-[0_12px_30px_rgba(0,0,0,0.12)]">
                         <div className="flex h-8 w-8 items-center justify-center rounded-2xl bg-[#FF9F6E]/10">
@@ -168,11 +167,9 @@ export default function Hero({
                         </div>
                         <div>
                           <p className="text-xs font-semibold tracking-tight text-slate-900">
-                            Brand-Matched AI Styles
+                            Reliable since 2015
                           </p>
-                          <p className="mt-1 text-[11px] text-slate-600">
-                            Characters, filters, and frames tuned precisely to your brand.
-                          </p>
+                          <p className="mt-1 text-[11px] text-slate-600">Built for stress-free activations.</p>
                         </div>
                       </div>
 
@@ -183,11 +180,9 @@ export default function Hero({
                         </div>
                         <div>
                           <p className="text-xs font-semibold tracking-tight text-slate-900">
-                            Intelligent Guest Experiences
+                            Realistic pricing
                           </p>
-                          <p className="mt-1 text-[11px] text-slate-600">
-                            Smart photo &amp; video features that elevate interaction &amp; engagement.
-                          </p>
+                          <p className="mt-1 text-[11px] text-slate-600">Straightforward budgets, no surprises.</p>
                         </div>
                       </div>
 
@@ -198,10 +193,10 @@ export default function Hero({
                         </div>
                         <div>
                           <p className="text-xs font-semibold tracking-tight text-slate-900">
-                            Built for Real Events
+                            Powerful AI, done right
                           </p>
                           <p className="mt-1 text-[11px] text-slate-600">
-                            Reliable hardware &amp; workflows designed for production timelines.
+                            Built for brand activations.
                           </p>
                         </div>
                       </div>

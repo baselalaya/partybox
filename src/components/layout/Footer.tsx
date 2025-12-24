@@ -58,7 +58,7 @@ export function Footer() {
             </div>
             <div className="flex flex-wrap gap-2 pt-3">
               <a
-                href="#"
+                href="https://www.instagram.com/partyboxuae/?hl=en"
                 className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-800 transition-colors hover:border-slate-300 hover:bg-slate-50"
               >
                 <Instagram className="h-4 w-4" />

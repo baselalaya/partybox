@@ -25,6 +25,7 @@ export const getAllBooths = async (): Promise<Booth[]> => {
             collection: 'booths',
             depth: 2,
             draft: false,
+            sort: 'sortOrder',
         })
 
         return docs.map((doc: any) => ({

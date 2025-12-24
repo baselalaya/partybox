@@ -30,6 +30,20 @@ export async function POST(req: NextRequest) {
             },
         });
 
+        console.log('----------------------------------------------------------');
+        console.log('📧  EMAIL DEBUG: Email Server Not Configured');
+        console.log('----------------------------------------------------------');
+        console.log(`To:      Admin <hello@partybox.ae>`);
+        console.log(`Subject: New Lead Generated`);
+        console.log(`From:    ${name} <${email}>`);
+        console.log(`Body:`);
+        console.log(`Name:    ${name}`);
+        console.log(`Email:   ${email}`);
+        console.log(`Phone:   ${phone}`);
+        console.log(`Company: ${company || 'N/A'}`);
+        console.log(`Message: \n${finalMessage}`);
+        console.log('----------------------------------------------------------');
+
         // 2. Send to MailerLite
         const ML_API_KEY = process.env.MAILERLITE_API_KEY;
         const ML_GROUP_ID = '174482523496121854';

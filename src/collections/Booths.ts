@@ -4,12 +4,21 @@ export const Booths: CollectionConfig = {
     slug: 'booths',
     admin: {
         useAsTitle: 'title',
-        defaultColumns: ['title', 'boothType', 'isFeatured', 'startingPrice'],
+        defaultColumns: ['title', 'boothType', 'sortOrder', 'isFeatured', 'startingPrice'],
+        defaultSort: 'sortOrder',
     },
     access: {
         read: () => true,
     },
     fields: [
+        {
+            name: 'sortOrder',
+            type: 'number',
+            defaultValue: 100,
+            admin: {
+                position: 'sidebar',
+            }
+        },
         {
             name: 'title',
             type: 'text',

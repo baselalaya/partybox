@@ -62,4 +62,3 @@ export function BoothListing({ booths }: BoothListingProps) {
     </>
   );
 }
-

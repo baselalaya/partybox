@@ -237,8 +237,7 @@ export default async function Home() {
             </div>
             <div className="flex flex-col items-center gap-4">
               <p className="max-w-2xl text-center text-xs md:text-sm text-slate-700">
-                Data-ready journeys, beautification, and social-first export settings come as standard
-                — ready for CRM, UTM tracking, and deeper integrations when you need them.
+                Tell us the AI look you want — we'll design styles, flows, and outputs around your guidelines, from photo journeys to data-ready exports.
               </p>
               <Button
                 asChild

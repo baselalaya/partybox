@@ -86,106 +86,160 @@ export default async function LiveCustomizationPage() {
               Professional-grade equipment and expert operators deliver flawless personalization in real-time.
             </p>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-            {/* Laser Engraving */}
-            <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white/90 shadow-md p-6 md:p-8 gap-4">
+
+            {/* 1. Fusion Print */}
+            <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white/90 shadow-md p-6 md:p-8 gap-4 transition-all duration-200 hover:shadow-lg">
               <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-slate-100">
                 <Image
-                  src="/images/live-laser-lipstick.jpg"
-                  alt="Laser Engraving"
+                  src="/images/fusion-print.jpg"
+                  alt="Fusion Print"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <h3 className="font-semibold text-slate-900 text-xl md:text-2xl">Laser Engraving</h3>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="font-semibold text-slate-900 text-xl md:text-2xl">Fusion Print</h3>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-slate-200 bg-slate-50 px-2 py-0.5 rounded-full">Instant. Personal.</span>
+                </div>
                 <p className="text-slate-700 text-sm md:text-base">
-                  Precision laser etching on metal, wood, leather, and glass. Permanent, elegant customization that elevates any product.
+                  Full-color personalization created live at your event. Photos, graphics, and branding are heat-fused onto select materials for a vibrant, durable finish within minutes.
                 </p>
               </div>
-              <ul className="text-xs text-slate-600 list-disc pl-4 space-y-0.5 mt-auto">
-                <li>Water bottles &amp; drinkware</li>
-                <li>Tech accessories</li>
-                <li>Leather goods</li>
-                <li>Corporate gifts</li>
-              </ul>
+              <div className="mt-auto pt-4 border-t border-slate-100">
+                <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Suitable for:</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Apparel", "Bags", "Stationery", "Drinkware", "Desk Accessories"].map((item) => (
+                    <span key={item} className="text-xs text-slate-600 bg-slate-100 px-2 py-1 rounded-md">{item}</span>
+                  ))}
+                  <span className="text-xs text-slate-600 bg-slate-100 px-2 py-1 rounded-md">Event Souvenirs</span>
+                </div>
+              </div>
             </div>
 
-            {/* Heat Transfer Printing */}
-            <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white/90 shadow-md p-6 md:p-8 gap-4">
+            {/* 2. Laser Etching */}
+            <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white/90 shadow-md p-6 md:p-8 gap-4 transition-all duration-200 hover:shadow-lg">
               <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-slate-100">
                 <Image
-                  src="/images/live-heat-transfer-new.jpg"
-                  alt="Heat Transfer Printing"
+                  src="/images/laser-etching.jpg"
+                  alt="Laser Etching"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <h3 className="font-semibold text-slate-900 text-xl md:text-2xl">Heat Transfer Printing</h3>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="font-semibold text-slate-900 text-xl md:text-2xl">Laser Etching</h3>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-slate-200 bg-slate-50 px-2 py-0.5 rounded-full">Clean. Precise.</span>
+                </div>
                 <p className="text-slate-700 text-sm md:text-base">
-                  Vibrant, full-color designs on apparel and fabric products. Fast turnaround with photo-quality results.
+                  Permanent engraving on wood, metal, bamboo, and more. A refined, tactile finish that elevates corporate gifting and premium event merchandise.
                 </p>
               </div>
-              <ul className="text-xs text-slate-600 list-disc pl-4 space-y-0.5 mt-auto">
-                <li>T-shirts &amp; hoodies</li>
-                <li>Tote bags</li>
-                <li>Caps &amp; headwear</li>
-                <li>Fabric accessories</li>
-              </ul>
+              <div className="mt-auto pt-4 border-t border-slate-100">
+                <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Suitable for:</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Wooden Gifts", "Tech Accessories", "Eco Merchandise", "Lifestyle Items"].map((item) => (
+                    <span key={item} className="text-xs text-slate-600 bg-slate-100 px-2 py-1 rounded-md">{item}</span>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            {/* Live Embroidery */}
-            <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white/90 shadow-md p-6 md:p-8 gap-4">
+            {/* 3. Hot Foil Stamping */}
+            <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white/90 shadow-md p-6 md:p-8 gap-4 transition-all duration-200 hover:shadow-lg">
               <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-slate-100">
                 <Image
-                  src="/images/live-embroidery-shirt.jpg"
-                  alt="Live Embroidery"
+                  src="/images/hot-foil.jpg"
+                  alt="Hot Foil Stamping"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <h3 className="font-semibold text-slate-900 text-xl md:text-2xl">Live Embroidery</h3>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="font-semibold text-slate-900 text-xl md:text-2xl">Hot Foil Stamping</h3>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-slate-200 bg-slate-50 px-2 py-0.5 rounded-full">Metallic. Elegant.</span>
+                </div>
                 <p className="text-slate-700 text-sm md:text-base">
-                  Premium stitched customization for a luxury feel. Perfect for corporate branding and high-end activations.
+                  Heat-applied foils create a shimmering, embossed-style imprint. Perfect for luxury experiences, VIP activations, and beautifully elevated keepsakes.
                 </p>
               </div>
-              <ul className="text-xs text-slate-600 list-disc pl-4 space-y-0.5 mt-auto">
-                <li>Baseball caps</li>
-                <li>Polo shirts</li>
-                <li>Jackets &amp; outerwear</li>
-                <li>Premium apparel</li>
-              </ul>
+              <div className="mt-auto pt-4 border-t border-slate-100">
+                <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Suitable for:</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Stationery", "Luxury Packaging", "Bags", "Premium Gifts", "Event Merchandise"].map((item) => (
+                    <span key={item} className="text-xs text-slate-600 bg-slate-100 px-2 py-1 rounded-md">{item}</span>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            {/* Custom Design Software */}
-            <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white/90 shadow-md p-6 md:p-8 gap-4">
+            {/* 4. Badge Making */}
+            <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white/90 shadow-md p-6 md:p-8 gap-4 transition-all duration-200 hover:shadow-lg">
               <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-slate-100">
                 <Image
-                  src="/images/custom-design.jpeg"
-                  alt="Custom Design Software"
+                  src="/images/badge.jpg"
+                  alt="Badge Making"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <h3 className="font-semibold text-slate-900 text-xl md:text-2xl">Custom Design Software</h3>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="font-semibold text-slate-900 text-xl md:text-2xl">Badge Making</h3>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-slate-200 bg-slate-50 px-2 py-0.5 rounded-full">Fun. Collectible.</span>
+                </div>
                 <p className="text-slate-700 text-sm md:text-base">
-                  Branded touchscreen kiosks with intuitive design interfaces. Guests create, preview, and approve their designs before production.
+                  Instant creation of personalized fridge magnets and pin badges using a live badge press. A highly interactive and memorable on-site experience.
                 </p>
               </div>
-              <ul className="text-xs text-slate-600 list-disc pl-4 space-y-0.5 mt-auto">
-                <li>Touchscreen design stations</li>
-                <li>Real-time preview</li>
-                <li>Order management</li>
-                <li>SMS notifications</li>
-              </ul>
+              <div className="mt-auto pt-4 border-t border-slate-100">
+                <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Suitable for:</p>
+                <div className="flex flex-wrap gap-2">
+                  {["Fridge Magnets", "Pin Badges", "Event Souvenirs", "Corporate Giveaways", "Festivals"].map((item) => (
+                    <span key={item} className="text-xs text-slate-600 bg-slate-100 px-2 py-1 rounded-md">{item}</span>
+                  ))}
+                </div>
+              </div>
             </div>
+
+            {/* 5. Bring Your Own Product (Spans 2) */}
+            <div className="relative flex flex-col md:flex-row md:col-span-2 rounded-2xl border border-slate-200 bg-white/90 shadow-md p-6 md:p-8 gap-6 md:items-center transition-all duration-200 hover:shadow-lg">
+              <div className="relative w-full md:w-1/3 aspect-[16/9] md:aspect-square rounded-xl overflow-hidden bg-slate-100 shrink-0">
+                <Image
+                  src="/images/byop.jpg"
+                  alt="Bring Your Own Product"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="flex flex-col gap-3 flex-grow">
+                <div className="flex flex-wrap items-center gap-3">
+                  <h3 className="font-semibold text-slate-900 text-xl md:text-2xl">Bring Your Own Product</h3>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-slate-200 bg-slate-50 px-2 py-0.5 rounded-full">Personalised. On the spot.</span>
+                </div>
+                <p className="text-slate-700 text-sm md:text-base">
+                  We also personalize client-supplied items. Simply share the product with us in advance, and we’ll assess which process - Fusion Print, Laser Etching, Hot Foil Stamping, or Badge Making can be safely applied on-site.
+                </p>
+                <div className="mt-2 pt-4 border-t border-slate-100">
+                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Suitable for:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {["Select Accessories", "Tech Items", "Packaging", "Lifestyle Goods", "Corporate Merchandise"].map((item) => (
+                      <span key={item} className="text-xs text-slate-600 bg-slate-100 px-2 py-1 rounded-md">{item}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </Container>
       </Section>
