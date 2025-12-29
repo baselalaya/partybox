@@ -155,7 +155,7 @@ export default async function Home() {
               AI Features
             </p>
             <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
-              AI built into every booth, not bolted on.
+              AI built into every photo, not bolted on.
             </h2>
             <p className="mt-4 text-sm md:text-base text-slate-700">
               Others treat AI as an add-on. With Partybox, AI-powered looks, characters, and
@@ -485,7 +485,7 @@ export default async function Home() {
                   variant="outline"
                   className="mt-2 rounded-full border border-slate-200 bg-white px-6 py-2.5 text-sm font-medium text-slate-900 hover:bg-slate-50 transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 >
-                  <a href="https://wa.me/97144488556" target="_blank">
+                  <a href="https://wa.me/971521955327" target="_blank">
                     Chat on WhatsApp
                   </a>
                 </Button>
@@ -496,9 +496,6 @@ export default async function Home() {
                   📞 +971 4 448 8556
                 </a>
               </div>
-              <p className="text-xs md:text-sm text-slate-600">
-                10+ Years Experience • 5K+ Activations • AI-First Tech
-              </p>
             </div>
           </div>
         </Container>

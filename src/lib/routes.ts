@@ -24,4 +24,5 @@ export const routes = {
   about: '/about',
   privacyPolicy: '/privacy-policy',
   termsOfService: '/terms-of-service',
+  thankYou: '/thank-you',
 };

@@ -205,12 +205,7 @@ export default function Hero({
                 </div>
               </div>
 
-              {/* Decorative shapes */}
-              <div className="pointer-events-none" aria-hidden="true">
-                <div className="absolute -right-20 bottom-4 h-40 w-40 rounded-full bg-gradient-to-br from-[#4F8BFF]/20 via-[#25C7C9]/15 to-transparent blur-2xl" />
-                <div className="absolute -left-10 top-10 h-28 w-28 rounded-[28px] border border-dashed border-[#FF9F6E]/45" />
-                <div className="absolute right-10 -top-6 h-8 w-8 rounded-full bg-[#FF6C8B]/25" />
-              </div>
+              {/* Decorative shapes removed */}
             </div>
           </div>
         </Container>

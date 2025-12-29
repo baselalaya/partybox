@@ -3,6 +3,7 @@ import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Toaster } from "@/components/ui/toaster"
+import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 import { cn } from '@/lib/utils';
 import { generateSeoMetadata } from '@/lib/seo';
 import { Inter } from 'next/font/google';
@@ -41,6 +42,7 @@ export default function RootLayout({
         {/* Chatbot widget placeholder */}
         <div id="partybox-chatbot-root" data-source="partybox-marketing" />
         <Toaster />
+        <WhatsAppFloat />
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Instagram, Facebook } from "lucide-react";
+import { Instagram, Facebook, Youtube } from "lucide-react";
 import { routes } from "@/lib/routes";
 import Container from "./Container";
 
@@ -71,6 +71,15 @@ export function Footer() {
                 <Facebook className="h-4 w-4" />
                 <span>Facebook</span>
               </a>
+              <a
+                href="https://www.youtube.com/channel/UCcQO558crfsFZzU2tg3iJhQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-800 transition-colors hover:border-slate-300 hover:bg-slate-50"
+              >
+                <Youtube className="h-4 w-4" />
+                <span>YouTube</span>
+              </a>
             </div>
           </div>
 
@@ -98,7 +107,7 @@ export function Footer() {
         </div>
         <div className="mt-8 border-t border-slate-200 pt-6 text-center text-xs text-slate-500">
           <p>
-            &copy; {new Date().getFullYear()} Party Box. All rights reserved.
+            &copy; 2025 PartyBox • 10+ Years Experience • 5K+ Activations • AI-First Tech • Available for bookings • Made with ❤️ in Dubai.
           </p>
         </div>
       </Container>

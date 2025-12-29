@@ -53,11 +53,11 @@ export function GalleryTeaserWaterfall({ images }: { images: ImageType[] }) {
             className="flex flex-col gap-5"
             style={{ flex: `0 0 ${layout.columnWidth}px`, width: layout.columnWidth }}
           >
-            {column.map((image) => {
+            {column.map((image, imageIndexInColumn) => {
               const isLandscape = image.width >= image.height;
               return (
                 <div
-                  key={`${image.src}-${columnIndex}`}
+                  key={`${image.src}-${columnIndex}-${imageIndexInColumn}`}
                   className="overflow-hidden rounded-[30px] border border-white/60 bg-white shadow-[0_25px_60px_rgba(0,0,0,0.12)]"
                 >
                   <div

@@ -91,7 +91,7 @@ export default async function LiveCustomizationPage() {
 
             {/* 1. Fusion Print */}
             <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white/90 shadow-md p-6 md:p-8 gap-4 transition-all duration-200 hover:shadow-lg">
-              <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-slate-100">
+              <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-100">
                 <Image
                   src="/images/fusion-print.jpg"
                   alt="Fusion Print"
@@ -103,7 +103,7 @@ export default async function LiveCustomizationPage() {
               <div className="flex flex-col gap-2">
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="font-semibold text-slate-900 text-xl md:text-2xl">Fusion Print</h3>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-slate-200 bg-slate-50 px-2 py-0.5 rounded-full">Instant. Personal.</span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 border border-slate-200 bg-slate-50 px-2 py-0.5 rounded-full">Vivid. Instant.</span>
                 </div>
                 <p className="text-slate-700 text-sm md:text-base">
                   Full-color personalization created live at your event. Photos, graphics, and branding are heat-fused onto select materials for a vibrant, durable finish within minutes.
@@ -122,7 +122,7 @@ export default async function LiveCustomizationPage() {
 
             {/* 2. Laser Etching */}
             <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white/90 shadow-md p-6 md:p-8 gap-4 transition-all duration-200 hover:shadow-lg">
-              <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-slate-100">
+              <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-100">
                 <Image
                   src="/images/laser-etching.jpg"
                   alt="Laser Etching"
@@ -152,7 +152,7 @@ export default async function LiveCustomizationPage() {
 
             {/* 3. Hot Foil Stamping */}
             <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white/90 shadow-md p-6 md:p-8 gap-4 transition-all duration-200 hover:shadow-lg">
-              <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-slate-100">
+              <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-100">
                 <Image
                   src="/images/hot-foil.jpg"
                   alt="Hot Foil Stamping"
@@ -182,7 +182,7 @@ export default async function LiveCustomizationPage() {
 
             {/* 4. Badge Making */}
             <div className="relative flex flex-col rounded-2xl border border-slate-200 bg-white/90 shadow-md p-6 md:p-8 gap-4 transition-all duration-200 hover:shadow-lg">
-              <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-slate-100">
+              <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-100">
                 <Image
                   src="/images/badge.jpg"
                   alt="Badge Making"
@@ -212,7 +212,7 @@ export default async function LiveCustomizationPage() {
 
             {/* 5. Bring Your Own Product (Spans 2) */}
             <div className="relative flex flex-col md:flex-row md:col-span-2 rounded-2xl border border-slate-200 bg-white/90 shadow-md p-6 md:p-8 gap-6 md:items-center transition-all duration-200 hover:shadow-lg">
-              <div className="relative w-full md:w-1/3 aspect-[16/9] md:aspect-square rounded-xl overflow-hidden bg-slate-100 shrink-0">
+              <div className="relative w-full md:w-1/3 aspect-[4/5] md:aspect-square rounded-xl overflow-hidden bg-slate-100 shrink-0">
                 <Image
                   src="/images/byop.jpg"
                   alt="Bring Your Own Product"
@@ -269,15 +269,15 @@ export default async function LiveCustomizationPage() {
       </Section>
 
       {/* Final CTA */}
-      <Section id="final-cta" className="bg-gradient-to-b from-[#FFF6EC] via-white to-[#FFF6EC] py-12 md:py-16">
+      <Section id="final-cta" className="bg-gradient-to-b from-[#FFF6EC] via-white to-[#FFF6EC]">
         <Container className="max-w-3xl mx-auto">
-          <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-slate-200/70 bg-white/95 px-6 py-8 md:px-10 md:py-10 shadow-[0_24px_70px_rgba(255,153,113,0.25)] backdrop-blur-sm">
-            <div className="relative space-y-5 text-center">
-              <div className="space-y-3">
-                <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
+          <div className="relative overflow-hidden rounded-[32px] border border-slate-200/70 bg-white/95 px-6 py-8 md:px-10 md:py-10 shadow-[0_24px_70px_rgba(255,153,113,0.32)] backdrop-blur-sm">
+            <div className="relative space-y-6 text-center">
+              <div>
+                <h2 className="mt-3 text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
                   Ready to make your brand stand out?
                 </h2>
-                <p className="text-sm md:text-base text-slate-700">
+                <p className="mt-4 text-sm md:text-base text-slate-700">
                   High-value solutions within your budget. Let&apos;s create something amazing together.
                 </p>
               </div>
@@ -285,30 +285,29 @@ export default async function LiveCustomizationPage() {
                 <Button
                   asChild
                   size="lg"
-                  className="rounded-full bg-gradient-to-r from-[#FF9F6E] to-[#FF6C8B] px-6 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg motion-safe:hover:scale-[1.02] transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  className="mt-2 rounded-full bg-gradient-to-r from-[#FF9F6E] to-[#FF6C8B] px-6 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg motion-safe:hover:scale-[1.02] transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 >
-                  <a href={routes.contact}>Get In Touch</a>
+                  <a href="/contact">
+                    Get In Touch
+                  </a>
                 </Button>
                 <Button
                   asChild
                   size="lg"
                   variant="outline"
-                  className="rounded-full border border-slate-200 bg-white px-6 py-2.5 text-sm font-medium text-slate-900 hover:bg-slate-50 transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  className="mt-2 rounded-full border border-slate-200 bg-white px-6 py-2.5 text-sm font-medium text-slate-900 hover:bg-slate-50 transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 >
-                  <a href="https://wa.me/97144488556" target="_blank">
+                  <a href="https://wa.me/971521955327" target="_blank">
                     Chat on WhatsApp
                   </a>
                 </Button>
                 <a
                   href="tel:+97144488556"
-                  className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-900 hover:bg-slate-50 transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  className="mt-2 inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-900 hover:bg-slate-50 transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 >
                   📞 +971 4 448 8556
                 </a>
               </div>
-              <p className="text-xs md:text-sm text-slate-600 pt-1">
-                10+ Years Experience • 5K+ Activations • AI-First Tech
-              </p>
             </div>
           </div>
         </Container>

@@ -1,6 +1,6 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
-import type { Booth, Image, Post } from '@/types'
+import type { Booth, Image, Post, Concept } from '@/types'
 
 // Helper to map Payload Media to our Image type
 const mapImage = (media: any): Image => {
@@ -25,7 +25,6 @@ export const getAllBooths = async (): Promise<Booth[]> => {
             collection: 'booths',
             depth: 2,
             draft: false,
-            sort: 'sortOrder',
         })
 
         return docs.map((doc: any) => ({
@@ -233,3 +232,60 @@ export const getGalleryImages = async (limit = 20): Promise<{ src: string, width
 }
 
 
+export const getAllConcepts = async (): Promise<Concept[]> => {
+    try {
+        const payload = await getPayloadClient()
+        const { docs } = await payload.find({
+            collection: 'concepts',
+            depth: 2,
+            draft: false,
+        })
+
+        return docs.map((doc: any) => ({
+            id: doc.id as number,
+            slug: doc.slug,
+            title: doc.title,
+            content: doc.content,
+            seo: {
+                title: doc.seo?.title || doc.title,
+                metaDescription: doc.seo?.description || '',
+                ogImage: doc.seo?.image ? mapImage(doc.seo.image).url : undefined
+            }
+        }))
+    } catch (error) {
+        console.error('Error in getAllConcepts:', error)
+        return []
+    }
+}
+
+export const getConceptBySlug = async (slug: string): Promise<Concept | null> => {
+    try {
+        const payload = await getPayloadClient()
+        const { docs } = await payload.find({
+            collection: 'concepts',
+            where: {
+                slug: { equals: slug },
+            },
+            limit: 1,
+            depth: 2,
+        })
+
+        if (!docs[0]) return null
+        const doc: any = docs[0]
+
+        return {
+            id: doc.id as number,
+            slug: doc.slug,
+            title: doc.title,
+            content: doc.content,
+            seo: {
+                title: doc.seo?.title || doc.title,
+                metaDescription: doc.seo?.description || '',
+                ogImage: doc.seo?.image ? mapImage(doc.seo.image).url : undefined
+            }
+        }
+    } catch (error) {
+        console.error('Error in getConceptBySlug:', error)
+        return null
+    }
+}

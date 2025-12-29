@@ -6,7 +6,7 @@ export type SEO = {
   focusKeyword?: string;
   ogImage?: string;
   // JSON string for structured data
-  schema?: string; 
+  schema?: string;
 };
 
 export type Image = {
@@ -73,7 +73,7 @@ export type Page = {
   heroSubtitle?: string;
   heroImage?: Image;
   // Assuming flexible content sections from ACF
-  sections?: any[]; 
+  sections?: any[];
   seo: SEO;
 };
 
@@ -101,3 +101,12 @@ export type PricingTier = {
   boothType: string;
   packages: Package[];
 };
+
+export type Concept = {
+  id: number;
+  slug: string;
+  title: string;
+  content: any; // Lexical RichText JSON
+  seo: SEO;
+};
+

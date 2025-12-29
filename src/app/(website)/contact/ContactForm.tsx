@@ -12,7 +12,8 @@ import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent } from '@/components/ui/card';
 import { Phone, Mail, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
+import { routes } from '@/lib/routes';
 
 const formSchema = z.object({
   fullName: z.string().min(2, { message: "Full name must be at least 2 characters." }),
@@ -28,6 +29,7 @@ const formSchema = z.object({
 
 export default function ContactForm() {
   const { toast } = useToast();
+  const router = useRouter();
   const searchParams = useSearchParams();
   const booth = searchParams.get('booth') ?? '';
   const boothTitle = searchParams.get('boothTitle') ?? '';
@@ -90,11 +92,9 @@ export default function ContactForm() {
         throw new Error('Failed to submit');
       }
 
-      toast({
-        title: "Message Sent!",
-        description: "Thanks for reaching out. We'll get back to you shortly.",
-      });
       form.reset();
+      router.push(routes.thankYou);
+
     } catch (error) {
       toast({
         title: "Error",
@@ -243,7 +243,7 @@ export default function ContactForm() {
         <h2 className="mb-4 text-2xl font-semibold text-slate-900">Other Ways to Reach Us</h2>
         <Card className="rounded-[20px] border border-slate-200/80 bg-white shadow-sm">
           <CardContent className="space-y-4 p-6">
-            <Link href="https://wa.me/97144488556" target="_blank" className="group flex items-center gap-4">
+            <Link href="https://wa.me/971521955327" target="_blank" className="group flex items-center gap-4">
               <MessageCircle className="h-6 w-6 text-[#FF6C8B]" />
               <div>
                 <p className="font-semibold text-slate-900 group-hover:text-[#FF6C8B]">WhatsApp</p>
@@ -251,7 +251,7 @@ export default function ContactForm() {
               </div>
             </Link>
             <div className="border-t" />
-            <Link href="tel:+97144488556" target="_blank" className="group flex items-center gap-4">
+            <Link href="tel:+971521955327" target="_blank" className="group flex items-center gap-4">
               <Phone className="h-6 w-6 text-[#FF6C8B]" />
               <div>
                 <p className="font-semibold text-slate-900 group-hover:text-[#FF6C8B]">Phone</p>

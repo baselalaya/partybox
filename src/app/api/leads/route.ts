@@ -94,6 +94,44 @@ export async function POST(req: NextRequest) {
             }
         }
 
+        // 3. Send to Google Sheets (via Webhook)
+        const GOOGLE_SHEETS_WEBHOOK_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+
+        if (GOOGLE_SHEETS_WEBHOOK_URL) {
+            try {
+                console.log('--- Google Sheets: Sending Request ---');
+                const sheetsPayload = {
+                    date: new Date().toISOString(),
+                    name,
+                    email,
+                    phone: phone || '',
+                    company: company || '',
+                    boothInterest: boothInterest || '',
+                    message: finalMessage || ''
+                };
+
+                // Add timeout to prevent hanging
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+                try {
+                    await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(sheetsPayload),
+                        signal: controller.signal,
+                    });
+                    console.log('--- Google Sheets: Request Sent ---');
+                } finally {
+                    clearTimeout(timeoutId);
+                }
+            } catch (e) {
+                console.error('Google Sheets Connection Error:', e);
+            }
+        }
+
         return NextResponse.json({ success: true }, { status: 201 });
     } catch (error) {
         console.error('Lead Submission Error:', error);
