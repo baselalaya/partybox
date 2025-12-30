@@ -19,8 +19,9 @@ const formSchema = z.object({
   fullName: z.string().min(2, { message: "Full name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email." }),
   phoneNumber: z.string().min(4, { message: "Please add your phone number." }),
-  company: z.string().optional(),
+
   interest: z.string().optional(),
+  eventDate: z.string().optional(),
   eventDetails: z.string().min(6, { message: "Please tell us a bit about your event." }),
   booth: z.string().optional(),
   boothTitle: z.string().optional(),
@@ -46,7 +47,8 @@ export default function ContactForm() {
       fullName: "",
       email: "",
       phoneNumber: "",
-      company: "",
+
+      eventDate: "",
       interest: booth ? "photo" : "",
       eventDetails: boothTitle
         ? `Interested in ${boothTitle}. Please share availability and options for this booth.\n\nEvent details:`
@@ -82,7 +84,8 @@ export default function ContactForm() {
           name: values.fullName,
           email: values.email,
           phone: values.phoneNumber,
-          company: values.company,
+
+          eventDate: values.eventDate,
           message: `Interest: ${values.interest || 'N/A'}\n\n${values.eventDetails}`,
           boothInterest: values.boothTitle || values.interest,
         }),
@@ -156,7 +159,21 @@ export default function ContactForm() {
                 )}
               />
             </div>
+
             <div className="grid md:grid-cols-2 gap-6">
+              <FormField
+                control={form.control}
+                name="eventDate"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Event Date</FormLabel>
+                    <FormControl>
+                      <Input type="date" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               <FormField
                 control={form.control}
                 name="phoneNumber"
@@ -170,20 +187,8 @@ export default function ContactForm() {
                   </FormItem>
                 )}
               />
-              <FormField
-                control={form.control}
-                name="company"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Company</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Your company" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
             </div>
+
             <FormField
               control={form.control}
               name="interest"
@@ -228,9 +233,10 @@ export default function ContactForm() {
               <Button
                 type="submit"
                 size="lg"
+                disabled={form.formState.isSubmitting}
                 className="rounded-full bg-gradient-to-r from-[#FF9F6E] to-[#FF6C8B] px-6 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg motion-safe:hover:scale-[1.02] transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
               >
-                Send Message
+                {form.formState.isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
               <p className="text-[11px] text-slate-500">
                 We typically reply within one business day.
@@ -247,7 +253,7 @@ export default function ContactForm() {
               <MessageCircle className="h-6 w-6 text-[#FF6C8B]" />
               <div>
                 <p className="font-semibold text-slate-900 group-hover:text-[#FF6C8B]">WhatsApp</p>
-                <p className="text-sm text-slate-500">+971 4 448 8556</p>
+                <p className="text-sm text-slate-500">+971 52 195 5327</p>
               </div>
             </Link>
             <div className="border-t" />
@@ -269,6 +275,6 @@ export default function ContactForm() {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </div >
   );
 }

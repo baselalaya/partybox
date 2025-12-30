@@ -49,14 +49,10 @@ export default async function ConceptPage({ params }: { params: Promise<{ slug: 
     return (
         <Section className="py-20 bg-white">
             <Container className="max-w-4xl mx-auto">
-                <h1 className="text-4xl md:text-5xl font-bold mb-8 text-slate-900">{concept.title}</h1>
-
-                <div className="prose prose-lg prose-slate max-w-none">
-                    {/* Render Lexical Rich Text */}
-                    {concept.content && (
-                        <RichText data={concept.content} />
-                    )}
-                </div>
+                <div
+                    className="prose prose-lg prose-slate max-w-none"
+                    dangerouslySetInnerHTML={{ __html: concept.content }}
+                />
             </Container>
         </Section>
     );

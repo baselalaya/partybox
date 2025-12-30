@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
-        const { name, email, phone, message, boothInterest, company } = body;
+        const { name, email, phone, message, boothInterest, company, eventDate } = body;
 
         if (!email || !name) {
             return NextResponse.json({ error: 'Name and Email are required' }, { status: 400 });
@@ -17,6 +17,7 @@ export async function POST(req: NextRequest) {
 
         // Combine extra info into message if needed
         let finalMessage = message;
+        if (eventDate) finalMessage = `Event Date: ${eventDate}\n${finalMessage}`;
         if (company) finalMessage = `Company: ${company}\n${finalMessage}`;
 
         await payload.create({
@@ -40,6 +41,7 @@ export async function POST(req: NextRequest) {
         console.log(`Name:    ${name}`);
         console.log(`Email:   ${email}`);
         console.log(`Phone:   ${phone}`);
+        console.log(`Date:    ${eventDate || 'N/A'}`);
         console.log(`Company: ${company || 'N/A'}`);
         console.log(`Message: \n${finalMessage}`);
         console.log('----------------------------------------------------------');
@@ -106,6 +108,7 @@ export async function POST(req: NextRequest) {
                     email,
                     phone: phone || '',
                     company: company || '',
+                    eventDate: eventDate || '',
                     boothInterest: boothInterest || '',
                     message: finalMessage || ''
                 };

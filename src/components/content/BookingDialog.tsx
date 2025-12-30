@@ -74,6 +74,7 @@ export function BookingDialog({
               name: formData.get('name') as string,
               email: formData.get('email') as string,
               phone: formData.get('phone') as string,
+              eventDate: formData.get('eventDate') as string,
               message: formData.get('message') as string,
               boothInterest: boothTitle || 'General Inquiry',
             };
@@ -145,6 +146,18 @@ export function BookingDialog({
                 name="phone"
                 required
                 placeholder="+971 50 000 0000"
+                className="w-full rounded-full border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-offset-0 transition focus:border-slate-300 focus:ring-2 focus:ring-[#FF9F6E]/50"
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-medium uppercase tracking-[0.16em] text-slate-600">
+                Event Date
+              </label>
+              <input
+                type="date"
+                name="eventDate"
+                required
                 className="w-full rounded-full border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-offset-0 transition focus:border-slate-300 focus:ring-2 focus:ring-[#FF9F6E]/50"
               />
             </div>

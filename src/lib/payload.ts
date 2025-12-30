@@ -212,6 +212,7 @@ export const getGalleryImages = async (limit = 20): Promise<{ src: string, width
             where: {
                 featured: { equals: true }
             },
+            sort: '-createdAt',
             depth: 2,
         })
 

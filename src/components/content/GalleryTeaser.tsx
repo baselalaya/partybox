@@ -1,17 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
-const getLayout = (width: number) => {
-  if (width >= 1024) {
-    return { columns: 3, columnWidth: 230 };
-  }
-  if (width >= 768) {
-    return { columns: 2, columnWidth: 220 };
-  }
-
-  return { columns: 1, columnWidth: 320 };
-};
 
 type ImageType = {
   src: string;
@@ -22,79 +11,75 @@ type ImageType = {
 }
 
 export function GalleryTeaserWaterfall({ images }: { images: ImageType[] }) {
-  const [layout, setLayout] = useState(getLayout(1024));
+  if (!images || images.length === 0) return null;
 
-  useEffect(() => {
-    const handleResize = () => setLayout(getLayout(window.innerWidth));
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const columns = useMemo(
-    () =>
-      Array.from({ length: layout.columns }, (_, columnIndex) =>
-        images.filter((_, imageIndex) => imageIndex % layout.columns === columnIndex)
-      ),
-    [layout.columns, images]
-  );
-
-  const duplicatedColumns = [...columns, ...columns];
+  // Create a seamless loop by duplicating the images
+  // We assume the total width of images is greater than the viewport
+  const loopItems = [...images, ...images];
 
   return (
-    <div className="relative h-[90vh] max-h-[90vh] overflow-hidden rounded-[32px] border border-white/30 bg-[#f5f5f7] shadow-[0_35px_70px_rgba(15,23,42,0.15)]">
+    <div className="group relative flex w-full flex-col overflow-hidden">
+
+      {/* Marquee Track */}
       <div
-        className="gallery-scroll flex min-w-[max-content] gap-5 px-4 py-8"
-        style={{ minWidth: `${layout.columns * layout.columnWidth * 2}px` }}
+        className="flex w-max animate-marquee items-center gap-4 hover:[animation-play-state:paused]"
+        style={{
+          // Inline style fallback if custom CSS not loaded
+          animation: 'marquee 60s linear infinite'
+        }}
       >
-        {duplicatedColumns.map((column, columnIndex) => (
-          <div
-            key={`col-${columnIndex}`}
-            className="flex flex-col gap-5"
-            style={{ flex: `0 0 ${layout.columnWidth}px`, width: layout.columnWidth }}
-          >
-            {column.map((image, imageIndexInColumn) => {
-              const isLandscape = image.width >= image.height;
-              return (
-                <div
-                  key={`${image.src}-${columnIndex}-${imageIndexInColumn}`}
-                  className="overflow-hidden rounded-[30px] border border-white/60 bg-white shadow-[0_25px_60px_rgba(0,0,0,0.12)]"
-                >
-                  <div
-                    className="relative w-full"
-                    style={{
-                      aspectRatio: `${image.width} / ${image.height}`,
-                      minHeight: isLandscape ? "140px" : "220px",
-                    }}
-                  >
-                    {image.type === 'video' ? (
-                      <video
-                        src={image.src}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="object-cover w-full h-full pointer-events-none"
-                      />
-                    ) : (
-                      <Image
-                        src={image.src}
-                        alt={image.alt}
-                        fill
-                        quality={65}
-                        loading="lazy"
-                        decoding="async"
-                        sizes="(max-width: 768px) 45vw, (max-width: 1200px) 22vw, 24vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        ))}
+        {loopItems.map((image, index) => {
+          const hasAspectRatio = image.width && image.height;
+          // Use 350px height as base for the row
+          const height = 350;
+          const width = hasAspectRatio ? (image.width / image.height) * height : 350;
+
+          return (
+            <div
+              key={`${image.src}-${index}`}
+              className="relative flex-shrink-0 overflow-hidden rounded-[20px] bg-slate-100 shadow-sm transition-opacity duration-300"
+              style={{
+                height: `${height}px`,
+                width: `${width}px`,
+              }}
+            >
+              {image.type === 'video' ? (
+                <video
+                  src={image.src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <Image
+                  src={image.src}
+                  alt={image.alt || 'Gallery Project'}
+                  fill
+                  sizes="500px"
+                  className="object-cover"
+                />
+              )}
+
+              {/* Optional: Hover overlay provided by group-hover on container? 
+                        Maybe simple hover effect on item itself.
+                    */}
+              <div className="absolute inset-0 bg-black/0 transition-colors duration-300 hover:bg-black/10" />
+            </div>
+          )
+        })}
       </div>
+
+      <style jsx global>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 60s linear infinite;
+        }
+      `}</style>
     </div>
   );
 }

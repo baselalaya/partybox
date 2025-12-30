@@ -23,16 +23,25 @@ export const Concepts: CollectionConfig = {
             index: true,
             admin: {
                 position: 'sidebar',
+                components: {
+                    Field: '@/components/cms/SlugField#SlugField',
+                },
             },
             hooks: {
                 beforeValidate: [
                     ({ value, data }) => {
-                        if (!value && data?.title) {
-                            return data.title
+                        // If a value is provided (custom slug), format it.
+                        // If no value is provided, fallback to formatting the title.
+                        const source = value || data?.title;
+
+                        if (source) {
+                            return source
                                 .toLowerCase()
+                                .trim()
                                 .replace(/ /g, '-')
                                 .replace(/[^\w-]+/g, '');
                         }
+
                         return value;
                     },
                 ],
@@ -40,8 +49,12 @@ export const Concepts: CollectionConfig = {
         },
         {
             name: 'content',
-            type: 'richText', // Using Lexical editor by default in Payload 3.0, allows HTML output
-            label: 'Page Content',
+            type: 'code',
+            admin: {
+                language: 'html',
+                description: 'Enter raw HTML here. Use standard Tailwind classes. Do NOT include <html>, <head>, or <body> tags. The content is already wrapped in a standard container.',
+            },
+            label: 'Page Content (HTML)',
             required: true,
         },
         {
