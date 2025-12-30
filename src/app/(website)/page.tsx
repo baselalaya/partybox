@@ -155,7 +155,7 @@ export default async function Home() {
               AI Features
             </p>
             <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
-              AI built into every photo, not bolted on.
+              AI built into every photo booth, not bolted on.
             </h2>
             <p className="mt-4 text-sm md:text-base text-slate-700">
               Others treat AI as an add-on. With Partybox, AI-powered looks, characters, and

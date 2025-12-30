@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from 'react-hook-form';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, Suspense } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Button } from '@/components/ui/button';
@@ -28,7 +28,11 @@ const formSchema = z.object({
   honeypot: z.string().optional(),
 });
 
-export default function ContactForm() {
+// ... (imports remain)
+
+// ... (formSchema remains)
+
+function ContactFormContent() {
   const { toast } = useToast();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -281,5 +285,13 @@ export default function ContactForm() {
         </Card>
       </div>
     </div >
+  );
+}
+
+export default function ContactForm() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center text-sm text-slate-500">Loading form...</div>}>
+      <ContactFormContent />
+    </Suspense>
   );
 }

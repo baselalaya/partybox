@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   Dialog,
@@ -23,6 +23,150 @@ type BookingDialogProps = {
   triggerClassName?: string;
 };
 
+type BookingFormProps = {
+  boothTitle?: string;
+  boothSlug?: string;
+  setOpen: (open: boolean) => void;
+};
+
+function BookingForm({ boothTitle, boothSlug, setOpen }: BookingFormProps) {
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  return (
+    <form
+      className="mt-6 space-y-4"
+      onSubmit={async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const data = {
+          name: formData.get('name') as string,
+          email: formData.get('email') as string,
+          phone: formData.get('phone') as string,
+          eventDate: formData.get('eventDate') as string,
+          message: formData.get('message') as string,
+          boothInterest: boothTitle || 'General Inquiry',
+          utm_source: searchParams.get('utm_source') || '',
+          utm_medium: searchParams.get('utm_medium') || '',
+          utm_campaign: searchParams.get('utm_campaign') || '',
+          utm_term: searchParams.get('utm_term') || '',
+          utm_content: searchParams.get('utm_content') || '',
+        };
+
+        setLoading(true);
+        try {
+          const res = await fetch('/api/leads', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          });
+
+          if (!res.ok) throw new Error('Failed to submit');
+
+          setOpen(false);
+          router.push(routes.thankYou);
+
+        } catch (err) {
+          toast({
+            title: "Error",
+            description: "Something went wrong. Please try again.",
+            variant: "destructive",
+          });
+        } finally {
+          setLoading(false);
+        }
+      }}
+    >
+      {boothSlug && (
+        <input type="hidden" name="booth" value={boothSlug} />
+      )}
+      {boothTitle && (
+        <input type="hidden" name="boothTitle" value={boothTitle} />
+      )}
+
+      <div className="space-y-4">
+        <div className="grid gap-3 md:grid-cols-2">
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium uppercase tracking-[0.16em] text-slate-600">
+              Full Name
+            </label>
+            <input
+              name="name"
+              required
+              placeholder="Your full name"
+              className="w-full rounded-full border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-offset-0 transition focus:border-slate-300 focus:ring-2 focus:ring-[#FF9F6E]/50"
+            />
+          </div>
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium uppercase tracking-[0.16em] text-slate-600">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="name@example.com"
+              className="w-full rounded-full border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-offset-0 transition focus:border-slate-300 focus:ring-2 focus:ring-[#FF9F6E]/50"
+            />
+          </div>
+        </div>
+
+        <div className="space-y-1.5">
+          <label className="text-xs font-medium uppercase tracking-[0.16em] text-slate-600">
+            Mobile
+          </label>
+          <input
+            type="tel"
+            name="phone"
+            required
+            placeholder="+971 50 000 0000"
+            className="w-full rounded-full border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-offset-0 transition focus:border-slate-300 focus:ring-2 focus:ring-[#FF9F6E]/50"
+          />
+        </div>
+
+        <div className="space-y-1.5">
+          <label className="text-xs font-medium uppercase tracking-[0.16em] text-slate-600">
+            Event Date
+          </label>
+          <input
+            type="date"
+            name="eventDate"
+            required
+            className="w-full rounded-full border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-offset-0 transition focus:border-slate-300 focus:ring-2 focus:ring-[#FF9F6E]/50"
+          />
+        </div>
+
+        <div className="space-y-1.5">
+          <label className="text-xs font-medium uppercase tracking-[0.16em] text-slate-600">
+            Idea / Notes
+          </label>
+          <textarea
+            name="message"
+            rows={4}
+            className="w-full rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-offset-0 transition focus:border-slate-300 focus:ring-2 focus:ring-[#FF9F6E]/50"
+            placeholder="Share your event idea, date, or any specific requirements..."
+          />
+        </div>
+      </div>
+
+      <DialogFooter className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <p className="text-[11px] text-slate-500 sm:flex-1 sm:text-right">
+          We usually reply within 24 hours.
+        </p>
+        <Button
+          type="submit"
+          disabled={loading}
+          className="rounded-full bg-gradient-to-r from-[#FF9F6E] to-[#FF6C8B] px-6 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg motion-safe:hover:scale-[1.02] transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
+        >
+          {loading ? 'Sending...' : 'Send Request'}
+        </Button>
+      </DialogFooter>
+    </form>
+  );
+}
+
 export function BookingDialog({
   boothTitle,
   boothSlug,
@@ -30,10 +174,6 @@ export function BookingDialog({
   triggerClassName,
 }: BookingDialogProps) {
   const [open, setOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const { toast } = useToast();
-  const router = useRouter();
-  const searchParams = useSearchParams();
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -66,134 +206,13 @@ export function BookingDialog({
             </div>
           )}
         </DialogHeader>
-        <form
-          className="mt-6 space-y-4"
-          onSubmit={async (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.currentTarget);
-            const data = {
-              name: formData.get('name') as string,
-              email: formData.get('email') as string,
-              phone: formData.get('phone') as string,
-              eventDate: formData.get('eventDate') as string,
-              message: formData.get('message') as string,
-              boothInterest: boothTitle || 'General Inquiry',
-              utm_source: searchParams.get('utm_source') || '',
-              utm_medium: searchParams.get('utm_medium') || '',
-              utm_campaign: searchParams.get('utm_campaign') || '',
-              utm_term: searchParams.get('utm_term') || '',
-              utm_content: searchParams.get('utm_content') || '',
-            };
-
-            setLoading(true);
-            try {
-              const res = await fetch('/api/leads', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
-              });
-
-              if (!res.ok) throw new Error('Failed to submit');
-
-              setOpen(false);
-              router.push(routes.thankYou);
-
-            } catch (err) {
-              toast({
-                title: "Error",
-                description: "Something went wrong. Please try again.",
-                variant: "destructive",
-              });
-            } finally {
-              setLoading(false);
-            }
-          }}
-        >
-          {boothSlug && (
-            <input type="hidden" name="booth" value={boothSlug} />
-          )}
-          {boothTitle && (
-            <input type="hidden" name="boothTitle" value={boothTitle} />
-          )}
-
-          <div className="space-y-4">
-            <div className="grid gap-3 md:grid-cols-2">
-              <div className="space-y-1.5">
-                <label className="text-xs font-medium uppercase tracking-[0.16em] text-slate-600">
-                  Full Name
-                </label>
-                <input
-                  name="name"
-                  required
-                  placeholder="Your full name"
-                  className="w-full rounded-full border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-offset-0 transition focus:border-slate-300 focus:ring-2 focus:ring-[#FF9F6E]/50"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-xs font-medium uppercase tracking-[0.16em] text-slate-600">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="name@example.com"
-                  className="w-full rounded-full border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-offset-0 transition focus:border-slate-300 focus:ring-2 focus:ring-[#FF9F6E]/50"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-xs font-medium uppercase tracking-[0.16em] text-slate-600">
-                Mobile
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                required
-                placeholder="+971 50 000 0000"
-                className="w-full rounded-full border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-offset-0 transition focus:border-slate-300 focus:ring-2 focus:ring-[#FF9F6E]/50"
-              />
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-xs font-medium uppercase tracking-[0.16em] text-slate-600">
-                Event Date
-              </label>
-              <input
-                type="date"
-                name="eventDate"
-                required
-                className="w-full rounded-full border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-offset-0 transition focus:border-slate-300 focus:ring-2 focus:ring-[#FF9F6E]/50"
-              />
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-xs font-medium uppercase tracking-[0.16em] text-slate-600">
-                Idea / Notes
-              </label>
-              <textarea
-                name="message"
-                rows={4}
-                className="w-full rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none ring-offset-0 transition focus:border-slate-300 focus:ring-2 focus:ring-[#FF9F6E]/50"
-                placeholder="Share your event idea, date, or any specific requirements..."
-              />
-            </div>
-          </div>
-
-          <DialogFooter className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <p className="text-[11px] text-slate-500 sm:flex-1 sm:text-right">
-              We usually reply within 24 hours.
-            </p>
-            <Button
-              type="submit"
-              disabled={loading}
-              className="rounded-full bg-gradient-to-r from-[#FF9F6E] to-[#FF6C8B] px-6 py-2.5 text-sm font-medium text-white shadow hover:shadow-lg motion-safe:hover:scale-[1.02] transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
-            >
-              {loading ? 'Sending...' : 'Send Request'}
-            </Button>
-          </DialogFooter>
-        </form>
+        <Suspense fallback={<div className="p-8 text-center text-sm text-slate-500">Loading booking form...</div>}>
+          <BookingForm
+            boothTitle={boothTitle}
+            boothSlug={boothSlug}
+            setOpen={setOpen}
+          />
+        </Suspense>
       </DialogContent>
     </Dialog>
   );
