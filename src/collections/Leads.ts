@@ -33,5 +33,45 @@ export const Leads: CollectionConfig = {
             name: 'boothInterest',
             type: 'text',
         },
+        {
+            name: 'utm_source',
+            type: 'text',
+            admin: {
+                position: 'sidebar',
+                readOnly: true,
+            }
+        },
+        {
+            name: 'utm_medium',
+            type: 'text',
+            admin: {
+                position: 'sidebar',
+                readOnly: true,
+            }
+        },
+        {
+            name: 'utm_campaign',
+            type: 'text',
+            admin: {
+                position: 'sidebar',
+                readOnly: true,
+            }
+        },
+        {
+            name: 'utm_term',
+            type: 'text',
+            admin: {
+                position: 'sidebar',
+                readOnly: true,
+            }
+        },
+        {
+            name: 'utm_content',
+            type: 'text',
+            admin: {
+                position: 'sidebar',
+                readOnly: true,
+            }
+        },
     ],
 }

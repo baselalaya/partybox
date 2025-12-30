@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
-        const { name, email, phone, message, boothInterest, company, eventDate } = body;
+        const { name, email, phone, message, boothInterest, company, eventDate, utm_source, utm_medium, utm_campaign, utm_term, utm_content } = body;
 
         if (!email || !name) {
             return NextResponse.json({ error: 'Name and Email are required' }, { status: 400 });
@@ -28,6 +28,16 @@ export async function POST(req: NextRequest) {
                 phone,
                 message: finalMessage,
                 boothInterest,
+                // @ts-ignore
+                utm_source,
+                // @ts-ignore
+                utm_medium,
+                // @ts-ignore
+                utm_campaign,
+                // @ts-ignore
+                utm_term,
+                // @ts-ignore
+                utm_content,
             },
         });
 
@@ -43,6 +53,7 @@ export async function POST(req: NextRequest) {
         console.log(`Phone:   ${phone}`);
         console.log(`Date:    ${eventDate || 'N/A'}`);
         console.log(`Company: ${company || 'N/A'}`);
+        if (utm_source) console.log(`UTM:     ${utm_source} / ${utm_medium} / ${utm_campaign}`);
         console.log(`Message: \n${finalMessage}`);
         console.log('----------------------------------------------------------');
 
@@ -58,6 +69,9 @@ export async function POST(req: NextRequest) {
                     fields: {
                         phone: phone || '',
                         company: company || boothInterest || 'Website Inquiry',
+                        utm_source: utm_source || '',
+                        utm_medium: utm_medium || '',
+                        utm_campaign: utm_campaign || '',
                     },
                 };
 
@@ -72,14 +86,7 @@ export async function POST(req: NextRequest) {
                         'Content-Type': 'application/json',
                         'X-MailerLite-ApiKey': ML_API_KEY,
                     },
-                    body: JSON.stringify({
-                        email,
-                        name,
-                        fields: {
-                            phone: phone || '',
-                            company: company || boothInterest || 'Website Inquiry',
-                        }
-                    }),
+                    body: JSON.stringify(mlPayload),
                 });
 
                 const responseText = await mlResponse.text();
@@ -110,7 +117,12 @@ export async function POST(req: NextRequest) {
                     company: company || '',
                     eventDate: eventDate || '',
                     boothInterest: boothInterest || '',
-                    message: finalMessage || ''
+                    message: finalMessage || '',
+                    utm_source: utm_source || '',
+                    utm_medium: utm_medium || '',
+                    utm_campaign: utm_campaign || '',
+                    utm_term: utm_term || '',
+                    utm_content: utm_content || '',
                 };
 
                 // Add timeout to prevent hanging

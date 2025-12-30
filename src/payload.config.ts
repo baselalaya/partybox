@@ -15,6 +15,7 @@ import { Gallery } from './collections/Gallery'
 import { Leads } from './collections/Leads'
 import { Posts } from './collections/Posts'
 import { Tags } from './collections/Tags'
+import { Settings } from './globals/Settings'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -36,6 +37,9 @@ export default buildConfig({
         Leads,
         Posts,
         Tags,
+    ],
+    globals: [
+        Settings,
     ],
     editor: lexicalEditor({}),
     secret: process.env.PAYLOAD_SECRET || '',

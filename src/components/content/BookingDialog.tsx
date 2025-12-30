@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   Dialog,
   DialogContent,
@@ -33,6 +33,7 @@ export function BookingDialog({
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -77,6 +78,11 @@ export function BookingDialog({
               eventDate: formData.get('eventDate') as string,
               message: formData.get('message') as string,
               boothInterest: boothTitle || 'General Inquiry',
+              utm_source: searchParams.get('utm_source') || '',
+              utm_medium: searchParams.get('utm_medium') || '',
+              utm_campaign: searchParams.get('utm_campaign') || '',
+              utm_term: searchParams.get('utm_term') || '',
+              utm_content: searchParams.get('utm_content') || '',
             };
 
             setLoading(true);

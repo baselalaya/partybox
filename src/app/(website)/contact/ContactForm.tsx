@@ -88,6 +88,11 @@ export default function ContactForm() {
           eventDate: values.eventDate,
           message: `Interest: ${values.interest || 'N/A'}\n\n${values.eventDetails}`,
           boothInterest: values.boothTitle || values.interest,
+          utm_source: searchParams.get('utm_source'),
+          utm_medium: searchParams.get('utm_medium'),
+          utm_campaign: searchParams.get('utm_campaign'),
+          utm_term: searchParams.get('utm_term'),
+          utm_content: searchParams.get('utm_content'),
         }),
       });
 

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { GoogleTagManager } from '@/components/layout/GoogleTagManager';
 import { Toaster } from "@/components/ui/toaster"
 import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 import { cn } from '@/lib/utils';
@@ -34,6 +35,7 @@ export default function RootLayout({
           "flex flex-col"
         )}
       >
+        <GoogleTagManager />
         <Header />
         <main className="flex-1">
           {children}

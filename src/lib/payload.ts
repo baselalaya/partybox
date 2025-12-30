@@ -290,3 +290,16 @@ export const getConceptBySlug = async (slug: string): Promise<Concept | null> =>
         return null
     }
 }
+
+export const getSettings = async () => {
+    try {
+        const payload = await getPayloadClient()
+        const settings = await payload.findGlobal({
+            slug: 'settings',
+        })
+        return settings
+    } catch (error) {
+        console.error('Error fetching settings:', error)
+        return null
+    }
+}
